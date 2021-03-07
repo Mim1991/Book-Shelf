@@ -1,3 +1,26 @@
-<h1><%= @book["volumeInfo"]["title"] %></h1>
-<h2><%= @book["volumeInfo"]["authors"][0] %></h2>
-<%= @book["volumeInfo"]["description"] %>
+<div class="container">
+
+  <%= render "shared/search_books" %>
+
+  <h1><%= @book["volumeInfo"]["title"] %></h1>
+  <h2><%= @book["volumeInfo"]["authors"][0] %></h2>
+  <% description = @book["volumeInfo"]["description"] %>
+  <p><%= Sanitize.fragment(description) %></p>
+  <%= image_tag(@book["volumeInfo"]["imageLinks"]["thumbnail"])%>
+  <p><%= @book["volumeInfo"]["industryIdentifiers"][0]["type"] %> : <%= @book["volumeInfo"]["industryIdentifiers"][0]["identifier"] %></p>
+  <p>Pages:<%= @book["volumeInfo"]["pageCount"] %></p>
+
+  <% if !@book["volumeInfo"]["categories"].nil? %>
+    <p>Category:<%= @book["volumeInfo"]["categories"][0] %></p>
+  <% end %>
+
+  <% if !@book["volumeInfo"]["averageRating"].nil? %>
+    <p>Rating:<%= @book["volumeInfo"]["averageRating"] %></p>
+  <% end %>
+
+  <% if !@book["volumeInfo"]["ratingsCount"].nil? %>
+    <p>Number of Rating:<%= @book["volumeInfo"]["ratingsCount"] %></p>
+  <% end %>
+
+  
+</div>
