@@ -1,0 +1,13 @@
+
+<div class="search-results">
+  <% @books["items"].each do |book| %>
+    <div class="book-search-card">
+      <div class="search-img"></div>
+      <div class="search-text">
+        <h4><%= book["volumeInfo"]["title"] %></h4>
+        <p><em><%= book["volumeInfo"]["authors"] %></em></p> 
+        <p><%= shorten_sentence(book["volumeInfo"]["description"]) %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
