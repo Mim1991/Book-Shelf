@@ -9,6 +9,10 @@ class BooksController < ApplicationController
     @book = find_book(params[:id])
   end
 
+  def create
+    Book.create(name: params[:param1], author: params[:param2])
+  end
+
   def search
     books = find_books(params[:books])
     unless books
