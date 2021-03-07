@@ -2,9 +2,17 @@
 <div class="search-results">
   <% @books["items"].each do |book| %>
     <div class="book-search-card">
-      <div class="search-img"></div>
+      <div class="search-img">
+      <% if book["volumeInfo"]["imageLinks"] != nil %>
+        <%= image_tag(book["volumeInfo"]["imageLinks"]["thumbnail"], class:"book-cover-search")%>
+      <% else %>
+        <%= image_tag()%>
+      <% end %>
+      </div>
       <div class="search-text">
-        <h4><%= book["volumeInfo"]["title"] %></h4>
+        <%= link_to book_path(book["id"]) do %>
+          <h4><%= book["volumeInfo"]["title"] %></h4>
+        <% end %>
         <p><em><%= book["volumeInfo"]["authors"] %></em></p> 
         <p><%= shorten_sentence(book["volumeInfo"]["description"]) %></p>
       </div>
