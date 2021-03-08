@@ -8,6 +8,14 @@ GIT
       activesupport (>= 4.2.0, < 6.2)
       stateful_enum
 
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 677ac8fd96213a188a5512cf3aa78c89f1fcda91
+  branch: master
+  specs:
+    faker (2.16.0)
+      i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -265,6 +273,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise
   dotenv-rails
+  faker!
   font-awesome-sass
   has_friendship!
   jbuilder (~> 2.7)

@@ -13,7 +13,9 @@
     <h4><%= book.name %></h4>
   <% end %>
   <p><%= book.author %></p>
-  <%= render "shared/update_shelf", book: book %>    
+  <% if @user == current_user %>
+    <%= render "shared/update_shelf", book: book %>    
+  <% end %>
 <% end %>
 
 <h3>Bottom Shelf</h3>

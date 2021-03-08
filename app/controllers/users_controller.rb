@@ -4,5 +4,6 @@ class UsersController < ApplicationController
     @books_top = current_user.books.where(shelf: "Top Shelf")
     @books_middle = current_user.books.where(shelf: "Middle Shelf")
     @books_bottom = current_user.books.where(shelf: "Bottom Shelf")
+    @user = User.find(params[:id])
   end
 end

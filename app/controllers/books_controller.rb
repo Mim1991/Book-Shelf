@@ -7,6 +7,7 @@ class BooksController < ApplicationController
 
   def show
     @book = find_book(params[:id])
+    @friends_book = Book.where("code= ?", params[:id])
   end
 
   def create
@@ -25,7 +26,7 @@ class BooksController < ApplicationController
 
   def search
     @books = find_books(params[:books])
-    unless books
+    unless @books
       flash[:alert] = 'Country not found'
       return render action: :index
     end
@@ -50,4 +51,6 @@ class BooksController < ApplicationController
     response = Net::HTTP.get(uri)
     JSON.parse(response)
   end
+
+  
 end

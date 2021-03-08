@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="mb-3">
+    <h1 >Search Friends</h1>
+    <%= form_tag friendships_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a friend"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+    <% if params[:query].present? %>
+      <%  @search.each do |result| %>
+        <%= link_to user_path(result.id) do  %>
+          <%= result.first_name %>
+          <% if current_user != result %>
+            <% if !@user.friends_with?(result) %>
+              <%= link_to "Send Friend Request", user_friendships_path(result), method: :post %> 
+            <% end %>  
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+  <h1><%= @user.first_name %></h1>
+
+  <div>
+    <h1>Friend Requests:</h1>
+    <% if @user.friend_requests? %>
+      <% @requests.each do |friend| %>
+        <%= friend.first_name %>
+        <%= friend.last_name %>
+        <p><%= link_to "Accept" , user_friendships_add_path(friend), method: :post %> | <%= link_to "Decline" , user_friendships_reject_path(friend.id), method: :post %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div>
+    <h1>Pending Friend Requests:</h1>
+    <% if @user.requested_friends? %>
+      <ul>
+        <% @pending.each do |request| %>
+          <li><%= request.first_name %>
+          <%= request.last_name %> | 
+          Pending
+          </li>
+          <%# <%= link_to "Accept" , friendships_add_path(friend.id), method: :post %> 
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div>
+    <h1>Friends</h1>
+    <ul>
+      <% @user.friends.each do |friend| %>
+        <li><%= friend.first_name %> |
+        <%= link_to "Unfriend", user_friendships_remove_path(friend), method: :post	%>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  
