@@ -28,7 +28,7 @@ gem 'sanitize'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-
+gem 'has_friendship', git: 'git@github.com:sungwoncho/has_friendship.git'
 gem 'devise'
 
 gem 'autoprefixer-rails'

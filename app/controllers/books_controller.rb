@@ -24,14 +24,11 @@ class BooksController < ApplicationController
   end
 
   def search
-    books = find_books(params[:books])
+    @books = find_books(params[:books])
     unless books
       flash[:alert] = 'Country not found'
       return render action: :index
     end
-
-    @books = books
-    # @weather = find_weather(@country['capital'], @country['alpha2Code'])
   end
 
   private
