@@ -1,5 +1,3 @@
 class Book < ApplicationRecord
-  has_many :libraries
-
-  
+  belongs_to :user
 end

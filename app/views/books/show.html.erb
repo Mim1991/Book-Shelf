@@ -4,7 +4,7 @@
 
   <h1><%= @book["volumeInfo"]["title"] %></h1>
   <h2><%= @book["volumeInfo"]["authors"][0] %></h2>
-  <% description = @book["volumeInfo"]["description"] %>
+   <p><% description = @book["volumeInfo"]["description"] %></p> 
   <p><%= Sanitize.fragment(description) %></p>
   <%= image_tag(@book["volumeInfo"]["imageLinks"]["thumbnail"])%>
   <p><%= @book["volumeInfo"]["industryIdentifiers"][0]["type"] %> : <%= @book["volumeInfo"]["industryIdentifiers"][0]["identifier"] %></p>

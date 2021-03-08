@@ -10,7 +10,11 @@ class BooksController < ApplicationController
   end
 
   def create
-    Book.create(name: params[:param1], author: params[:param2])
+    @book = Book.new(name: params[:param1], author: params[:param2])
+    @book.user = current_user
+    if @book.save
+      redirect_to books_path
+    end
   end
 
   def search
