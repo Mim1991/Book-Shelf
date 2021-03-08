@@ -22,7 +22,7 @@
     <p>Number of Rating:<%= @book["volumeInfo"]["ratingsCount"] %></p>
   <% end %>
 
-  <%= link_to "Save", books_path(param1: @book["volumeInfo"]["title"], param2: @book["volumeInfo"]["authors"][0]), method: :post, class: "btn btn-primary" %>
+  <%= link_to "Save", books_path(param1: @book["volumeInfo"]["title"], param2: @book["volumeInfo"]["authors"][0], param3: @book["id"]), method: :post, class: "btn btn-primary" %>
 
 
 </div>

@@ -10,11 +10,17 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(name: params[:param1], author: params[:param2])
+    @book = Book.new(name: params[:param1], author: params[:param2], code: params[:param3])
     @book.user = current_user
     if @book.save
-      redirect_to books_path
+      redirect_to user_path(current_user)
     end
+  end
+
+  def update
+    @book = Book.find(params[:id])
+    @book.update(book_params)
+    redirect_to user_path(current_user)
   end
 
   def search
@@ -29,6 +35,10 @@ class BooksController < ApplicationController
   end
 
   private
+
+  def book_params
+    params.require(:book).permit(:shelf)
+  end
 
   def find_book(name)
     url = "https://www.googleapis.com/books/v1/volumes/#{name}"

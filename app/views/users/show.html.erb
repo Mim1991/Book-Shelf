@@ -1,11 +1,35 @@
-<h3>Table Books</h3>
-<% @books_table.each do |book| %>
-  <p><%= book.name %></p>
+<h3>Top Shelf</h3>
+<% @books_top.each do |book| %>
+  <%= link_to book_path(book.code) do %>
+    <h4><%= book.name %></h4>
+  <% end %>
   <p><%= book.author %></p>
+  <%= render "shared/update_shelf", book: book %>    
 <% end %>
 
-<h3>Top shelf</h3>
-<% @books_top.each do |book| %>
-  <p><%= book.name %></p>
+<h3>Middle Shelf</h3>
+<% @books_middle.each do |book| %>
+  <%= link_to book_path(book.code) do %>
+    <h4><%= book.name %></h4>
+  <% end %>
   <p><%= book.author %></p>
+  <%= render "shared/update_shelf", book: book %>    
+<% end %>
+
+<h3>Bottom Shelf</h3>
+<% @books_bottom.each do |book| %>
+  <%= link_to book_path(book.code) do %>
+    <h4><%= book.name %></h4>
+  <% end %>
+  <p><%= book.author %></p>
+  <%= render "shared/update_shelf", book: book %>    
+<% end %>
+
+<h3>Table Books</h3>
+<% @books_table.each do |book| %>
+  <%= link_to book_path(book.code) do %>
+    <h4><%= book.name %></h4>
+  <% end %>
+  <p><%= book.author %></p>
+  <%= render "shared/update_shelf", book: book %>    
 <% end %>

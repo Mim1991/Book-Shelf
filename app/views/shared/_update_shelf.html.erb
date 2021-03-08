@@ -1,0 +1,4 @@
+<%= simple_form_for(book) do |f| %>
+      <%= f.input :shelf, collection:["Top Shelf", "Middle Shelf", "Bottom Shelf", "Table"] %>
+      <%= f.submit %>
+  <% end %>
