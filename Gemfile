@@ -30,6 +30,8 @@ gem 'sanitize'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'has_friendship', git: 'git@github.com:sungwoncho/has_friendship.git'
 gem 'devise'
+gem 'pg_search', '~> 2.3.0'
+
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
