@@ -1,0 +1,11 @@
+<h3>Table Books</h3>
+<% @books_table.each do |book| %>
+  <p><%= book.name %></p>
+  <p><%= book.author %></p>
+<% end %>
+
+<h3>Top shelf</h3>
+<% @books_top.each do |book| %>
+  <p><%= book.name %></p>
+  <p><%= book.author %></p>
+<% end %>
