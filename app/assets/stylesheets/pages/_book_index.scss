@@ -1,0 +1,54 @@
+.logo-small {
+  padding-top: 2.7%;
+  padding-left: 3%;
+  font-size: 3.7rem;
+}
+
+.logo-corner a:hover {
+  text-decoration: none;
+}
+
+.container-search {
+  margin-left: 50px;
+  margin-top: 12px;
+  width: 81%;
+  display: flex;
+  background-color: $light-black;
+  justify-content: center;
+  opacity: 0;
+  form {
+    width: 700px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .form-group {
+    margin-bottom: 0;
+    padding: 15px 0px;
+    width: 100%;
+  }
+  input {
+    border-radius: 30px;
+  }
+}
+
+.seperator-container {
+  margin-left: 50px;
+  width: 81%;
+  display: flex;
+  height: 10px;
+  opacity: 0;
+  .seperator-one {
+    width: 33.3%;
+    background-color: $blue;
+  }
+  .seperator-two {
+    width: 33.3%;
+    background-color: $green;
+  }
+  .seperator-three {
+    width: 33.3%;
+    background-color: $purple;
+  }
+}
