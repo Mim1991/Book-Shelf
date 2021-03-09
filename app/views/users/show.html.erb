@@ -35,3 +35,7 @@
   <p><%= book.author %></p>
   <%= render "shared/update_shelf", book: book %>    
 <% end %>
+
+<% if !current_user.friends_with?(@user) && @user != current_user %>
+  <%= link_to "Send Friend Request", user_friendships_path(@user), method: :post %> 
+<% end %> 

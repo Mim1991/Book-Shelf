@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mb-4">
 
   <%= render "shared/search_books" %>
 
@@ -24,17 +24,11 @@
 
   <% @friends_book.each do |book| %>
     <% if current_user.friends_with?(book.user) %>
-      <%= book.user.first_name %>  
+      <%= link_to (book.user) do %>
+        <%= book.user.first_name %>  
+      <% end %>
     <% end %>
   <% end %>
 
-
-  
-
-  
-  
-
   <%= link_to "Save", books_path(param1: @book["volumeInfo"]["title"], param2: @book["volumeInfo"]["authors"][0], param3: @book["id"]), method: :post, class: "btn btn-primary" %>
-
-
 </div>
