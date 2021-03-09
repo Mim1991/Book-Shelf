@@ -24,25 +24,29 @@ h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2% 2.5%;
+  // padding: 2% 2.5%;
 }
 
 .home-logo {
   display: flex;
   justify-content: flex-start;
   width: 100%;
+  padding-left: 3%;
+  padding-top: 3%;
   h1 {
     font-size: 130px;
     letter-spacing: -3px;
     font-weight: 900;
+    line-height: 120px;
   }
 }
 
 .home-info {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin-top: -60px;
 }
 
 .home-about {
@@ -50,4 +54,13 @@ h4 {
   flex-direction: column;
   align-items: flex-start;
   width: 40%;
+  margin-left: -95px;
+  margin-top: 30px;
+  h2 {
+    font-size: 3.8rem;
+  }
+  h4 {
+    font-weight: 600;
+    margin: 8px 0px 24px 0px;
+  }
 }

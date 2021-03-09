@@ -1,12 +1,42 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+// .navbar-lewagon {
+//   justify-content: space-between;
+//   background: white;
+// }
+
+// .navbar-lewagon .navbar-collapse {
+//   flex-grow: 0;
+// }
+
+// .navbar-lewagon .navbar-brand img {
+//   width: 40px;
+// }
+
+.home-navbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  width: 17%;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.nav-col {
+  width: 20%;
+  height: 90vh;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.nav-one {
+  background-color: $green;
+}
+
+.nav-two {
+  background-color: $purple;
+}
+.nav-three {
+  background-color: $red;
+}
+.nav-four {
+  background-color: $blue;
+}
+
+.nav-five {
+  background-color: $brown;
 }
