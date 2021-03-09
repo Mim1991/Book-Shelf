@@ -18,25 +18,90 @@
   width: 17%;
 }
 
+.home-navbar-out {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 17%;
+}
+
 .nav-col {
   width: 20%;
   height: 90vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+}
+
+.nav-link-book {
+  transform: rotate(90deg);
+  white-space: nowrap;
+  position: absolute;
+  color: $black;
+  font-family: $font-bold;
+  font-size: 26px;
+  &:hover {
+    color: $black;
+    text-decoration: none;
+  }
 }
 
 .nav-one {
   background-color: $green;
+  .nav-link-book {
+    top: 86px;
+    left: -59px;
+  }
 }
 
 .nav-two {
   background-color: $purple;
+  .nav-link-book {
+    top: 78px;
+    left: -49px;
+  }
 }
 .nav-three {
   background-color: $red;
+  .nav-link-book {
+    top: 78px;
+    left: -47px;
+  }
 }
 .nav-four {
   background-color: $blue;
+  .nav-link-book {
+    top: 71px;
+    left: -40px;
+  }
 }
 
 .nav-five {
   background-color: $brown;
+  .nav-link-book {
+    top: 54px;
+    left: -20px;
+  }
+}
+
+.nav-three {
+  .nav-search-out {
+    top: 78px;
+    left: -58px;
+  }
+}
+
+.nav-four {
+  .nav-sign-up {
+    top: 44px;
+    left: -24px;
+  }
+}
+
+.nav-five {
+  .nav-log-in {
+    top: 39px;
+    left: -16px;
+  }
 }
