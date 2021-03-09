@@ -1,7 +1,5 @@
 const initNavbarBrowse = () => {
   if (window.location.pathname === "/books") {
-    const navbar = document.querySelector(".home-navbar");
-
     var tl = gsap.timeline();
     tl.to(".nav-one", {
       marginRight: "auto",
