@@ -11,37 +11,6 @@
       </h4>
       <h4 class="btn-purple">More about Book Club</h4>
     </div>
-
-    <% if user_signed_in? %>
-      <div class="home-navbar">  
-        <div class="nav-col nav-one">
-          <%= link_to "Search Books", books_path, class:"nav-link-book"%>
-        </div>
-        <div class="nav-col nav-two">
-          <%= link_to "Your Library", user_path(current_user), class: "nav-link-book" %>
-        </div>
-        <div class="nav-col nav-three">
-          <%= link_to "Find People", friendships_path ,class: "nav-link-book" %>
-        </div>
-        <div class="nav-col nav-four">
-          <%= link_to "Book Club", friendships_path, class: "nav-link-book" %>
-        </div>
-        <div class="nav-col nav-five">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link-book" %>
-        </div>
-      <div></div>
-      <% else %>
-      <div class="home-navbar-out">  
-        <div class="nav-col nav-three">
-          <%= link_to "Search Books", books_path, class:"nav-link-book nav-search-out"%>
-        </div>
-        <div class="nav-col nav-four">
-          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link-book nav-sign-up" %>
-        </div>
-        <div class="nav-col nav-five">
-          <%= link_to "Log In", new_user_session_path, class: "nav-link-book nav-log-in" %>
-        </div>
-      </div>
-    <% end %>
+    <%= render "shared/navbar" %>
   </div>
 </div> 

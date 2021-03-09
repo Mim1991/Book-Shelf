@@ -1,43 +1,31 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="logo">
-    <%= link_to root_path do %>
-      <h4>Home</h4>
-    <% end %>
-  </div>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="" role="button" ><i class="fa fa-bars" aria-hidden="true" style="color:#EFAC2C"></i></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          
-        </li>
-        <div class="nav-seperate"></div>
-        <li class="nav-item active">
-          <%= link_to "Library", user_path(current_user), class: "nav-link" %>
-        </li>
-        <div class="nav-seperate"></div>
-        <li class="nav-item active">
-          <%= link_to "Find People", friendships_path ,class: "nav-link" %>
-        </li>
-        <div class="nav-seperate"></div>
-        <li class="nav-item">
-          <%= link_to "Book Club", class: "nav-link" %>
-        </li>
-        <div class="nav-seperate"></div>
-        <li class="nav-item">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-        </li>
+<% if user_signed_in? %>
+      <div class="home-navbar">  
+        <div class="nav-col nav-one">
+          <%= link_to "Search Books", books_path, class:"nav-link-book"%>
+        </div>
+        <div class="nav-col nav-two">
+          <%= link_to "Your Library", user_path(current_user), class: "nav-link-book" %>
+        </div>
+        <div class="nav-col nav-three">
+          <%= link_to "Find People", friendships_path ,class: "nav-link-book" %>
+        </div>
+        <div class="nav-col nav-four">
+          <%= link_to "Book Club", friendships_path, class: "nav-link-book" %>
+        </div>
+        <div class="nav-col nav-five">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link-book" %>
+        </div>
+      <div></div>
       <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
+      <div class="home-navbar-out">  
+        <div class="nav-col nav-three">
+          <%= link_to "Search Books", books_path, class:"nav-link-book nav-search-out"%>
+        </div>
+        <div class="nav-col nav-four">
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link-book nav-sign-up" %>
+        </div>
+        <div class="nav-col nav-five">
+          <%= link_to "Log In", new_user_session_path, class: "nav-link-book nav-log-in" %>
+        </div>
+      </div>
+    <% end %>
