@@ -7,3 +7,47 @@
 body {
   background-color: $cream;
 }
+
+h1,
+h2 {
+  font-family: $font-bold;
+  color: $black;
+}
+
+h3,
+h4 {
+  font-family: $font-light;
+  color: $black;
+}
+
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2% 2.5%;
+}
+
+.home-logo {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  h1 {
+    font-size: 130px;
+    letter-spacing: -3px;
+    font-weight: 900;
+  }
+}
+
+.home-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.home-about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 40%;
+}

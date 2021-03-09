@@ -9,11 +9,18 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 @font-face {
   font-family: "Ed-bold";
   src: url("Edmondsans-Bold.otf") format("opentype");
+}
+
+@font-face {
   font-family: "Ed-med";
   src: url("Edmondsans-Medium.otf") format("opentype");
+}
+
+@font-face {
   font-family: "Ed-reg";
   src: url("Edmondsans-Regular.otf") format("opentype");
 }
+
 $font-bold: "Ed-bold";
 $font-reg: "Ed-med";
 $font-light: "Ed-reg";
