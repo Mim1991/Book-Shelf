@@ -9,7 +9,7 @@ const initNavbarBrowse = () => {
         ".container-search",
         {
           opacity: 1,
-          duration: 0.5,
+          duration: 1,
         },
         "-=0.4"
       )
@@ -17,9 +17,17 @@ const initNavbarBrowse = () => {
         ".seperator-container",
         {
           opacity: 1,
-          duration: 0.5,
+          duration: 1,
         },
-        "-=0.5"
+        "-=1"
+      )
+      .to(
+        ".book-list",
+        {
+          opacity: 1,
+          duration: 1,
+        },
+        "-=1"
       );
   }
 };

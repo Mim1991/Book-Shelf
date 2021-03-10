@@ -3,6 +3,11 @@ class BooksController < ApplicationController
   require 'json'
 
   def index
+    @books = Book.last(9)
+    @book_parsed = []
+    @books.each do |book|
+      @book_parsed << find_book(book.code)
+    end
   end
 
   def show
@@ -27,7 +32,7 @@ class BooksController < ApplicationController
   def search
     @books = find_books(params[:books])
     unless @books
-      flash[:alert] = 'Country not found'
+      flash[:alert] = 'Book not found'
       return render action: :index
     end
   end

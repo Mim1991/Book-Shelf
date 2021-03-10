@@ -6,13 +6,33 @@
 }
 
 .logo-small {
-  padding-top: 2.7%;
+  padding-top: 2.5%;
   padding-left: 3%;
-  font-size: 3.7rem;
+  font-size: 4rem;
+  color: $black;
+  font-family: $font-bold;
+  line-height: 4rem;
+  &:hover {
+    text-decoration: none;
+    color: $black;
+  }
 }
 
-.logo-corner a:hover {
-  text-decoration: none;
+.logo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  p {
+    margin-bottom: 0;
+    font-family: $font-reg;
+    margin-right: 3%;
+    // margin-top: 4%;
+  }
+}
+
+.fa-heart {
+  color: $purple;
+  margin-right: 5px;
 }
 
 .container-search {

@@ -1,4 +1,28 @@
 <div class="wrapper-index">
   <%= render "shared/search_books" %>
   <%= render "shared/navbar" %>
+  <div class="book-list">
+    <div class="book-featured">
+      <div class="featured-text">
+        <h2>FEATURED <br> BOOKS</h2>
+        <p>Take a look at some of the books that have recently been added to people's library</p>
+      </div>
+      
+      
+        <div class="book-featured-covers">
+          <% @book_parsed.each do |book| %>
+            <%= link_to book_path(book["id"]) do %>
+              <%= image_tag(book["volumeInfo"]["imageLinks"]["thumbnail"], class:"cover-small") %>  
+            <% end %>
+          <% end %>
+        </div>
+      
+    </div>
+
+    
+    <div class="top-shelf-sample">
+      <h2>TOP <br> SHELF <br> BOOKS</h2>
+      <div class="top-shelf-covers"></div>
+    </div>
+  </div>
 </div>
