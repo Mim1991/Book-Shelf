@@ -1,7 +1,7 @@
 .wrapper-index {
   width: 100%;
-  min-height: 100vh;
-  position: relative;
+  // min-height: 100vh;
+  // position: relative;
   overflow: hidden;
 }
 
@@ -79,5 +79,19 @@
   .seperator-three {
     width: 33.3%;
     background-color: $purple;
+  }
+}
+
+.sep-midpage {
+  position: absolute;
+  top: 640px;
+  .seperator-one {
+    background-color: $purple;
+  }
+  .seperator-two {
+    background-color: $green;
+  }
+  .seperator-three {
+    background-color: $blue;
   }
 }

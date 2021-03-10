@@ -16,7 +16,8 @@
   align-items: flex-end;
   justify-content: flex-end;
   position: absolute;
-  top: 117px;
+  height: 100%;
+  top: 185px;
   width: 100%;
 }
 
@@ -33,11 +34,12 @@
 
 .nav-col {
   width: 50px;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   position: relative;
+  z-index: 1;
 }
 
 .nav-link-book {

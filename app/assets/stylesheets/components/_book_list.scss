@@ -18,15 +18,14 @@
 }
 
 .featured-text {
-  width: 25%;
+  width: 500px;
   p {
     font-family: $font-reg;
   }
 }
 
-.top-shelf-sample {
-  display: flex;
-  justify-content: flex-start;
+.top-featured-mt {
+  margin-top: 130px;
 }
 
 .book-featured-covers {
@@ -39,6 +38,8 @@
 
 .cover-small {
   width: 100px;
+  height: 150px;
+  object-fit: cover;
   // margin: 16px;
-  box-shadow: 0px 3px 8px 2px #0000001a;
+  box-shadow: 0px 4px 13px 5px #0000002e;
 }

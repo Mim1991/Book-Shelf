@@ -3,11 +3,12 @@ class BooksController < ApplicationController
   require 'json'
 
   def index
-    @books = Book.last(9)
+    books = Book.last(10)
     @book_parsed = []
-    @books.each do |book|
-      @book_parsed << find_book(book.code)
-    end
+    books.each { |book| @book_parsed << find_book(book.code) }
+    top_books = Book.where("shelf = ?", "Top Shelf").sample(5)
+    @top_books = []
+    top_books.each { |book| @top_books << find_book(book.code) }
   end
 
   def show
@@ -57,5 +58,8 @@ class BooksController < ApplicationController
     JSON.parse(response)
   end
 
+  def find_image(json)
+
+  end
   
 end

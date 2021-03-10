@@ -8,21 +8,39 @@
         <p>Take a look at some of the books that have recently been added to people's library</p>
       </div>
       
-      
         <div class="book-featured-covers">
           <% @book_parsed.each do |book| %>
             <%= link_to book_path(book["id"]) do %>
               <%= image_tag(book["volumeInfo"]["imageLinks"]["thumbnail"], class:"cover-small") %>  
             <% end %>
           <% end %>
-        </div>
-      
+        </div>     
     </div>
 
-    
-    <div class="top-shelf-sample">
-      <h2>TOP <br> SHELF <br> BOOKS</h2>
-      <div class="top-shelf-covers"></div>
+    <div class="book-featured top-featured-mt">
+      <div class="featured-text">
+        <h2>TOP SHELF <br> BOOKS</h2>
+        <p>These are a sample selection of books that have been added to people's Top Shelf</p>
+      </div>
+      
+      <div class="book-featured-covers">
+        <% @top_books.each do |book| %>
+          <%= link_to book_path(book["id"]) do %>
+            <%= image_tag(book["volumeInfo"]["imageLinks"]["thumbnail"], class:"cover-small") %>  
+          <% end %>
+        <% end %>
+      </div>
     </div>
+
+
+
+    </div>
+
   </div>
+
+  <div class="seperator-container sep-midpage">
+      <div class="seperator-one sep-one-alt"></div>
+      <div class="seperator-two sep-two-alt"></div>
+      <div class="seperator-three sep-three-alt"></div>
+    </div>
 </div>
