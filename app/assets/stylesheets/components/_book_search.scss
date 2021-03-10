@@ -1,21 +1,51 @@
 .book-search-card {
-  width: 80%;
+  width: 95%;
+  height: 280px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin: 12px 0px;
-  border: 1px solid grey;
-  border-radius: 5px;
+  margin: 28px 0px;
+  background-color: white;
+  box-shadow: 0px 8px 8px 8px #00000003;
 }
 
 .book-cover-search {
-  width: 100px;
+  width: 200px;
+  height: 280px;
+  object-fit: cover;
 }
 
 .search-text {
   display: flex;
+  height: 100%;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-around;
-  margin-left: 16px;
+  justify-content: space-between;
+  margin-left: 28px;
+  padding-top: 16px;
+  padding-right: 16px;
+  h3 {
+    font-family: $font-bold;
+  }
+  p {
+    font-family: $font-reg;
+  }
+  .btn-mb {
+    margin-bottom: 16px;
+  }
+}
+
+.book-info-text {
+  font-size: 1rem;
+  height: 98px;
+  overflow: hidden;
+}
+
+.small {
+  font-size: 30px;
+}
+
+.opacity {
+  opacity: 1 !important;
+  padding: 0 !important;
 }

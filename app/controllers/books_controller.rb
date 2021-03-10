@@ -31,6 +31,7 @@ class BooksController < ApplicationController
   end
 
   def search
+    @text = params[:books]
     @books = find_books(params[:books])
     unless @books
       flash[:alert] = 'Book not found'

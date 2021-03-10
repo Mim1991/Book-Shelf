@@ -1,11 +1,21 @@
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+}
+
+html {
+  height: 100%;
+  overflow: auto;
+  margin: 0px auto;
+  padding: 0px auto;
 }
 
 body {
   background-color: $cream;
+  min-height: 100%;
+  overflow: auto;
+  position: relative;
+  margin: 0px auto;
+  padding: 0px auto;
 }
 
 h1,

@@ -1,23 +1,37 @@
-
-<%= render "shared/search_books" %>
-<div class="search-results">
-  <% @books["items"].each do |book| %>
-    <div class="book-search-card">
-      <div class="search-img">
-      <% if book["volumeInfo"]["imageLinks"] != nil %>
-        <%= image_tag(book["volumeInfo"]["imageLinks"]["thumbnail"], class:"book-cover-search")%>
-      <% else %>
-        <%# <%= image_tag()%> %>
-      <% end %>
-      </div>
-      <div class="search-text">
+<div class="wrapper-index">
+  <%= render "shared/search_books" %>
+  <%= render "shared/navbar" %>
+  <div class="search-results">
+    <h2>Results for "<%= capitalise(@text) %>" </h2>
+    <% @books["items"].each do |book| %>
+      <% if book["volumeInfo"]["authors"] != nil %>
         <%= link_to book_path(book["id"]) do %>
-          <h4><%= book["volumeInfo"]["title"] %></h4>
+          <div class="book-search-card">
+            <div class="search-img">
+              <% if book["volumeInfo"]["imageLinks"] != nil %>
+                <%= image_tag(book["volumeInfo"]["imageLinks"]["thumbnail"], class:"book-cover-search")%>
+              <% else %>
+                <%# <%= image_tag()%> %>
+              <% end %>
+            </div>
+            <div class="search-text">
+              <div class="book-headline">
+                <h3><%= book["volumeInfo"]["title"] %></h3>
+                <p><em><%= book["volumeInfo"]["authors"][0] %></em></p> 
+                <p class="book-info-text"><%= shorten_sentence(book["volumeInfo"]["description"]) %></p>
+              </div>        
+              <%= link_to "Add To Your Library", books_path(param1: book["volumeInfo"]["title"], param2: book["volumeInfo"]["authors"], param3: book["id"]), method: :post, class: "btn btn-primary btn-round btn-mb" %> 
+            </div>
+          </div>
         <% end %>
-        <p><em><%= book["volumeInfo"]["authors"] %></em></p> 
-        <p><%= shorten_sentence(book["volumeInfo"]["description"]) %></p>
-      </div>
-    </div>
-  <% end %>
+      <% end %>
+    <% end %>
+    
+  </div>
+  
 </div>
-<%= render "shared/navbar" %>
+<div class="seperator-container sep-midpage opacity btm-border">
+  <div class="seperator-one sep-one-alt"></div>
+  <div class="seperator-two sep-two-alt"></div>
+  <div class="seperator-three sep-three-alt"></div>
+</div>

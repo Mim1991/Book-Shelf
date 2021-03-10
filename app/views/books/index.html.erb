@@ -8,13 +8,13 @@
         <p>Take a look at some of the books that have recently been added to people's library</p>
       </div>
       
-        <div class="book-featured-covers">
-          <% @book_parsed.each do |book| %>
-            <%= link_to book_path(book["id"]) do %>
-              <%= image_tag(book["volumeInfo"]["imageLinks"]["thumbnail"], class:"cover-small") %>  
-            <% end %>
+      <div class="book-featured-covers">
+        <% @book_parsed.each do |book| %>
+          <%= link_to book_path(book["id"]) do %>
+            <%= image_tag(book["volumeInfo"]["imageLinks"]["thumbnail"], class:"cover-small") %>  
           <% end %>
-        </div>     
+        <% end %>
+      </div>     
     </div>
 
     <div class="book-featured top-featured-mt">
@@ -31,16 +31,11 @@
         <% end %>
       </div>
     </div>
-
-
-
-    </div>
-
   </div>
 
   <div class="seperator-container sep-midpage">
       <div class="seperator-one sep-one-alt"></div>
       <div class="seperator-two sep-two-alt"></div>
       <div class="seperator-three sep-three-alt"></div>
-    </div>
+  </div>
 </div>
