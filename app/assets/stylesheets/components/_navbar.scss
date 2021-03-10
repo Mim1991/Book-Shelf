@@ -45,10 +45,11 @@
 .nav-link-book {
   transform: rotate(90deg);
   white-space: nowrap;
-  position: absolute;
+  position: sticky;
   color: $black;
   font-family: $font-bold;
   font-size: 26px;
+
   &:hover {
     color: $black;
     text-decoration: none;
@@ -58,7 +59,8 @@
 .nav-one {
   background-color: $green;
   .nav-link-book {
-    top: 86px;
+    top: 10px;
+    padding-left: 151px;
     left: -59px;
   }
 }
@@ -66,21 +68,24 @@
 .nav-two {
   background-color: $purple;
   .nav-link-book {
-    top: 78px;
+    top: 10px;
+    padding-left: 128px;
     left: -49px;
   }
 }
 .nav-three {
   background-color: $red;
   .nav-link-book {
-    top: 78px;
+    top: 10px;
+    padding-left: 128px;
     left: -47px;
   }
 }
 .nav-four {
   background-color: $blue;
   .nav-link-book {
-    top: 71px;
+    top: 10px;
+    padding-left: 114px;
     left: -40px;
   }
 }
@@ -88,7 +93,8 @@
 .nav-five {
   background-color: $brown;
   .nav-link-book {
-    top: 54px;
+    top: 10px;
+    padding-left: 80px;
     left: -20px;
   }
 }

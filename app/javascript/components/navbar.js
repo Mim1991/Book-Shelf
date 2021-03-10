@@ -14,17 +14,17 @@ const initNavbar = () => {
 
     var navLinks = gsap.utils.toArray(".nav-link-book");
 
-    navLinks.forEach((link) => {
-      gsap.to(link, {
-        scrollTrigger: {
-          trigger: link, // start the animation when ".box" enters the viewport (once)
-          pin: true,
-          start: "top top+=25px",
-          end: distance - window.innerHeight + 220,
-          scrub: true,
-        },
-      });
-    });
+    // navLinks.forEach((link) => {
+    //   gsap.to(link, {
+    //     scrollTrigger: {
+    //       trigger: link, // start the animation when ".box" enters the viewport (once)
+    //       pin: true,
+    //       start: "top top+=25px",
+    //       end: distance - window.innerHeight + 220,
+    //       scrub: true,
+    //     },
+    //   });
+    // });
   }
 };
 
