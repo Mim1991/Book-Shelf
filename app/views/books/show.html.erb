@@ -1,34 +1,59 @@
-<div class="container mb-4">
-
+<div class="wrapper-index">
   <%= render "shared/search_books" %>
+  <%= render "shared/navbar" %>
 
-  <h1><%= @book["volumeInfo"]["title"] %></h1>
-  <h2><%= @book["volumeInfo"]["authors"][0] %></h2>
-   <p><% description = @book["volumeInfo"]["description"] %></p> 
-  <p><%= Sanitize.fragment(description) %></p>
-  <%= image_tag(@book["volumeInfo"]["imageLinks"]["thumbnail"])%>
-  <p><%= @book["volumeInfo"]["industryIdentifiers"][0]["type"] %> : <%= @book["volumeInfo"]["industryIdentifiers"][0]["identifier"] %></p>
-  <p>Pages:<%= @book["volumeInfo"]["pageCount"] %></p>
+  <div class="search-results book-show-layout">
+    <div class="book-show-top">
+      
+      
+      <div class="book-show-left">
+        <div class="show-image">
+          <%= image_tag(@book["volumeInfo"]["imageLinks"]["thumbnail"], class:"book-show-img")%>
+        </div>
+        <div class="book-text-details">
+          <p><%= @book["volumeInfo"]["industryIdentifiers"][0]["type"] %> : <%= @book["volumeInfo"]["industryIdentifiers"][0]["identifier"] %></p>
+          <p>Pages:<%= @book["volumeInfo"]["pageCount"] %></p>
+          
+          <% if !@book["volumeInfo"]["averageRating"].nil? %>
+            <p>Rating:<%= @book["volumeInfo"]["averageRating"] %></p>
+          <% end %>
+          <% if !@book["volumeInfo"]["ratingsCount"].nil? %>
+            <p>Number of Ratings:<%= @book["volumeInfo"]["ratingsCount"] %></p>
+          <% end %>
+          <%= link_to "Add To Your Library", books_path(param1: @book["volumeInfo"]["title"], param2: @book["volumeInfo"]["authors"][0], param3: @book["id"]), method: :post, class: "btn btn-primary btn-round" %>
+        </div>
+      </div>
 
-  <% if !@book["volumeInfo"]["categories"].nil? %>
-    <p>Category:<%= @book["volumeInfo"]["categories"][0] %></p>
-  <% end %>
+      <div class="book-show-right">
+        <div class="book-show-headlinetext">
+          <h2><%= @book["volumeInfo"]["title"] %></h2>
+          <h3><%= @book["volumeInfo"]["authors"][0] %></h3>
+          <% if !@book["volumeInfo"]["categories"].nil? %>
+            <p>Category: <%= @book["volumeInfo"]["categories"][0] %></p>
+          <% end %>
+        </div>
+        <div class="book-show-desc">
+          <% description = @book["volumeInfo"]["description"] %>
+          <p><%= Sanitize.fragment(description) %></p>
+        </div>
+        
+      </div>  
 
-  <% if !@book["volumeInfo"]["averageRating"].nil? %>
-    <p>Rating:<%= @book["volumeInfo"]["averageRating"] %></p>
-  <% end %>
+    </div>
 
-  <% if !@book["volumeInfo"]["ratingsCount"].nil? %>
-    <p>Number of Rating:<%= @book["volumeInfo"]["ratingsCount"] %></p>
-  <% end %>
 
-  <% @friends_book.each do |book| %>
-    <% if current_user.friends_with?(book.user) %>
-      <%= link_to (book.user) do %>
-        <%= book.user.first_name %>  
+
+    <div class="book-show-bottom">
+      <h2>Friend's Who've Read This Book</h2>
+      <% @friends_book.each do |book| %>
+        <% if current_user.friends_with?(book.user) %>
+          <%= link_to user_path(book.user) do %>
+            <h3><%= book.user.first_name %> <%= book.user.last_name %></h3>
+            <%= book %>
+          <% end %>
+        <% end %>
       <% end %>
-    <% end %>
-  <% end %>
+    </div>
+  </div>
 
-  <%= link_to "Save", books_path(param1: @book["volumeInfo"]["title"], param2: @book["volumeInfo"]["authors"][0], param3: @book["id"]), method: :post, class: "btn btn-primary" %>
 </div>

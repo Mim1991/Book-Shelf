@@ -24,10 +24,12 @@ import "bootstrap";
 import { initNavbarBrowse } from "../pages/browse_navbar";
 import { initNavbarSearch } from "../pages/search";
 import { initNavbar } from "../components/navbar";
+import { initNavbarBookShow } from "../pages/book_show";
 
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
   initNavbarBrowse();
   initNavbarSearch();
   initNavbar();
+  initNavbarBookShow();
 });

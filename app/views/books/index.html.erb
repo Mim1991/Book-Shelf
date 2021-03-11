@@ -9,7 +9,7 @@
       </div>
       
       <div class="book-featured-covers">
-        <% @book_parsed.each do |book| %>
+        <% @book_parsed.reverse.each do |book| %>
           <%= link_to book_path(book["id"]) do %>
             <%= image_tag(book["volumeInfo"]["imageLinks"]["thumbnail"], class:"cover-small") %>  
           <% end %>
