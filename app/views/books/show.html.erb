@@ -41,13 +41,16 @@
 
     </div>
 
-    <div class="book-show-bottom">
-      <% if !@friends_book.empty? %>  
-          <h2>Friends Who've Read This Book</h2>
-      <% end %>
+    <div class="book-show-bottom"> 
+      <% print_title = true %>     
+      
       <div class="reviews-wrapper">
         <% @friends_book.each do |book| %>
           <% if current_user.friends_with?(book.user) %>
+            <% if print_title %>
+              <h2>Reviews for <%= @book["volumeInfo"]["title"] %> </h2>
+              <% print_title = false %>
+            <% end %>
             <div class="review-card review-height">
               <div class="review-headline">
                 <%= link_to user_path(book.user), class:"review-link" do %>              
