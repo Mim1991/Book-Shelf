@@ -3,7 +3,9 @@
   <%= render "shared/navbar" %>
 
   <div class="search-results book-show-layout friendships-layout">
-    <div class="search-friends">
+  
+      <div class="search-friends">
+      
       <h2><%= link_to "Find Friends", friendships_path %></h2>
       <%= form_tag friendships_path, method: :get do %>
         <%= text_field_tag :query,

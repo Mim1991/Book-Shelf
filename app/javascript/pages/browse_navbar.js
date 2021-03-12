@@ -1,34 +1,31 @@
 const initNavbarBrowse = () => {
-  if (window.location.pathname === "/books") {
-    var tl = gsap.timeline();
-    tl.to(".nav-one", {
-      marginRight: "auto",
-      duration: 0.7,
-    })
-      .to(
-        ".container-search",
-        {
-          opacity: 1,
-          duration: 1,
-        },
-        "-=0.4"
-      )
-      .to(
-        ".seperator-container",
-        {
-          opacity: 1,
-          duration: 1,
-        },
-        "-=1"
-      )
-      .to(
-        ".book-list",
-        {
-          opacity: 1,
-          duration: 1,
-        },
-        "-=1"
-      );
+  const navOne = document.querySelector(".nav-one");
+  const navTwo = document.querySelector(".nav-two");
+  const navThree = document.querySelector(".nav-three");
+  const navBars = document.querySelectorAll(".nav-col");
+  const searchResults = document.querySelector(".search-results");
+
+  navBars.forEach((bar) => {
+    if (searchResults) {
+      const distance = searchResults.offsetHeight;
+      bar.style.height = distance + 60 + "px";
+    }
+  });
+
+  if (
+    window.location.pathname.indexOf("/books") > -1 ||
+    window.location.pathname.indexOf("/search") > -1
+  ) {
+    navOne.style.marginRight = "auto";
+  }
+  if (
+    window.location.pathname === "/friendships/requests" ||
+    window.location.pathname === "/users" ||
+    window.location.pathname.indexOf("/friendships") > -1
+  ) {
+    navOne.style.marginRight = 0;
+    navTwo.style.marginRight = 0;
+    navThree.style.marginRight = window.innerWidth - 250 + "px";
   }
 };
 

@@ -11,7 +11,7 @@
               <% if book["volumeInfo"]["imageLinks"] != nil %>
                 <%= image_tag(book["volumeInfo"]["imageLinks"]["thumbnail"], class:"book-cover-search")%>
               <% else %>
-                <%# <%= image_tag()%> %>
+                <%= image_tag("no_image.jpg", class:"book-cover-search")%>
               <% end %>
             </div>
             <div class="search-text">
@@ -20,7 +20,7 @@
                 <p><em><%= book["volumeInfo"]["authors"][0] %></em></p> 
                 <p class="book-info-text"><%= shorten_sentence(book["volumeInfo"]["description"]) %></p>
               </div>        
-              <%= link_to "Add To Your Library", books_path(param1: book["volumeInfo"]["title"], param2: book["volumeInfo"]["authors"], param3: book["id"]), method: :post, class: "btn btn-primary btn-round btn-mb" %> 
+              <%= link_to "Add To Your Library", books_path(param1: book["volumeInfo"]["title"], param2: book["volumeInfo"]["authors"], param3: book["id"]), method: :post, class: "btn btn-primary btn-round" %> 
             </div>
           </div>
         <% end %>
@@ -29,9 +29,4 @@
     
   </div>
   
-</div>
-<div class="seperator-container sep-midpage opacity btm-border">
-  <div class="seperator-one sep-one-alt"></div>
-  <div class="seperator-two sep-two-alt"></div>
-  <div class="seperator-three sep-three-alt"></div>
 </div>
