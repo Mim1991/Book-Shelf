@@ -6,6 +6,7 @@
   <p><%= book.author %></p>
   <% if @user == current_user %>
     <%= render "shared/update_shelf", book: book %> 
+    <%= link_to "Review", new_book_review_path(book)%> 
   <% end %>   
 <% end %>
 
@@ -17,6 +18,7 @@
   <p><%= book.author %></p>
   <% if @user == current_user %>
     <%= render "shared/update_shelf", book: book %>    
+    <%= link_to "Review", new_book_review_path(book)%> 
   <% end %>
 <% end %>
 
@@ -26,7 +28,8 @@
     <h4><%= book.name %></h4>
   <% end %>
   <p><%= book.author %></p>
-  <%= render "shared/update_shelf", book: book %>    
+  <%= render "shared/update_shelf", book: book %>  
+  <%= link_to "Review", new_book_review_path(book)%>   
 <% end %>
 
 <h3>Table Books</h3>
@@ -36,7 +39,8 @@
   <% end %>
   <p><%= book.author %></p>
   <% if @user == current_user %>
-    <%= render "shared/update_shelf", book: book %>  
+    <%= render "shared/update_shelf", book: book %> 
+    <%= link_to "Review", new_book_review_path(book)%> 
   <% end %> 
 <% end %>
 

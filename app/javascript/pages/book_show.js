@@ -1,5 +1,5 @@
 const initNavbarBookShow = () => {
-  if (window.location.pathname.indexOf("/books/") > -1) {
+  if (window.location.pathname.indexOf("/books") > -1) {
     const navOne = document.querySelector(".nav-one");
     const containerSearch = document.querySelector(".container-search");
     const seperatorContainer = document.querySelector(".seperator-container");

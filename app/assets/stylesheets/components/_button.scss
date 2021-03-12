@@ -12,3 +12,13 @@
   border-radius: 30px;
   font-family: $font-bold;
 }
+
+.btn-add-friend {
+  background-color: $blue;
+  border-radius: 4px;
+  padding: 8px 30px;
+  font-family: $font-bold;
+  a {
+    color: white;
+  }
+}

@@ -1,0 +1,17 @@
+<div class="review-container">
+  <h4 class="review-head">REVIEW</h4>
+  <h4 class="review-name"> <%= @book.name.upcase %></h4>
+  <!-- simple form to create a review for a dish -->
+  <%= simple_form_for [@book, @review] do |f| %>
+    <%= f.input :title, label: "Title" %>
+    <%= f.input :content, label: "Write your review" %>
+    <%= f.input :date_read, as: :date, html5: true, label: "Date of visit"%>
+    <div class="d-flex align-items-center justify-content-between", id="button-centering">
+      <%= f.submit class: 'btn btn-primary', id: 'form-button' %>
+      <div class="back-button">
+        <%= link_to "Back", user_path(@book.user) %>
+      </div>
+    </div>
+  <% end %>
+
+</div>
