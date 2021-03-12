@@ -25,6 +25,7 @@ import { initNavbarBrowse } from "../pages/browse_navbar";
 import { initNavbarSearch } from "../pages/search";
 import { initNavbar } from "../components/navbar";
 import { initNavbarBookShow } from "../pages/book_show";
+import { initNavbarFriendships } from "../pages/friendships_navbar";
 
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
@@ -32,4 +33,5 @@ document.addEventListener("turbolinks:load", () => {
   initNavbarSearch();
   initNavbar();
   initNavbarBookShow();
+  initNavbarFriendships();
 });
