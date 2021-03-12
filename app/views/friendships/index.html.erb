@@ -71,7 +71,7 @@
   <%= render "shared/search_books" %>
   <%= render "shared/navbar" %>
 
-  <div class="search-results book-show-layout">
+  <div class="search-results book-show-layout friendships-layout">
     <div class="book-show-top">
       
       
@@ -85,7 +85,7 @@
 
     </div>
 
-    <div class="book-show-bottom">
+    <div class="book-show-bottom friend-container">
       <% if !@user.friends.empty? %>  
           <h2>Friends</h2>
       <% end %>
@@ -93,17 +93,18 @@
         <% @user.friends.each do |friend| %>
           
             <div class="review-card">
-              <div class="review-headline">
+              <div class="review-headline mb-0">
                 <%= link_to user_path(friend), class:"review-link" do %>              
-                  <%= image_tag("headshot.jpg", class:"review-image")%>
-                  <h3><%= friend.first_name.upcase %> <%= friend.last_name.upcase%></h3>
-                  <p><%= friend.books.count %> books in their library</p>
+                  <%= image_tag("headshot.jpg", class:"review-image friend-image")%>
+                  <div class="friend-headline">
+                    <h3><%= friend.first_name.upcase %> <%= friend.last_name.upcase%></h3>
+                    <div class="review-seperator seperator-margin"></div>
+                    <p><%= friend.books.count %> books in their library</p>
+                  </div>
                 <% end %>
               </div>              
-              <div class="review-seperator"></div>              
-              <div class="review-content">
-                <%= link_to "Unfriend", user_friendships_remove_path(friend), method: :post	%>
-              </div>
+                           
+              
             </div>  
         <% end %>
       </div>

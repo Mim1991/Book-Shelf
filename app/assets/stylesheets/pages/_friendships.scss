@@ -1,0 +1,29 @@
+.friendships-layout {
+  margin-top: 150px;
+  margin-left: 200px;
+  padding-right: 150px;
+}
+
+.friend-container {
+  padding-right: 0;
+}
+
+.friend-headline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  p {
+    margin-left: 20px;
+    font-family: $font-light;
+    font-style: italic;
+  }
+}
+
+.friend-image {
+  width: 100px;
+  height: 100px;
+}
+
+.seperator-margin {
+  margin: 10px 0px 10px 20px;
+}
