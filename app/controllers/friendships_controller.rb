@@ -41,4 +41,10 @@ class FriendshipsController < ApplicationController
 
     redirect_to friendships_path
   end
+
+  def requests
+    @user = current_user
+    @requests = @user.requested_friends
+    @pending = @user.pending_friends
+  end
 end

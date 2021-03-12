@@ -6,4 +6,11 @@ class UsersController < ApplicationController
     @books_middle = @user.books.where(shelf: "Middle Shelf")
     @books_bottom = @user.books.where(shelf: "Bottom Shelf")
   end
+
+  def index
+    @users = User.all
+    if params[:query].present?
+      @search = User.search_by_name(params[:query])
+    end
+  end
 end

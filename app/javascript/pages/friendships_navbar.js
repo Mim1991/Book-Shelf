@@ -1,5 +1,9 @@
 const initNavbarFriendships = () => {
-  if (window.location.pathname === "/friendships") {
+  if (
+    window.location.pathname === "/friendships/requests" ||
+    window.location.pathname === "/users" ||
+    window.location.pathname.indexOf("/friendships") > -1
+  ) {
     var tl = gsap.timeline();
     tl.to(".nav-one", {
       marginRight: 0,

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     post "/friendships/reject", to: "friendships#reject"
     post "/friendships/remove", to: "friendships#remove"
   end
+  resources :users, only: [:index]
   resources :friendships, only: [:index]
+  get "/friendships/requests", to: "friendships#requests"
   get '/search' => 'books#search'
 end

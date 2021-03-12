@@ -22,3 +22,24 @@
     color: white;
   }
 }
+
+.btn-reject-friend {
+  background-color: $red;
+  width: 45%;
+  padding: 8px;
+}
+.btn-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  a {
+    justify-content: space-around;
+  }
+}
+
+.btn-accept {
+  width: 45%;
+  margin-right: 5%;
+  padding: 8px;
+}
