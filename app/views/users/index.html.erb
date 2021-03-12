@@ -28,13 +28,15 @@
                     <h3><%= result.first_name %> <%= result.last_name%></h3>
                 <% end %>
                     <p><%= pluralize(result.books.count, "book")%> in their library </p> 
-                    <% if current_user != result %>
-                      <% if !current_user.friends_with?(result) %>
-                        <%= link_to "Add Friend", user_friendships_path(result), method: :post, class:"btn-add-friend" %> 
+                    <% if @user.id.eql?(result.id)%>
+                        <p>That's you!</p>
+                      <% elsif @user.pending_friends.include?(result) %>
+                        <p>Friend Request Sent</p>
+                      <% elsif @user.friends_with?(result) %>
+                        <p>Friends</p>
                       <% else %>
-                        <p>Friend</p>
-                      <% end %>  
-                    <% end %>   
+                        <%= link_to "Add Friend", user_friendships_path(result), method: :post, class:"btn-add-friend" %> 
+                    <% end %>
                   </div>        
               </div>
             </div>

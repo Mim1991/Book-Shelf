@@ -15,7 +15,7 @@ class FriendshipsController < ApplicationController
     friend = User.find(params[:user_id])
     @user.friend_request(friend)
 
-    redirect_to friendships_path
+    redirect_to friendships_requests_path
   end
 
   def add
@@ -23,7 +23,7 @@ class FriendshipsController < ApplicationController
     friend = User.find(params[:user_id])
     @user.accept_request(friend)
 
-    redirect_to friendships_path
+    redirect_to friendships_requests_path
   end
 
   def reject

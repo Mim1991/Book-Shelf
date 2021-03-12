@@ -4,7 +4,7 @@
 
   <div class="search-results book-show-layout friendships-layout">
     <div class="search-friends">
-      <h2>Find Friends</h2>
+      <h2><%= link_to "Find Friends", friendships_path %></h2>
       <%= form_tag friendships_path, method: :get do %>
         <%= text_field_tag :query,
         params[:query],
@@ -59,7 +59,7 @@
                   <%= link_to user_path(friend), class:"review-link" do %>              
                     <%= image_tag("headshot.jpg", class:"review-image friend-image")%>
                     <div class="friend-headline">
-                      <h3><%= friend.first_name.upcase %> <%= friend.last_name.upcase%></h3>
+                      <h3><%= friend.first_name%> <%= friend.last_name%></h3>
                       <div class="review-seperator seperator-margin"></div>
                       <p><%= pluralize(friend.books.count, "book") %> in their library</p>
                     </div>
