@@ -48,7 +48,7 @@
       <div class="reviews-wrapper">
         <% @friends_book.each do |book| %>
           <% if current_user.friends_with?(book.user) %>
-            <div class="review-card">
+            <div class="review-card review-height">
               <div class="review-headline">
                 <%= link_to user_path(book.user), class:"review-link" do %>              
                   <%= image_tag("headshot.jpg", class:"review-image")%>

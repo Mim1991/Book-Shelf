@@ -20,7 +20,7 @@
       <div class="search-friends-container all-friends-wrap">
         
           <%  @users.sample(10).each do |result| %>
-            <div class="review-card">
+            <div class="review-card card-height">
               <div class="review-headline search-link mb-0">
                 <%= link_to user_path(result.id) do %> 
                   <%= image_tag("headshot.jpg", class:"review-image friend-image")%>

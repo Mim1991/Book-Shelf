@@ -21,7 +21,7 @@
         
         <% if !@requests.empty? %>
           <%  @requests.each do |result| %>
-            <div class="review-card">
+            <div class="review-card card-height">
               <div class="review-headline search-link mb-0">
                 <%= link_to user_path(result.id) do %> 
                   <%= image_tag("headshot.jpg", class:"review-image friend-image")%>
@@ -38,7 +38,7 @@
             </div>
           <% end %>
         <% else %>
-          <div class="review-card">
+          <div class="review-card card-height">
             <div class="review-headline search-link mb-0"> 
               <div class="friend-headline search-headline">
                 <h3>No Friend Requests!</h3>
@@ -54,7 +54,7 @@
       <% if !@pending.empty? %>  
         <div class="reviews-wrapper">
           <% @pending.each do |friend| %>
-              <div class="review-card">
+              <div class="review-card card-height">
                 <div class="review-headline mb-0">
                   <%= link_to user_path(friend), class:"review-link" do %>              
                     <%= image_tag("headshot.jpg", class:"review-image friend-image")%>
@@ -69,7 +69,7 @@
           <% end %>
         </div>
       <% else %>
-        <div class="review-card">
+        <div class="review-card card-height">
             <div class="review-headline search-link mb-0"> 
               <div class="friend-headline search-headline">
                 <h3>No Pending Requests!</h3>
