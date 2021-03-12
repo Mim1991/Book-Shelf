@@ -96,7 +96,7 @@
                   <div class="friend-headline search-headline">
                     <h3><%= result.first_name.upcase %> <%= result.last_name.upcase%></h3>
                 <% end %>
-                    <p><%= result.books.count %> books in their library</p>    
+                    <p><%= pluralize(result.books.count, "book")%> in their library </p>    
                       <% if current_user != result %>
                         <% if !@user.friends_with?(result) %>
                           <%= link_to "Add Friend", user_friendships_path(result), method: :post, class:"btn-add-friend" %> 
@@ -126,7 +126,7 @@
                   <div class="friend-headline">
                     <h3><%= friend.first_name.upcase %> <%= friend.last_name.upcase%></h3>
                     <div class="review-seperator seperator-margin"></div>
-                    <p><%= friend.books.count %> books in their library</p>
+                    <p><%= pluralize(friend.books.count, "book") %> in their library</p>
                   </div>
                 <% end %>
               </div>              
