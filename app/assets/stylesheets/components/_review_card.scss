@@ -12,6 +12,7 @@
 }
 
 .review-card {
+  height: 145px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -20,6 +21,7 @@
   background-color: white;
   padding: 20px 40px;
   border-radius: 8px;
+  margin-bottom: 20px;
   p,
   h3,
   h2 {

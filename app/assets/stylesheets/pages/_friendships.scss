@@ -2,6 +2,7 @@
   margin-top: 150px;
   margin-left: 200px;
   padding-right: 150px;
+  align-items: flex-start;
 }
 
 .friend-container {
@@ -24,6 +25,61 @@
   height: 100px;
 }
 
+.friend-background {
+  background-color: $cream;
+  padding: 10px 0px 0px 0px;
+}
+
 .seperator-margin {
   margin: 10px 0px 10px 20px;
+}
+
+.search-friends-container {
+  width: 100%;
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-friends {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  p {
+    margin-bottom: 0;
+  }
+  h2 {
+    margin-bottom: 0;
+  }
+  form {
+    display: flex;
+    width: 50%;
+    align-items: center;
+  }
+  input {
+    border-radius: 50px;
+  }
+}
+
+.search-headline {
+  margin-left: 20px;
+  a,
+  h3,
+  p {
+    margin-left: 0;
+  }
+  .seperator-margin {
+    margin-left: 0;
+  }
+  p {
+    margin-bottom: 8px;
+  }
+}
+
+.search-link {
+  a {
+    display: flex;
+    align-items: center;
+  }
 }
