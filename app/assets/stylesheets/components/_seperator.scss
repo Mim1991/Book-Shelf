@@ -1,0 +1,35 @@
+.seperator-container {
+  width: 100%;
+  // padding: 0px 200px 0px 50px;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  height: 10px;
+  // opacity: 0;
+  .seperator-one {
+    width: 33.3%;
+    background-color: $blue;
+  }
+  .seperator-two {
+    width: 33.3%;
+    background-color: $green;
+  }
+  .seperator-three {
+    width: 33.3%;
+    background-color: $purple;
+  }
+}
+
+.sep-midpage {
+  position: absolute;
+  top: 640px;
+  .seperator-one {
+    background-color: $purple;
+  }
+  .seperator-two {
+    background-color: $green;
+  }
+  .seperator-three {
+    background-color: $blue;
+  }
+}

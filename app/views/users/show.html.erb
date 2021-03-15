@@ -1,3 +1,5 @@
+<%
+=begin %>
 <h3>Top Shelf</h3>
 <% @books_top.each do |book| %>
   <%= link_to book_path(book.code) do %>
@@ -47,3 +49,162 @@
 <% if !current_user.friends_with?(@user) && @user != current_user %>
   <%= link_to "Send Friend Request", user_friendships_path(@user), method: :post %> 
 <% end %> 
+<%
+=end %>
+
+<div class="wrapper-index">
+  <%= render "shared/search_books" %>
+  <%= render "shared/navbar" %>
+
+  
+    <div class="search-results book-show-layout book-index-text" id="user-show">
+      
+      <div class="featured-title carousel-seperator">
+        <h2>Top Shelf</h2>
+        <p>This shelf is reserved for your best books. </p>
+
+        <div class="glider-contain">
+          <div class="glider">
+          
+            <% @books_top.each do |book| %>
+              <% book_parsed =  find_book(book["code"]) %>
+              <div class="book-carousel-small">
+                <div class="search-img">
+                  <%= link_to book_path(book["id"]) do %>
+                    <% if book_parsed["volumeInfo"]["imageLinks"] != nil %>
+                      <%= image_tag(find_image(book_parsed), class:"book-cover-search")%>
+                    <% else %>
+                      <%= image_tag("no_image.jpg", class:"book-cover-search")%>
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="book-buttons-shelf">
+                  <%= link_to book_path(book, :shelf => "Middle Shelf"), :method=> :patch do %>
+                    <i class="fas fa-arrow-circle-down"></i>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
+          <button aria-label="Previous" class="glider-prev">«</button>
+          <button aria-label="Next" class="glider-next">»</button>
+          <div role="tablist" class="dots"></div>
+        </div>
+        <%= image_tag("Shelftransp.png", class:"shelf-position")%>
+      </div>
+
+      <div class="featured-title carousel-seperator">
+        <h2>Middle Shelf</h2>
+        <p>These are for books you've read but wouldn't necessarily recommend </p>
+
+        <div class="glider-contain">
+          <div class="glider-two">
+          
+            <% @books_middle.each do |book| %>
+              <% book_parsed =  find_book(book["code"]) %>
+              <div class="book-carousel-small">
+                <div class="search-img">
+                  <%= link_to book_path(book_parsed["id"]) do %>
+                    <% if book_parsed["volumeInfo"]["imageLinks"] != nil %>
+                      <%= image_tag(find_image(book_parsed), class:"book-cover-search")%>
+                    <% else %>
+                      <%= image_tag("no_image.jpg", class:"book-cover-search")%>
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="book-buttons-shelf">
+                  <%= link_to book_path(book, :shelf => "Top Shelf"), :method=> :patch do %>
+                    <i class="fas fa-arrow-circle-up button-gap"></i>
+                  <% end %>
+                  <%= link_to book_path(book, :shelf => "Bottom Shelf"), :method=> :patch do %>
+                    <i class="fas fa-arrow-circle-down"></i>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
+          <button aria-label="Previous" class="glider-prev">«</button>
+          <button aria-label="Next" class="glider-next">»</button>
+          <div role="tablist" class="dots"></div>
+        </div>
+        <%= image_tag("Shelftransp.png", class:"shelf-position")%>
+      </div>
+
+      <div class="featured-title carousel-seperator">
+        <h2>Bottom Shelf</h2>
+        <p>Books you don't recommend</p>
+
+        <div class="glider-contain">
+          <div class="glider-three">
+          
+            <% @books_bottom.each do |book| %>
+              <% book_parsed =  find_book(book["code"]) %>
+              <div class="book-carousel-small">
+                <div class="search-img">
+                  <%= link_to book_path(book_parsed["id"]) do %>
+                    <% if book_parsed["volumeInfo"]["imageLinks"] != nil %>
+                      <%= image_tag(find_image(book_parsed), class:"book-cover-search")%>
+                    <% else %>
+                      <%= image_tag("no_image.jpg", class:"book-cover-search")%>
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="book-buttons-shelf">
+                  <%= link_to book_path(book, :shelf => "Middle Shelf"), :method=> :patch do %>
+                    <i class="fas fa-arrow-circle-up button-gap"></i>
+                  <% end %>
+                  <%= link_to book_path(book, :shelf => "Table"), :method=> :patch do %>
+                    <i class="fas fa-arrow-circle-down"></i>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
+          <button aria-label="Previous" class="glider-prev">«</button>
+          <button aria-label="Next" class="glider-next">»</button>
+          <div role="tablist" class="dots"></div>
+        </div>
+        <%= image_tag("Shelftransp.png", class:"shelf-position")%>
+      </div>
+
+      <div class="featured-title carousel-seperator">
+        <h2>On Your Table</h2>
+        <p>Books that are on your watchlist</p>
+
+        <div class="glider-contain">
+          <div class="glider-four">
+          
+            <% @books_table.each do |book| %>
+              <% book_parsed =  find_book(book["code"]) %>
+              <div class="book-carousel-small">
+                <div class="search-img">
+                  <%= link_to book_path(book_parsed["id"]) do %>
+                    <% if book_parsed["volumeInfo"]["imageLinks"] != nil %>
+                      <%= image_tag(find_image(book_parsed), class:"book-cover-search")%>
+                    <% else %>
+                      <%= image_tag("no_image.jpg", class:"book-cover-search")%>
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="book-buttons-shelf">
+                 <%= link_to book_path(book, :shelf => "Bottom Shelf"), :method=> :patch do %>
+                    <i class="fas fa-arrow-circle-up button-gap"></i>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
+          <button aria-label="Previous" class="glider-prev">«</button>
+          <button aria-label="Next" class="glider-next">»</button>
+          <div role="tablist" class="dots"></div>
+        </div>
+        <%= image_tag("Shelftransp.png", class:"shelf-position")%>
+      </div>
+
+    </div>    
+  
+</div>

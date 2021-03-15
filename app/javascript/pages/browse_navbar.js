@@ -3,12 +3,12 @@ const initNavbarBrowse = () => {
   const navTwo = document.querySelector(".nav-two");
   const navThree = document.querySelector(".nav-three");
   const navBars = document.querySelectorAll(".nav-col");
-  const searchResults = document.querySelector(".search-results");
+  const searchResults = document.querySelector(".wrapper-index");
 
   navBars.forEach((bar) => {
     if (searchResults) {
       const distance = searchResults.offsetHeight;
-      bar.style.height = distance + 60 + "px";
+      bar.style.height = distance - 50 + "px";
     }
   });
 
@@ -23,9 +23,13 @@ const initNavbarBrowse = () => {
     window.location.pathname === "/users" ||
     window.location.pathname.indexOf("/friendships") > -1
   ) {
-    navOne.style.marginRight = 0;
-    navTwo.style.marginRight = 0;
-    navThree.style.marginRight = window.innerWidth - 250 + "px";
+    navOne.style.marginRight = "inherit";
+    navTwo.style.marginRight = "inherit";
+    navThree.style.marginRight = "auto";
+  }
+  if (window.location.pathname.indexOf("/users/") > -1) {
+    navOne.style.marginRight = "inherit";
+    navTwo.style.marginRight = "auto";
   }
 };
 

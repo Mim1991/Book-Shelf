@@ -1,0 +1,75 @@
+.carousel-card-style {
+  background: white;
+  border-radius: 10px;
+  width: 90%;
+}
+
+.carousel-layout {
+  display: flex;
+  margin: 0;
+  p {
+    font-family: $font-reg;
+  }
+}
+
+.arrow-style {
+  z-index: 4;
+  top: 370px;
+  color: $green;
+}
+
+.arrow-right {
+  right: 150px;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%232c816d' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%232c816d' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+.book-carousel-small {
+  width: 150px !important;
+  img {
+    width: 130px;
+
+    height: 200px;
+  }
+}
+
+.glider {
+  .glider-next {
+    position: absolute;
+    right: 0px;
+  }
+}
+
+.carousel-seperator {
+  margin-bottom: 50px;
+  .book-buttons-shelf {
+    display: flex;
+    justify-content: center;
+  }
+  .button-gap {
+    margin-right: 50px;
+  }
+}
+
+.search-img {
+  display: flex;
+  justify-content: center;
+}
+
+.shelf-position {
+  margin-top: -32px;
+}
+
+#user-show {
+  margin-left: 125px;
+  margin-top: 150px;
+}
+.glider-track {
+  min-height: 200px;
+}

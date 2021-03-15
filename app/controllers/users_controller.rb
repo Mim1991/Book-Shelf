@@ -14,4 +14,5 @@ class UsersController < ApplicationController
       @search = User.search_by_name(params[:query])
     end
   end
+
 end

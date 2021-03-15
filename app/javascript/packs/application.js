@@ -22,8 +22,10 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { initNavbarBrowse } from "../pages/browse_navbar";
+import { initGlider } from "../components/glider";
 
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
   initNavbarBrowse();
+  initGlider();
 });
