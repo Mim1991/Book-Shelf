@@ -61,7 +61,13 @@
       
       <div class="featured-title carousel-seperator">
         <h2>Top Shelf</h2>
-        <p>This shelf is reserved for your best books. </p>
+         <div class="table-description">
+          <p>Your favourite books</p>
+          <div class="icon-explain">
+            <p><i class="far fa-edit new-icon-color"></i> Write a Review |</p> 
+            <p><i class="far fa-edit edit-icon-color"></i> Edit a Review</p>             
+          </div>
+        </div>
 
         <div class="glider-contain">
           <div class="glider">
@@ -80,15 +86,15 @@
                 </div>
                 <div class="book-buttons-shelf">
                   <%= link_to book_path(book, :shelf => "Middle Shelf"), :method=> :patch do %>
-                    <i class="fas fa-arrow-circle-down"></i>
+                    <i class="fas fa-arrow-circle-down button-gap"></i>
                   <% end %>
                   <% if book.reviews.empty? %>
                     <%= link_to new_book_review_path(book) do %>
-                      <i class="far fa-edit"></i>
+                      <i class="far fa-edit new-icon-color"></i>
                     <% end %>
                   <% else %>
                     <%= link_to edit_book_review_path(book.id, book.reviews.last) do %>
-                      <i class="far fa-edit"></i>
+                      <i class="far fa-edit edit-icon-color"></i>
                     <% end %>
                   <% end %>
                 </div>
@@ -124,7 +130,16 @@
                 </div>
                 <div class="book-buttons-shelf">
                   <%= link_to book_path(book, :shelf => "Top Shelf"), :method=> :patch do %>
-                    <i class="fas fa-arrow-circle-up button-gap"></i>
+                    <i class="fas fa-arrow-circle-up "></i>
+                  <% end %>
+                  <% if book.reviews.empty? %>
+                    <%= link_to new_book_review_path(book) do %>
+                      <i class="far fa-edit new-icon-color"></i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to edit_book_review_path(book.id, book.reviews.last) do %>
+                      <i class="far fa-edit edit-icon-color"></i>
+                    <% end %>
                   <% end %>
                   <%= link_to book_path(book, :shelf => "Bottom Shelf"), :method=> :patch do %>
                     <i class="fas fa-arrow-circle-down"></i>
@@ -162,7 +177,16 @@
                 </div>
                 <div class="book-buttons-shelf">
                   <%= link_to book_path(book, :shelf => "Middle Shelf"), :method=> :patch do %>
-                    <i class="fas fa-arrow-circle-up button-gap"></i>
+                    <i class="fas fa-arrow-circle-up"></i>
+                  <% end %>
+                  <% if book.reviews.empty? %>
+                    <%= link_to new_book_review_path(book) do %>
+                      <i class="far fa-edit new-icon-color"></i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to edit_book_review_path(book.id, book.reviews.last) do %>
+                      <i class="far fa-edit edit-icon-color"></i>
+                    <% end %>
                   <% end %>
                   <%= link_to book_path(book, :shelf => "Table"), :method=> :patch do %>
                     <i class="fas fa-arrow-circle-down"></i>

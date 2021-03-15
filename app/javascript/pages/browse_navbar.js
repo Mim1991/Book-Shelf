@@ -2,6 +2,7 @@ const initNavbarBrowse = () => {
   const navOne = document.querySelector(".nav-one");
   const navTwo = document.querySelector(".nav-two");
   const navThree = document.querySelector(".nav-three");
+  const navFour = document.querySelector(".nav-four");
   const navBars = document.querySelectorAll(".nav-col");
   const searchResults = document.querySelector(".wrapper-index");
 
@@ -18,6 +19,10 @@ const initNavbarBrowse = () => {
   ) {
     navOne.style.marginRight = "auto";
   }
+  if (window.location.pathname.indexOf("/users/") > -1) {
+    navOne.style.marginRight = "inherit";
+    navTwo.style.marginRight = "auto";
+  }
   if (
     window.location.pathname === "/friendships/requests" ||
     window.location.pathname === "/users" ||
@@ -27,9 +32,11 @@ const initNavbarBrowse = () => {
     navTwo.style.marginRight = "inherit";
     navThree.style.marginRight = "auto";
   }
-  if (window.location.pathname.indexOf("/users/") > -1) {
+  if (window.location.pathname === "/bookclub") {
     navOne.style.marginRight = "inherit";
-    navTwo.style.marginRight = "auto";
+    navTwo.style.marginRight = "inherit";
+    navThree.style.marginRight = "inherit";
+    navFour.style.marginRight = "auto";
   }
 };
 
