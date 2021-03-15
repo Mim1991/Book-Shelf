@@ -38,5 +38,7 @@ module ApplicationHelper
     response = Net::HTTP.get(uri)
     JSON.parse(response)
   end
+
+  
   
 end

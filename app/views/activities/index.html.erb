@@ -1,0 +1,20 @@
+<div class="wrapper-index">
+  <%= render "shared/search_books" %>
+  <%= render "shared/navbar" %>
+  <div class="search-results book-show-layout book-index-text">
+  
+    <% @activities.each do |activity| %>
+      <div class="activity-feed">
+      
+        <p><%= render_activity activity %></p>
+      </div>
+    <% end %>
+    
+  </div>
+
+
+  
+
+
+
+</div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'activities/index'
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
     post "/friendships/remove", to: "friendships#remove"
   end
 
+  resources :activities
   resources :users, only: [:index]
   resources :friendships, only: [:index]
   get "/friendships/requests", to: "friendships#requests"

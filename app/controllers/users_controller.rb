@@ -15,4 +15,7 @@ class UsersController < ApplicationController
     end
   end
 
+  def find_user(id)
+    user = users.find(id)
+  end
 end

@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :books
+  
   has_friendship
 
   include PgSearch::Model
@@ -27,6 +28,12 @@ class User < ApplicationRecord
 
   def invite_friend(user)
     friend_request(user)
+  end
+
+  def find_user(id)
+    user = []
+    user << User.find(id)
+    user 
   end
 
   def not_friends

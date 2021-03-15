@@ -1,0 +1,8 @@
+<% if activity.trackable %>
+  <%= activity.trackable.user.first_name %>
+  moved <%= link_to activity.trackable.name, activity.trackable  %> 
+  to the <%= activity.trackable.shelf %> in their library
+<% else %>
+  <%= activity.trackable.user.first_name %> added a book to their library
+  which has since been removed
+<% end %>
