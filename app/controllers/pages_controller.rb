@@ -3,4 +3,9 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def bookclub
+    @books = Book.all
+    @reviews = Review.all
+  end
 end

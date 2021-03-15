@@ -45,7 +45,8 @@
   margin-bottom: 50px;
   .book-buttons-shelf {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    padding: 0px 16px;
   }
   .shelf-bottom-icons {
     justify-content: space-around;
@@ -101,4 +102,12 @@
     margin-right: 10px;
     font-size: 0.8rem;
   }
+}
+
+.new-icon-color {
+  color: $green;
+}
+
+.edit-icon-color {
+  color: grey;
 }
