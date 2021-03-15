@@ -70,17 +70,26 @@
               <% book_parsed =  find_book(book["code"]) %>
               <div class="book-carousel-small">
                 <div class="search-img">
-                  <%= link_to book_path(book["id"]) do %>
+                  <%= link_to book_path(book_parsed["id"]) do %>
                     <% if book_parsed["volumeInfo"]["imageLinks"] != nil %>
-                      <%= image_tag(find_image(book_parsed), class:"book-cover-search")%>
+                      <%= image_tag(find_image(book_parsed), class:"book-cover-search book-shelf-size")%>
                     <% else %>
-                      <%= image_tag("no_image.jpg", class:"book-cover-search")%>
+                      <%= image_tag("no_image.jpg", class:"book-cover-search book-shelf-size")%>
                     <% end %>
                   <% end %>
                 </div>
                 <div class="book-buttons-shelf">
                   <%= link_to book_path(book, :shelf => "Middle Shelf"), :method=> :patch do %>
                     <i class="fas fa-arrow-circle-down"></i>
+                  <% end %>
+                  <% if book.reviews.empty? %>
+                    <%= link_to new_book_review_path(book) do %>
+                      <i class="far fa-edit"></i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to edit_book_review_path(book.id, book.reviews.last) do %>
+                      <i class="far fa-edit"></i>
+                    <% end %>
                   <% end %>
                 </div>
               </div>
@@ -107,9 +116,9 @@
                 <div class="search-img">
                   <%= link_to book_path(book_parsed["id"]) do %>
                     <% if book_parsed["volumeInfo"]["imageLinks"] != nil %>
-                      <%= image_tag(find_image(book_parsed), class:"book-cover-search")%>
+                      <%= image_tag(find_image(book_parsed), class:"book-cover-search book-shelf-size")%>
                     <% else %>
-                      <%= image_tag("no_image.jpg", class:"book-cover-search")%>
+                      <%= image_tag("no_image.jpg", class:"book-cover-search book-shelf-size")%>
                     <% end %>
                   <% end %>
                 </div>
@@ -145,9 +154,9 @@
                 <div class="search-img">
                   <%= link_to book_path(book_parsed["id"]) do %>
                     <% if book_parsed["volumeInfo"]["imageLinks"] != nil %>
-                      <%= image_tag(find_image(book_parsed), class:"book-cover-search")%>
+                      <%= image_tag(find_image(book_parsed), class:"book-cover-search book-shelf-size")%>
                     <% else %>
-                      <%= image_tag("no_image.jpg", class:"book-cover-search")%>
+                      <%= image_tag("no_image.jpg", class:"book-cover-search book-shelf-size")%>
                     <% end %>
                   <% end %>
                 </div>
@@ -172,7 +181,14 @@
 
       <div class="featured-title carousel-seperator">
         <h2>On Your Table</h2>
-        <p>Books that are on your watchlist</p>
+        <div class="table-description">
+          <p>Books that are on your watchlist</p>
+          <div class="icon-explain">
+            <p>Place on your <%= image_tag("Top.png", class:"button-shelf") %> Top shelf |</p> 
+            <p><%= image_tag("Middle.png", class:"button-shelf") %> Middle shelf |</p> 
+            <p><%= image_tag("Bottom.png", class:"button-shelf") %> Bottom shelf</p> 
+          </div>
+        </div>
 
         <div class="glider-contain">
           <div class="glider-four">
@@ -183,15 +199,21 @@
                 <div class="search-img">
                   <%= link_to book_path(book_parsed["id"]) do %>
                     <% if book_parsed["volumeInfo"]["imageLinks"] != nil %>
-                      <%= image_tag(find_image(book_parsed), class:"book-cover-search")%>
+                      <%= image_tag(find_image(book_parsed), class:"book-cover-search book-shelf-size")%>
                     <% else %>
-                      <%= image_tag("no_image.jpg", class:"book-cover-search")%>
+                      <%= image_tag("no_image.jpg", class:"book-cover-search book-shelf-size")%>
                     <% end %>
                   <% end %>
                 </div>
-                <div class="book-buttons-shelf">
-                 <%= link_to book_path(book, :shelf => "Bottom Shelf"), :method=> :patch do %>
-                    <i class="fas fa-arrow-circle-up button-gap"></i>
+                <div class="book-buttons-shelf shelf-bottom-icons">
+                 <%= link_to book_path(book, :shelf => "Top Shelf"), :method=> :patch do %>
+                    <%= image_tag("Top.png", class:"button-shelf") %>
+                  <% end %>
+                  <%= link_to book_path(book, :shelf => "Middle Shelf"), :method=> :patch do %>
+                    <%= image_tag("Middle.png", class:"button-shelf")%>
+                  <% end %>
+                  <%= link_to book_path(book, :shelf => "Bottom Shelf"), :method=> :patch do %>
+                    <%= image_tag("Bottom.png", class:"button-shelf")%>
                   <% end %>
                 </div>
               </div>

@@ -32,11 +32,6 @@
 
 .book-carousel-small {
   width: 150px !important;
-  img {
-    width: 130px;
-
-    height: 200px;
-  }
 }
 
 .glider {
@@ -52,6 +47,10 @@
     display: flex;
     justify-content: center;
   }
+  .shelf-bottom-icons {
+    justify-content: space-around;
+    padding: 0px 16px;
+  }
   .button-gap {
     margin-right: 50px;
   }
@@ -61,9 +60,13 @@
   display: flex;
   justify-content: center;
 }
-
+.book-shelf-size {
+  width: 130px;
+  height: 200px;
+}
 .shelf-position {
-  margin-top: -32px;
+  margin-top: -29px;
+  width: 100%;
 }
 
 #user-show {
@@ -72,4 +75,30 @@
 }
 .glider-track {
   min-height: 200px;
+}
+
+.fa-arrow-circle-up {
+  color: $green;
+}
+.fa-arrow-circle-down {
+  color: $red;
+}
+
+.button-shelf {
+  width: 17px;
+  height: 17px;
+}
+
+.table-description {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.icon-explain {
+  display: flex;
+  align-items: center;
+  p {
+    margin-right: 10px;
+    font-size: 0.8rem;
+  }
 }

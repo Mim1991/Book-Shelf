@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :find_book, only: [:new, :create]
+  before_action :find_book, only: [:new, :create, :edit, :update]
   def new
     @review = Review.new
   end
@@ -14,6 +14,18 @@ class ReviewsController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    @review = Review.find(params[:id])
+    @review.update(review_params)
+    redirect_to user_path(current_user), notice: 'Review was successfully updated.'
+  end
+
+  private
 
   def find_book
     @book = Book.find(params[:book_id])
