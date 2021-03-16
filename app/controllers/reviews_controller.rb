@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
     @review.book = @book
     # @review.user = current_user
     if @review.save
+      @review.create_activity :create, owner: current_user
       redirect_to root_path
     else
       render :new
@@ -21,8 +22,10 @@ class ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-    @review.update(review_params)
-    redirect_to user_path(current_user), notice: 'Review was successfully updated.'
+    if @review.update(review_params)
+      @review.create_activity :update, owner: current_user
+      redirect_to user_path(current_user), notice: 'Review was successfully updated.'
+    end
   end
 
   private

@@ -109,6 +109,10 @@
   color: $red;
 }
 
+.fa-times-circle {
+  color: $red;
+}
+
 .button-shelf {
   width: 17px;
   height: 17px;
@@ -131,6 +135,7 @@
   align-items: center;
   p {
     margin-right: 10px;
+    margin-bottom: 0;
     font-size: 0.8rem;
   }
 }

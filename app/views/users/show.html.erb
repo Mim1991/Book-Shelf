@@ -67,25 +67,46 @@
       <h2>Top Shelf</h2>
         <div class="table-description">
           <p>Books that you love</p>
-          <div>
-            <div class="icon-explain">
-              <p>Place on your <%= image_tag("Middle.png", class:"button-shelf") %> Middle shelf |</p> 
-              <p><%= image_tag("Bottom.png", class:"button-shelf") %> Bottom shelf |</p> 
-              <p><%= image_tag("Table.png", class:"button-shelf") %> Table</p> 
+          <div class="icon-column">
+            <div class="icon-explain mb-1">
+              <% if current_user == @user %>
+                <p>Write a new review <i class="far fa-edit new-icon-color"></i> |</p>
+                <p>Edit a review <i class="far fa-edit edit-icon-color"></i></p>
+              <% end %>
             </div>
-            
+            <div class="icon-explain">
+              <% if current_user == @user %>
+                <p>Place on your <%= image_tag("Middle.png", class:"button-shelf") %> Middle shelf |</p> 
+                <p><%= image_tag("Bottom.png", class:"button-shelf") %> Bottom shelf |</p> 
+                <p><%= image_tag("Table.png", class:"button-shelf") %> Table</p> 
+              <% end %>
+            </div>
           </div>
         </div>
-        
-            
-         
-
         <div class="glider-contain">
           <div class="glider">
           
             <% @books_top.each do |book| %>
               <% book_parsed =  find_book(book["code"]) %>
               <div class="book-carousel-small">
+                <div class="book-buttons-shelf">
+                  <% if current_user == @user %>
+                    <% if book.reviews.empty? %>
+                      <%= link_to new_book_review_path(book) do %>
+                        <i class="far fa-edit new-icon-color"></i>
+                      <% end %>
+                    <% else %>
+                      <%= link_to edit_book_review_path(book.id, book.reviews.last) do %>
+                        <i class="far fa-edit edit-icon-color"></i>
+                      <% end %>
+                    <% end %> 
+                    <%= link_to book_path(book) , method: :delete do %>
+                      <i class="fas fa-times-circle"></i>
+                    <% end %>
+                  <% else %>
+                    <p></p> 
+                  <% end %>
+                </div>
                 <div class="search-img">
                   <%= link_to book_path(book_parsed["id"]) do %>
                     <% if book_parsed["volumeInfo"]["imageLinks"] != nil %>
@@ -96,14 +117,18 @@
                   <% end %>
                 </div>
                 <div class="book-buttons-shelf">
-                  <%= link_to book_path(book, :shelf => "Middle Shelf"), :method=> :patch do %>
-                    <%= image_tag("Middle.png", class:"button-shelf")%>
-                  <% end %>
-                  <%= link_to book_path(book, :shelf => "Bottom Shelf"), :method=> :patch do %>
-                    <%= image_tag("Bottom.png", class:"button-shelf")%>
-                  <% end %>
-                  <%= link_to book_path(book, :shelf => "Table"), :method=> :patch do %>
-                    <%= image_tag("Table.png", class:"button-shelf")%>
+                  <% if current_user == @user %>
+                    <%= link_to book_path(book, :shelf => "Middle Shelf"), :method=> :patch do %>
+                      <%= image_tag("Middle.png", class:"button-shelf")%>
+                    <% end %>
+                    <%= link_to book_path(book, :shelf => "Bottom Shelf"), :method=> :patch do %>
+                      <%= image_tag("Bottom.png", class:"button-shelf")%>
+                    <% end %>
+                    <%= link_to book_path(book, :shelf => "Table"), :method=> :patch do %>
+                      <%= image_tag("Table.png", class:"button-shelf")%>
+                    <% end %>
+                  <% else %>
+                    <p></p> 
                   <% end %>
                 </div>
               </div>
@@ -122,9 +147,11 @@
         <div class="table-description">
           <p>Books you've read</p>
           <div class="icon-explain">
-            <p>Place on your <%= image_tag("Top.png", class:"button-shelf") %> Top shelf |</p>             
-            <p><%= image_tag("Bottom.png", class:"button-shelf") %> Bottom shelf |</p> 
-            <p><%= image_tag("Table.png", class:"button-shelf") %> Table</p> 
+            <% if current_user == @user %>
+              <p>Place on your <%= image_tag("Top.png", class:"button-shelf") %> Top shelf |</p>             
+              <p><%= image_tag("Bottom.png", class:"button-shelf") %> Bottom shelf |</p> 
+              <p><%= image_tag("Table.png", class:"button-shelf") %> Table</p> 
+            <% end %>
           </div>
         </div>
         <div class="glider-contain">
@@ -133,6 +160,24 @@
             <% @books_middle.each do |book| %>
               <% book_parsed =  find_book(book["code"]) %>
               <div class="book-carousel-small">
+                <div class="book-buttons-shelf">
+                  <% if current_user == @user %>
+                    <% if book.reviews.empty? %>
+                      <%= link_to new_book_review_path(book) do %>
+                        <i class="far fa-edit new-icon-color"></i>
+                      <% end %>
+                    <% else %>
+                      <%= link_to edit_book_review_path(book.id, book.reviews.last) do %>
+                        <i class="far fa-edit edit-icon-color"></i>
+                      <% end %>
+                    <% end %> 
+                    <%= link_to book_path(book) , method: :delete do %>
+                      <i class="fas fa-times-circle"></i>
+                    <% end %>
+                  <% else %>
+                    <p></p> 
+                  <% end %>
+                </div>
                 <div class="search-img">
                   <%= link_to book_path(book_parsed["id"]) do %>
                     <% if book_parsed["volumeInfo"]["imageLinks"] != nil %>
@@ -143,14 +188,18 @@
                   <% end %>
                 </div>
                 <div class="book-buttons-shelf">
-                  <%= link_to book_path(book, :shelf => "Top Shelf"), :method=> :patch do %>
-                    <%= image_tag("Top.png", class:"button-shelf")%>
-                  <% end %>
-                  <%= link_to book_path(book, :shelf => "Bottom Shelf"), :method=> :patch do %>
-                    <%= image_tag("Bottom.png", class:"button-shelf")%>
-                  <% end %>
-                  <%= link_to book_path(book, :shelf => "Table"), :method=> :patch do %>
-                    <%= image_tag("Table.png", class:"button-shelf")%>
+                  <% if current_user == @user %>
+                    <%= link_to book_path(book, :shelf => "Top Shelf"), :method=> :patch do %>
+                      <%= image_tag("Top.png", class:"button-shelf")%>
+                    <% end %>
+                    <%= link_to book_path(book, :shelf => "Bottom Shelf"), :method=> :patch do %>
+                      <%= image_tag("Bottom.png", class:"button-shelf")%>
+                    <% end %>
+                    <%= link_to book_path(book, :shelf => "Table"), :method=> :patch do %>
+                      <%= image_tag("Table.png", class:"button-shelf")%>
+                    <% end %>
+                  <% else %>
+                    <p></p>
                   <% end %>
                 </div>
               </div>
@@ -169,9 +218,11 @@
         <div class="table-description">
           <p>Books that aren't recommended</p>
           <div class="icon-explain">
-            <p>Place on your <%= image_tag("Top.png", class:"button-shelf") %> Top shelf |</p> 
-            <p><%= image_tag("Middle.png", class:"button-shelf") %> Middle shelf |</p> 
-            <p><%= image_tag("Table.png", class:"button-shelf") %> Table</p> 
+            <% if current_user == @user %>
+              <p>Place on your <%= image_tag("Top.png", class:"button-shelf") %> Top shelf |</p> 
+              <p><%= image_tag("Middle.png", class:"button-shelf") %> Middle shelf |</p> 
+              <p><%= image_tag("Table.png", class:"button-shelf") %> Table</p> 
+            <% end %>
           </div>
         </div>
 
@@ -181,6 +232,24 @@
             <% @books_bottom.each do |book| %>
               <% book_parsed =  find_book(book["code"]) %>
               <div class="book-carousel-small">
+                <div class="book-buttons-shelf">
+                  <% if current_user == @user %>
+                    <% if book.reviews.empty? %>
+                      <%= link_to new_book_review_path(book) do %>
+                        <i class="far fa-edit new-icon-color"></i>
+                      <% end %>
+                    <% else %>
+                      <%= link_to edit_book_review_path(book.id, book.reviews.last) do %>
+                        <i class="far fa-edit edit-icon-color"></i>
+                      <% end %>
+                    <% end %> 
+                    <%= link_to book_path(book) , method: :delete do %>
+                      <i class="fas fa-times-circle"></i>
+                    <% end %>
+                  <% else %>
+                    <p></p> 
+                  <% end %>
+                </div>
                 <div class="search-img">
                   <%= link_to book_path(book_parsed["id"]) do %>
                     <% if book_parsed["volumeInfo"]["imageLinks"] != nil %>
@@ -191,14 +260,18 @@
                   <% end %>
                 </div>
                 <div class="book-buttons-shelf">
-                  <%= link_to book_path(book, :shelf => "Top Shelf"), :method=> :patch do %>
-                    <%= image_tag("Top.png", class:"button-shelf")%>
-                  <% end %>
-                  <%= link_to book_path(book, :shelf => "Middle Shelf"), :method=> :patch do %>
-                    <%= image_tag("Middle.png", class:"button-shelf")%>
-                  <% end %>
-                  <%= link_to book_path(book, :shelf => "Table"), :method=> :patch do %>
-                    <%= image_tag("Table.png", class:"button-shelf")%>
+                  <% if current_user == @user %>
+                    <%= link_to book_path(book, :shelf => "Top Shelf"), :method=> :patch do %>
+                      <%= image_tag("Top.png", class:"button-shelf")%>
+                    <% end %>
+                    <%= link_to book_path(book, :shelf => "Middle Shelf"), :method=> :patch do %>
+                      <%= image_tag("Middle.png", class:"button-shelf")%>
+                    <% end %>
+                    <%= link_to book_path(book, :shelf => "Table"), :method=> :patch do %>
+                      <%= image_tag("Table.png", class:"button-shelf")%>
+                    <% end %>
+                  <% else %>
+                    <p></p>
                   <% end %>
                 </div>
               </div>
@@ -213,13 +286,19 @@
       </div>
 
       <div class="featured-title carousel-seperator">
-        <h2>On Your Table</h2>
+        <% if current_user == @user %>
+          <h2>On Your Table</h2>
+        <% else %>
+          <h2>On Their Table</h2>
+        <% end %>
         <div class="table-description">
           <p>Books that are on your watchlist</p>
           <div class="icon-explain">
-            <p>Place on your <%= image_tag("Top.png", class:"button-shelf") %> Top shelf |</p> 
-            <p><%= image_tag("Middle.png", class:"button-shelf") %> Middle shelf |</p> 
-            <p><%= image_tag("Bottom.png", class:"button-shelf") %> Bottom shelf</p> 
+            <% if current_user == @user %>
+              <p>Place on your <%= image_tag("Top.png", class:"button-shelf") %> Top shelf |</p> 
+              <p><%= image_tag("Middle.png", class:"button-shelf") %> Middle shelf |</p> 
+              <p><%= image_tag("Bottom.png", class:"button-shelf") %> Bottom shelf</p> 
+            <% end %>
           </div>
         </div>
 
@@ -229,6 +308,24 @@
             <% @books_table.each do |book| %>
               <% book_parsed =  find_book(book["code"]) %>
               <div class="book-carousel-small">
+                <div class="book-buttons-shelf">
+                  <% if current_user == @user %>
+                    <% if book.reviews.empty? %>
+                      <%= link_to new_book_review_path(book) do %>
+                        <i class="far fa-edit new-icon-color"></i>
+                      <% end %>
+                    <% else %>
+                      <%= link_to edit_book_review_path(book.id, book.reviews.last) do %>
+                        <i class="far fa-edit edit-icon-color"></i>
+                      <% end %>
+                    <% end %> 
+                    <%= link_to book_path(book) , method: :delete do %>
+                      <i class="fas fa-times-circle"></i>
+                    <% end %>
+                  <% else %>
+                    <p></p> 
+                  <% end %>
+                </div>
                 <div class="search-img">
                   <%= link_to book_path(book_parsed["id"]) do %>
                     <% if book_parsed["volumeInfo"]["imageLinks"] != nil %>
@@ -239,14 +336,18 @@
                   <% end %>
                 </div>
                 <div class="book-buttons-shelf shelf-bottom-icons">
-                 <%= link_to book_path(book, :shelf => "Top Shelf"), :method=> :patch do %>
-                    <%= image_tag("Top.png", class:"button-shelf") %>
-                  <% end %>
-                  <%= link_to book_path(book, :shelf => "Middle Shelf"), :method=> :patch do %>
-                    <%= image_tag("Middle.png", class:"button-shelf")%>
-                  <% end %>
-                  <%= link_to book_path(book, :shelf => "Bottom Shelf"), :method=> :patch do %>
-                    <%= image_tag("Bottom.png", class:"button-shelf")%>
+                  <% if current_user == @user %>
+                    <%= link_to book_path(book, :shelf => "Top Shelf"), :method=> :patch do %>
+                      <%= image_tag("Top.png", class:"button-shelf") %>
+                    <% end %>
+                    <%= link_to book_path(book, :shelf => "Middle Shelf"), :method=> :patch do %>
+                      <%= image_tag("Middle.png", class:"button-shelf")%>
+                    <% end %>
+                    <%= link_to book_path(book, :shelf => "Bottom Shelf"), :method=> :patch do %>
+                      <%= image_tag("Bottom.png", class:"button-shelf")%>
+                    <% end %>
+                  <% else %>
+                    <p></p>
                   <% end %>
                 </div>
               </div>

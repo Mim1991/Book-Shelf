@@ -1,9 +1,9 @@
 <% if activity.trackable %>  
   <% book =  Book.find(activity.trackable.book_id) %>
   <% user = User.find(book.user_id) %>
-  <%=link_to user.first_name, user %>
-  wrote a review for <%= link_to book.name, book_path(book.code)  %> with the title
-  <%= activity.trackable.title %>
+  <%= link_to user.first_name, user %>
+  wrote a review for <%= link_to book.name, book_path(book.code)%>. Read it now!
 <% else %>
-  <%= activity.trackable.user.first_name %> write a review for a book but has since been removed
+  <% user = User.find(activity.owner_id) %>
+  <%= link_to user.first_name, user_path(user) %> wrote a review for a book but has since deleted it.
 <% end %>

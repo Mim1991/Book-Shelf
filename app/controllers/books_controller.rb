@@ -20,14 +20,17 @@ class BooksController < ApplicationController
     @book = Book.new(name: params[:param1], author: params[:param2], code: params[:param3])
     @book.user = current_user
     if @book.save
+      @book.create_activity :create, owner: current_user
       redirect_to user_path(current_user)
     end
   end
 
   def update
     @book = Book.find(params[:id])
-    @book.update(book_params)
-    redirect_to user_path(current_user)
+    if @book.update(book_params)
+      @book.create_activity :update, owner: current_user
+      redirect_to user_path(current_user)
+    end
   end
 
   def search
@@ -37,6 +40,12 @@ class BooksController < ApplicationController
       flash[:alert] = 'Book not found'
       return render action: :index
     end
+  end
+
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to user_path(current_user)
   end
 
   private

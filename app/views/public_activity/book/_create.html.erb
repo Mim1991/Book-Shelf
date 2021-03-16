@@ -1,10 +1,8 @@
-
-
 <% if activity.trackable %>
   <%=link_to activity.trackable.user.first_name, activity.trackable.user %>
   added <%= link_to activity.trackable.name, book_path(activity.trackable.code)  %> 
-  to their library
+  to their library. Check out their other books.
 <% else %>
-  <%= activity.trackable.user.first_name %> added a book to their library
-  which has since been removed
+  <% user = User.find(activity.owner_id) %>
+  <%= link_to user.first_name, user_path(user) %> added a book to their library but has since removed it.
 <% end %>

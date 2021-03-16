@@ -86,19 +86,23 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
-          
-
-
         </div>
+
         <div class="activity-feed">
           <h2>Activity Feed</h2>
-          <% @activities.each_with_index do |activity, index| %>
-            <% if index <= 15 %>
-              <div class="activity-card">
-                <p><%= render_activity activity %></p>
-              </div>
+          <% if @activities.empty? %>
+            <div class="activity-card">
+              <p>No Recent Activity!</p>
+            </div>
+          <% else %>
+            <% @activities.each_with_index do |activity, index| %>
+              <% if index <= 7 %>
+                <div class="activity-card">
+                  <p><%= render_activity activity %></p>
+                </div>
+              <% end %>
+              <% index += 1 %>
             <% end %>
-            <% index += 1 %>
           <% end %>
         </div>
       </div>

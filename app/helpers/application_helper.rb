@@ -46,4 +46,13 @@ module ApplicationHelper
       name
     end
   end
+
+  def review_book(code)
+    book = Book.where("code= ?", code)
+    array = []
+    book.each do |instance|
+      array << instance.user_id
+    end
+    array
+  end
 end
