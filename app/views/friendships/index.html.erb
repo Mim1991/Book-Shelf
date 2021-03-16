@@ -6,7 +6,7 @@
   
       <div class="search-friends">
       
-      <h2><%= link_to "Find Friends", friendships_path %></h2>
+      <h2><%= link_to "Friends", friendships_path %></h2>
       <%= form_tag friendships_path, method: :get do %>
         <%= text_field_tag :query,
         params[:query],
@@ -19,15 +19,19 @@
       <p><%= link_to "Friend Requests", friendships_requests_path %></p>
     </div>
     <div class="book-show-top friend-background">
-      <div class="search-friends-container">
+      <div class="search-friends-container flex-wrap">
         <% if params[:query].present? %>
           <%  @search.each do |result| %>
             <div class="review-card card-height">
               <div class="review-headline search-link mb-0">
                 <%= link_to user_path(result.id) do %> 
-                  <%= image_tag("headshot.jpg", class:"review-image friend-image")%>
+                  <%if result.photo.attached? %>
+                    <%= cl_image_tag(result.photo.key, class:"review-image friend-image")%>
+                  <% else %>
+                    <%= image_tag("user.png", class:"review-image friend-image")%>
+                  <% end %>
                   <div class="friend-headline search-headline">
-                    <h3><%= result.first_name.upcase %> <%= result.last_name.upcase%></h3>
+                    <h3><%= result.first_name.upcase if result.first_name %> <%= result.last_name.upcase if result.last_name%></h3>
                 <% end %>
                     <p><%= pluralize(result.books.count, "book")%> in their library </p>    
                       <% if @user.id.eql?(result.id)%>
@@ -57,7 +61,11 @@
             <div class="review-card card-height">
               <div class="review-headline mb-0">
                 <%= link_to user_path(friend), class:"review-link" do %>              
-                  <%= image_tag("headshot.jpg", class:"review-image friend-image")%>
+                  <%if friend.photo.attached? %>
+                    <%= cl_image_tag(friend.photo.key, class:"review-image friend-image")%>
+                  <% else %>
+                    <%= image_tag("user.png", class:"review-image friend-image")%>
+                  <% end %>
                   <div class="friend-headline">
                     <h3><%= friend.first_name.upcase %> <%= friend.last_name.upcase%></h3>
                     <div class="review-seperator seperator-margin"></div>

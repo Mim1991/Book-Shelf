@@ -58,11 +58,18 @@
 
   
     <div class="search-results book-show-layout book-index-text" id="user-show">
-      <% if current_user == @user %>
-        <h1 class="header-library" >Welcome To Your Library</h1>
-      <% else %>
-        <h1 class="header-library">Welcome To <%= trim_s(@user.first_name) %> Library</h1>
-      <% end %>
+      <div class="user-header">
+        <%if @user.photo.attached? %>
+          <%= cl_image_tag(@user.photo.key, class:"review-image friend-image image-small")%>
+        <% else %>
+          <%= image_tag("user.png", class:"review-image friend-image image-small")%>
+        <% end %>
+        <% if current_user == @user %>
+          <h1 class="header-library" >Welcome To Your Library</h1>
+        <% else %>
+          <h1 class="header-library">Welcome To <%= trim_s(@user.first_name) %> Library</h1>
+        <% end %>
+      </div>
       <div class="featured-title carousel-seperator">
       <h2>Top Shelf</h2>
         <div class="table-description">

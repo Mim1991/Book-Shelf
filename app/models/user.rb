@@ -4,8 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :books, dependent: :destroy
-  
+  has_one_attached :photo, dependent: :destroy
   has_friendship
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :first_name, uniqueness: { scope: :last_name }
 
   include PgSearch::Model
   pg_search_scope :search_by_name,

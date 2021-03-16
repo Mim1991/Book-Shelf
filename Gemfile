@@ -33,6 +33,8 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'devise'
 gem 'pg_search', '~> 2.3.0'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.16.0'
+
 
 
 gem 'public_activity'

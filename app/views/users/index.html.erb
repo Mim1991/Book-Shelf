@@ -4,7 +4,7 @@
 
   <div class="search-results book-show-layout friendships-layout">
     <div class="search-friends">
-      <h2>Find Friends</h2>
+      <h2><%= link_to "Friends", friendships_path %></h2>
       <%= form_tag friendships_path, method: :get do %>
         <%= text_field_tag :query,
         params[:query],
@@ -23,7 +23,11 @@
             <div class="review-card card-height">
               <div class="review-headline search-link mb-0">
                 <%= link_to user_path(result.id) do %> 
-                  <%= image_tag("headshot.jpg", class:"review-image friend-image")%>
+                  <%if result.photo.attached? %>
+                    <%= cl_image_tag(result.photo.key, class:"review-image friend-image")%>
+                  <% else %>
+                    <%= image_tag("user.png", class:"review-image friend-image")%>
+                  <% end %>
                   <div class="friend-headline search-headline">
                     <h3><%= result.first_name %> <%= result.last_name%></h3>
                 <% end %>
