@@ -32,7 +32,7 @@ const initNavbarBrowse = () => {
     navTwo.style.marginRight = "inherit";
     navThree.style.marginRight = "auto";
   }
-  if (window.location.pathname === "/bookclub") {
+  if (window.location.pathname === "/activities") {
     navOne.style.marginRight = "inherit";
     navTwo.style.marginRight = "inherit";
     navThree.style.marginRight = "inherit";

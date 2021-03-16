@@ -18,7 +18,7 @@
               <div class="book-headline">
                 <h3><%= book["volumeInfo"]["title"] %></h3>
                 <p><em><%= book["volumeInfo"]["authors"][0] %></em></p> 
-                <p class="book-info-text"><%= shorten_sentence(book["volumeInfo"]["description"]) %></p>
+                <p class="book-info-text"><%= shorten_sentence(book["volumeInfo"]["description"], 447) %></p>
               </div>        
               <%= link_to "Add To Your Library", books_path(param1: book["volumeInfo"]["title"], param2: book["volumeInfo"]["authors"], param3: book["id"]), method: :post, class: "btn btn-primary btn-round" %> 
             </div>

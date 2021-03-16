@@ -29,6 +29,9 @@
   align-items: flex-end;
   justify-content: flex-end;
   width: 17%;
+  position: absolute;
+  top: 185px;
+  right: 0;
 }
 
 .nav-col {
@@ -107,6 +110,7 @@
   .nav-search-out {
     top: 78px;
     left: -58px;
+    padding-left: 178px;
   }
 }
 
@@ -121,5 +125,6 @@
   .nav-log-in {
     top: 39px;
     left: -16px;
+    padding-left: 104px;
   }
 }

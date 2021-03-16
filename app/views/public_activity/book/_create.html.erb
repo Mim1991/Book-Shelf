@@ -1,7 +1,7 @@
 
 
 <% if activity.trackable %>
-  <%= activity.trackable.user.first_name %>
+  <%=link_to activity.trackable.user.first_name, activity.trackable.user %>
   added <%= link_to activity.trackable.name, activity.trackable  %> 
   to their library
 <% else %>

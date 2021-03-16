@@ -14,12 +14,24 @@
 
 .arrow-style {
   z-index: 4;
-  top: 370px;
+  top: 465px;
+  height: 100px;
   color: $green;
 }
 
-.arrow-right {
-  right: 150px;
+.arrow-right,
+.arrow-top-right {
+  right: 394px;
+}
+
+.arrow-left,
+.arrow-top-left {
+  left: 116px;
+}
+
+.arrow-top-left,
+.arrow-top-right {
+  top: 765px;
 }
 
 .carousel-control-prev-icon {
@@ -110,4 +122,8 @@
 
 .edit-icon-color {
   color: grey;
+}
+
+.carousel-margin-top {
+  margin-top: 50px;
 }

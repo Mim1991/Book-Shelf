@@ -78,7 +78,7 @@
                     <h3><%= find_title(book) %> </h3>
                   <% end %>
                   <p><em><%= find_author(book) %></em></p>
-                  <p><%= Sanitize.fragment(shorten_sentence(find_description(book))) %></p>
+                  <p><%= Sanitize.fragment(shorten_sentence(find_description(book), 447)) %></p>
                 </div>
               </div>
             </div>

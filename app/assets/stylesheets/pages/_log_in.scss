@@ -1,0 +1,37 @@
+.log-in-wrapper {
+  display: flex;
+  width: 50%;
+  margin: 10vh auto;
+  padding: 10vh 0vh;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  form {
+    width: 70%;
+    input {
+      border-radius: 40px;
+    }
+    label {
+      font-family: $font-reg;
+    }
+  }
+  a {
+    font-family: $font-reg;
+    color: $black;
+  }
+}
+
+.signup-link {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.log-in-btn {
+  background-color: $green;
+  width: 100%;
+  color: white;
+  font-family: $font-reg;
+}

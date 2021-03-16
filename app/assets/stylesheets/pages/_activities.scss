@@ -1,3 +1,43 @@
+.activities-layout {
+  padding-right: 100px;
+  margin-left: 250px;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+  margin-top: 150px;
+}
+
+.activity-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.featured-books {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+}
+
 .activity-feed {
   display: flex;
+  flex-direction: column;
+  width: 35%;
+}
+
+.activity-card {
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  padding: 20px 10px;
+  p {
+    font-family: $font-reg;
+    margin-bottom: 0;
+  }
+}
+
+.book-month {
+  padding-left: 0;
+  width: 90%;
 }

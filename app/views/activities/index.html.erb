@@ -1,20 +1,123 @@
 <div class="wrapper-index">
   <%= render "shared/search_books" %>
   <%= render "shared/navbar" %>
-  <div class="search-results book-show-layout book-index-text">
-  
-    <% @activities.each do |activity| %>
-      <div class="activity-feed">
-      
-        <p><%= render_activity activity %></p>
+  <div class="activities-layout">
+    <div class="activity-top">
+      <div class="featured-books">
+
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="featured-title book-month">
+            <h2>Books of The Month</h2>
+            <p>A selection of popular books that have most recently been added to people's library. </p>
+          </div>
+          <div class="carousel-inner carousel-card-style">
+            <% @book_parsed.reverse.each_with_index do |book,i|%>
+              <div class="carousel-item <%= "active " if i==0 %>"">
+                <div class="carousel-layout book-search-card">
+                  <div class="search-img">
+                    <%= link_to book_path(book["id"]) do %>
+                      <% if book["volumeInfo"]["imageLinks"] != nil %>
+                        <%= image_tag(find_image(book), class:"book-cover-search")%>
+                      <% else %>
+                        <%= image_tag("no_image.jpg", class:"book-cover-search")%>
+                      <% end %>
+                    <% end %>
+                  </div>
+                    <div class="search-text">
+                      <div class="book-headline">
+                        <%= link_to book_path(book["id"]) do %>
+                          <h3><%= find_title(book) %> </h3>
+                        <% end %>
+                        <p><em><%= find_author(book) %></em></p>
+                        <p><%= Sanitize.fragment(shorten_sentence(find_description(book), 300)) %></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end%>
+            </div>
+          </div>
+          <a class="carousel-control-prev arrow-style arrow-left" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next arrow-style arrow-right" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+
+          <div id="carouselExampleControls" class="carousel slide carousel-margin-top" data-ride="carousel">
+          <div class="featured-title book-month">
+            <h2>Top Books</h2>
+            <p>Books that have recently been added to people's top shelf </p>
+          </div>
+          <div class="carousel-inner carousel-card-style">
+            <% @top_books.reverse.each_with_index do |book,i|%>
+              <div class="carousel-item <%= "active " if i==0 %>"">
+                <div class="carousel-layout book-search-card">
+                  <div class="search-img">
+                    <%= link_to book_path(book["id"]) do %>
+                      <% if book["volumeInfo"]["imageLinks"] != nil %>
+                        <%= image_tag(find_image(book), class:"book-cover-search")%>
+                      <% else %>
+                        <%= image_tag("no_image.jpg", class:"book-cover-search")%>
+                      <% end %>
+                    <% end %>
+                  </div>
+                    <div class="search-text">
+                      <div class="book-headline">
+                        <%= link_to book_path(book["id"]) do %>
+                          <h3><%= find_title(book) %> </h3>
+                        <% end %>
+                        <p><em><%= find_author(book) %></em></p>
+                        <p><%= Sanitize.fragment(shorten_sentence(find_description(book), 300)) %></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end%>
+            </div>
+          </div>
+          <a class="carousel-control-prev arrow-top-left" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next arrow-top-right" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+          
+
+
+        </div>
+        <div class="activity-feed">
+          <h2>Activity Feed</h2>
+          <% @activities.each_with_index do |activity, index| %>
+            <% if index <= 15 %>
+              <div class="activity-card">
+                <p><%= render_activity activity %></p>
+              </div>
+            <% end %>
+            <% index += 1 %>
+          <% end %>
+        </div>
       </div>
-    <% end %>
+
+      
+    </div>
+    
+    <div class="activity-bottom">
+    </div>
     
   </div>
 
-
-  
-
-
-
 </div>
+<%
+=begin  %>
+<% @activities.each do |activity| %>
+      <div class="activity-feed">
+        <p><%= render_activity activity %></p>
+      </div>
+    <% end %>
+<%
+=end %>

@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   resources :friendships, only: [:index]
   get "/friendships/requests", to: "friendships#requests"
   get '/search' => 'books#search'
-  get '/bookclub' => 'pages#bookclub'
+  
 end

@@ -1,8 +1,8 @@
 module ApplicationHelper
-  def shorten_sentence(text)
+  def shorten_sentence(text, number)
     shortened_text = text.to_s.split(".").first(8).join(".") + "."
-    if shortened_text.length > 447
-      shortened_text[0..440] + "..."
+    if shortened_text.length > number
+      shortened_text[0..number] + "..."
     else
       shortened_text
     end
