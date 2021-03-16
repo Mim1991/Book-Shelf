@@ -16,11 +16,13 @@
       <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link-book" %>
     </div>
     <div class="seperator-container">
-        <div class="seperator-one"></div>
-        <div class="seperator-two"></div>
-        <div class="seperator-three"></div>
-      </div>
+      <div class="seperator-one"></div>
+      <div class="seperator-two"></div>
+      <div class="seperator-three"></div>
+    </div>
+    <%= render 'shared/footer' %>
   </div>
+
 <% else %>
   <div class="home-navbar-out">  
     <div class="nav-col nav-three">

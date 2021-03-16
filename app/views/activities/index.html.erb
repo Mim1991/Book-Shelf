@@ -13,7 +13,7 @@
           <div class="carousel-inner carousel-card-style">
             <% @book_parsed.reverse.each_with_index do |book,i|%>
               <div class="carousel-item <%= "active " if i==0 %>"">
-                <div class="carousel-layout book-search-card">
+                <div class="carousel-layout book-search-card carousel-card-height">
                   <div class="search-img">
                     <%= link_to book_path(book["id"]) do %>
                       <% if book["volumeInfo"]["imageLinks"] != nil %>
@@ -54,7 +54,7 @@
           <div class="carousel-inner carousel-card-style">
             <% @top_books.reverse.each_with_index do |book,i|%>
               <div class="carousel-item <%= "active " if i==0 %>"">
-                <div class="carousel-layout book-search-card">
+                <div class="carousel-layout book-search-card carousel-card-height">
                   <div class="search-img">
                     <%= link_to book_path(book["id"]) do %>
                       <% if book["volumeInfo"]["imageLinks"] != nil %>
@@ -113,11 +113,3 @@
 
 </div>
 <%
-=begin  %>
-<% @activities.each do |activity| %>
-      <div class="activity-feed">
-        <p><%= render_activity activity %></p>
-      </div>
-    <% end %>
-<%
-=end %>

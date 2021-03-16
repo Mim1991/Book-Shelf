@@ -1,0 +1,24 @@
+<footer>
+ <div class="quick-contact" id="quick-contact">
+    <div class="quick-details">
+      <%= mail_to "meehir.patel12@gmail.com" do  %>
+        <p><span style="font-weight: 700; font-size: 14px">E:</span><span style="color:#ffe5e300; letter-spacing: 2px">...</span>meehir.patel12@gmail.com</p>
+      <% end %>
+      <p><span style="font-weight: 700; font-size: 14px">T:</span><span style="color:#ffe5e300; letter-spacing: 2px"">...</span>+44 7450 568232</p>
+    </div>
+    <div class="footer-right">
+      <p id="feedback" ><em>If you have any feedback, please get in touch!</em></p>
+      <div class="social-icons">
+        <%= link_to "https://www.instagram.com/mimstagramme/", target: :_blank do  %>
+          <p><i class="fab fa-instagram"></i></p>
+        <% end %>
+        <%= link_to "https://www.github.com/Mim1991/", target: :_blank do  %>
+          <p><i class="fab fa-github"></i></p>
+        <% end %>
+        <%= link_to "https://www.linkedin.com/in/mims-patel/", target: :_blank do  %>
+          <p ><i class="fab fa-linkedin"></i></p>
+        <% end %>
+      </div>
+    </div>  
+  </div>
+</footer>

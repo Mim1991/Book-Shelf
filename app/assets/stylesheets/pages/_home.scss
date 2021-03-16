@@ -18,6 +18,10 @@ body {
   padding: 0px auto;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 h1,
 h2 {
   font-family: $font-bold;
@@ -63,7 +67,7 @@ h4 {
   flex-direction: column;
   align-items: flex-start;
   width: 40%;
-  // margin-left: -95px;
+  z-index: 3;
   margin-top: 30px;
   h2 {
     font-size: 3.8rem;
@@ -71,5 +75,8 @@ h4 {
   h4 {
     font-weight: 600;
     margin: 8px 0px 24px 0px;
+  }
+  a {
+    width: 100%;
   }
 }
