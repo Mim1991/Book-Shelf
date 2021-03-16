@@ -39,6 +39,11 @@ module ApplicationHelper
     JSON.parse(response)
   end
 
-  
-  
+  def trim_s(name)
+    if name[-1] == 's'
+      name[0..-2]
+    else
+      name
+    end
+  end
 end

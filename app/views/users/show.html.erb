@@ -58,16 +58,27 @@
 
   
     <div class="search-results book-show-layout book-index-text" id="user-show">
-      
+      <% if current_user == @user %>
+        <h1 class="header-library" >Welcome To Your Library</h1>
+      <% else %>
+        <h1 class="header-library">Welcome To <%= trim_s(@user.first_name) %>'s Library</h1>
+      <% end %>
       <div class="featured-title carousel-seperator">
-        <h2>Top Shelf</h2>
-         <div class="table-description">
-          <p>Your favourite books</p>
-          <div class="icon-explain">
-            <p><i class="far fa-edit new-icon-color"></i> Write a Review |</p> 
-            <p><i class="far fa-edit edit-icon-color"></i> Edit a Review</p>             
+      <h2>Top Shelf</h2>
+        <div class="table-description">
+          <p>Books that you love</p>
+          <div>
+            <div class="icon-explain">
+              <p>Place on your <%= image_tag("Middle.png", class:"button-shelf") %> Middle shelf |</p> 
+              <p><%= image_tag("Bottom.png", class:"button-shelf") %> Bottom shelf |</p> 
+              <p><%= image_tag("Table.png", class:"button-shelf") %> Table</p> 
+            </div>
+            
           </div>
         </div>
+        
+            
+         
 
         <div class="glider-contain">
           <div class="glider">
@@ -86,16 +97,13 @@
                 </div>
                 <div class="book-buttons-shelf">
                   <%= link_to book_path(book, :shelf => "Middle Shelf"), :method=> :patch do %>
-                    <i class="fas fa-arrow-circle-down button-gap"></i>
+                    <%= image_tag("Middle.png", class:"button-shelf")%>
                   <% end %>
-                  <% if book.reviews.empty? %>
-                    <%= link_to new_book_review_path(book) do %>
-                      <i class="far fa-edit new-icon-color"></i>
-                    <% end %>
-                  <% else %>
-                    <%= link_to edit_book_review_path(book.id, book.reviews.last) do %>
-                      <i class="far fa-edit edit-icon-color"></i>
-                    <% end %>
+                  <%= link_to book_path(book, :shelf => "Bottom Shelf"), :method=> :patch do %>
+                    <%= image_tag("Bottom.png", class:"button-shelf")%>
+                  <% end %>
+                  <%= link_to book_path(book, :shelf => "Table"), :method=> :patch do %>
+                    <%= image_tag("Table.png", class:"button-shelf")%>
                   <% end %>
                 </div>
               </div>
@@ -111,8 +119,14 @@
 
       <div class="featured-title carousel-seperator">
         <h2>Middle Shelf</h2>
-        <p>These are for books you've read but wouldn't necessarily recommend </p>
-
+        <div class="table-description">
+          <p>Books you've read</p>
+          <div class="icon-explain">
+            <p>Place on your <%= image_tag("Top.png", class:"button-shelf") %> Top shelf |</p>             
+            <p><%= image_tag("Bottom.png", class:"button-shelf") %> Bottom shelf |</p> 
+            <p><%= image_tag("Table.png", class:"button-shelf") %> Table</p> 
+          </div>
+        </div>
         <div class="glider-contain">
           <div class="glider-two">
           
@@ -130,19 +144,13 @@
                 </div>
                 <div class="book-buttons-shelf">
                   <%= link_to book_path(book, :shelf => "Top Shelf"), :method=> :patch do %>
-                    <i class="fas fa-arrow-circle-up "></i>
-                  <% end %>
-                  <% if book.reviews.empty? %>
-                    <%= link_to new_book_review_path(book) do %>
-                      <i class="far fa-edit new-icon-color"></i>
-                    <% end %>
-                  <% else %>
-                    <%= link_to edit_book_review_path(book.id, book.reviews.last) do %>
-                      <i class="far fa-edit edit-icon-color"></i>
-                    <% end %>
+                    <%= image_tag("Top.png", class:"button-shelf")%>
                   <% end %>
                   <%= link_to book_path(book, :shelf => "Bottom Shelf"), :method=> :patch do %>
-                    <i class="fas fa-arrow-circle-down"></i>
+                    <%= image_tag("Bottom.png", class:"button-shelf")%>
+                  <% end %>
+                  <%= link_to book_path(book, :shelf => "Table"), :method=> :patch do %>
+                    <%= image_tag("Table.png", class:"button-shelf")%>
                   <% end %>
                 </div>
               </div>
@@ -158,7 +166,14 @@
 
       <div class="featured-title carousel-seperator">
         <h2>Bottom Shelf</h2>
-        <p>Books you don't recommend</p>
+        <div class="table-description">
+          <p>Books that aren't recommended</p>
+          <div class="icon-explain">
+            <p>Place on your <%= image_tag("Top.png", class:"button-shelf") %> Top shelf |</p> 
+            <p><%= image_tag("Middle.png", class:"button-shelf") %> Middle shelf |</p> 
+            <p><%= image_tag("Table.png", class:"button-shelf") %> Table</p> 
+          </div>
+        </div>
 
         <div class="glider-contain">
           <div class="glider-three">
@@ -176,20 +191,14 @@
                   <% end %>
                 </div>
                 <div class="book-buttons-shelf">
-                  <%= link_to book_path(book, :shelf => "Middle Shelf"), :method=> :patch do %>
-                    <i class="fas fa-arrow-circle-up"></i>
+                  <%= link_to book_path(book, :shelf => "Top Shelf"), :method=> :patch do %>
+                    <%= image_tag("Top.png", class:"button-shelf")%>
                   <% end %>
-                  <% if book.reviews.empty? %>
-                    <%= link_to new_book_review_path(book) do %>
-                      <i class="far fa-edit new-icon-color"></i>
-                    <% end %>
-                  <% else %>
-                    <%= link_to edit_book_review_path(book.id, book.reviews.last) do %>
-                      <i class="far fa-edit edit-icon-color"></i>
-                    <% end %>
+                  <%= link_to book_path(book, :shelf => "Middle Shelf"), :method=> :patch do %>
+                    <%= image_tag("Middle.png", class:"button-shelf")%>
                   <% end %>
                   <%= link_to book_path(book, :shelf => "Table"), :method=> :patch do %>
-                    <i class="fas fa-arrow-circle-down"></i>
+                    <%= image_tag("Table.png", class:"button-shelf")%>
                   <% end %>
                 </div>
               </div>
