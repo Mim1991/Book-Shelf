@@ -61,12 +61,16 @@
       <% if current_user == @user %>
         <h1 class="header-library" >Welcome To Your Library</h1>
       <% else %>
-        <h1 class="header-library">Welcome To <%= trim_s(@user.first_name) %>'s Library</h1>
+        <h1 class="header-library">Welcome To <%= trim_s(@user.first_name) %> Library</h1>
       <% end %>
       <div class="featured-title carousel-seperator">
       <h2>Top Shelf</h2>
         <div class="table-description">
-          <p>Books that you love</p>
+          <% if current_user == @user  %>
+            <p>This shelf is reserved for books that you absolutely love and wouldn't hesitate to recommend to a friend.</p>
+          <% else %>
+            <p>These are books that <%= @user.first_name %> loves and recommends. Have a browse and add them to your own library!</p>
+          <% end %>
           <div class="icon-column">
             <div class="icon-explain mb-1">
               <% if current_user == @user %>
@@ -145,7 +149,11 @@
       <div class="featured-title carousel-seperator">
         <h2>Middle Shelf</h2>
         <div class="table-description">
-          <p>Books you've read</p>
+          <% if current_user == @user %>
+            <p>This shelf is reserved for books that you've read and enjoyed but didn't necessarily leave a lasting impact on you.</p>
+          <% else %>
+            <p>These are books that <%= @user.first_name %> has read and enjoyed but not quite at the same level as the ones on their top shelf.</p>
+          <% end %>
           <div class="icon-explain">
             <% if current_user == @user %>
               <p>Place on your <%= image_tag("Top.png", class:"button-shelf") %> Top shelf |</p>             
@@ -216,7 +224,11 @@
       <div class="featured-title carousel-seperator">
         <h2>Bottom Shelf</h2>
         <div class="table-description">
-          <p>Books that aren't recommended</p>
+          <% if current_user == @user %>
+            <p>No book wants to be on this shelf. Save this space for books you've read and want to actively discourage others from reading.</p>
+          <% else %>
+            <p>These are books that <%= @user.first_name %> has read but would rather not have done...</p>
+          <% end %>
           <div class="icon-explain">
             <% if current_user == @user %>
               <p>Place on your <%= image_tag("Top.png", class:"button-shelf") %> Top shelf |</p> 
@@ -292,7 +304,11 @@
           <h2>On Their Table</h2>
         <% end %>
         <div class="table-description">
-          <p>Books that are on your watchlist</p>
+          <% if current_user == @user %>
+            <p>Your table is for books that you've found and want to save for later or for books youv'e read but haven't decided on the shelf yet.</p>
+          <% else %>
+            <p><%= trim_s(@user.first_name) %> table is for their books that they've saved for later.</p>
+          <% end %>
           <div class="icon-explain">
             <% if current_user == @user %>
               <p>Place on your <%= image_tag("Top.png", class:"button-shelf") %> Top shelf |</p> 

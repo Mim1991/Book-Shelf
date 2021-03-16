@@ -41,9 +41,9 @@ module ApplicationHelper
 
   def trim_s(name)
     if name[-1] == 's'
-      name[0..-2]
+      name + "'"
     else
-      name
+      name + "'s"
     end
   end
 
