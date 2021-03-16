@@ -21,9 +21,19 @@
             <p>Number of Ratings: <%= @book["volumeInfo"]["ratingsCount"] %></p>
           <% end %>
           <%= link_to "Add To Your Library", books_path(param1: @book["volumeInfo"]["title"], param2: @book["volumeInfo"]["authors"][0], param3: @book["id"]), method: :post, class: "btn btn-primary btn-round" %>
+
+          <% book = Book.where("code= ?", @book["id"]) %>
+          <% array = [] %>
+          <% book.each do |instance| %>
+            <% array << instance.user_id %>
+          <% end %>
+          <% if !book.empty? && array.any?(current_user.id) %>
+            <%= link_to "Write A Review", new_book_review_path(book[0].id), class: "btn btn-primary btn-round" %>
+          <% end %> 
+        
+        
         </div>
       </div>
-
       <div class="book-show-right">
         <div class="book-show-headlinetext">
           <h2><%= @book["volumeInfo"]["title"] %></h2>
