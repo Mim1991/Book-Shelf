@@ -32,6 +32,8 @@ gem 'has_friendship', git: 'git@github.com:sungwoncho/has_friendship.git'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'devise'
 gem 'pg_search', '~> 2.3.0'
+gem 'dotenv-rails', groups: [:development, :test]
+
 
 gem 'public_activity'
 gem 'autoprefixer-rails'
