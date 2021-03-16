@@ -21,7 +21,7 @@
 
 .arrow-right,
 .arrow-top-right {
-  right: 394px;
+  right: 409px;
 }
 
 .arrow-left,
@@ -31,7 +31,7 @@
 
 .arrow-top-left,
 .arrow-top-right {
-  top: 642px;
+  top: 492px;
 }
 
 .carousel-control-prev-icon {
@@ -168,4 +168,8 @@
   .search-text {
     padding-left: 0;
   }
+}
+
+.table-description > p {
+  width: 50%;
 }
