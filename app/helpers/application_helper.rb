@@ -8,6 +8,10 @@ module ApplicationHelper
     end
   end
 
+  def shorten_title(text, number)
+    text.length > number ? text[0..number] + "..." : text
+  end
+
   def capitalise(text)
     text[0].capitalize + text.slice(1..-1)
   end
