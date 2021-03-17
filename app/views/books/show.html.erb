@@ -59,7 +59,11 @@
             <div class="review-card review-height">
               <div class="review-headline">
                 <%= link_to user_path(book.user), class:"review-link" do %>              
-                  <%= image_tag("headshot.jpg", class:"review-image")%>
+                  <%if book.user.photo.attached? %>
+                    <%= cl_image_tag(book.user.photo.key, class:"review-image friend-image image-small")%>
+                  <% else %>
+                    <%= image_tag("user.png", class:"review-image friend-image image-small")%>
+                  <% end %>
                   <h3><%= book.user.first_name.upcase %> <%= book.user.last_name.upcase%></h3>
                 <% end %>
               </div>

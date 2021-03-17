@@ -1,12 +1,23 @@
 .user-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-left: 16px;
+  margin-bottom: 16px;
+}
+
+.user-headline {
+  display: flex;
+  align-items: center;
 }
 
 .image-small {
   width: 75px;
   height: 75px;
   margin-bottom: 13px;
+  margin-right: 8px;
+}
+
+.btn-status-show {
   margin-right: 8px;
 }
