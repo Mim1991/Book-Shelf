@@ -8,35 +8,33 @@
       
       <div class="book-show-left">
         <div class="show-image">
-          <%= image_tag(@book["volumeInfo"]["imageLinks"]["thumbnail"], class:"book-show-img")%>
+          <%= image_tag(find_image(@book), class:"book-show-img")%>
         </div>
         <div class="book-text-details">
-          <p><%= @book["volumeInfo"]["industryIdentifiers"][0]["type"] %> : <%= @book["volumeInfo"]["industryIdentifiers"][0]["identifier"] %></p>
+          <p><%= find_type(@book) %> : <%= find_isbn(@book) %></p>
           <p>Pages: <%= @book["volumeInfo"]["pageCount"] %></p>
           
-          <% if !@book["volumeInfo"]["averageRating"].nil? %>
-            <p>Rating: <%="⭐️" * @book["volumeInfo"]["averageRating"].to_i %></p>
+          <% if !find_average_rating(@book).nil? %>
+            <p>Rating: <%="⭐️" * find_average_rating(@book).to_i %></p>
           <% end %>
-          <% if !@book["volumeInfo"]["ratingsCount"].nil? %>
-            <p>Number of Ratings: <%= @book["volumeInfo"]["ratingsCount"] %></p>
+          <% if !find_rating_count(@book).nil? %>
+            <p>Number of Ratings: <%= find_rating_count(@book) %></p>
           <% end %>
-          <%= link_to "Add To Your Library", books_path(param1: @book["volumeInfo"]["title"], param2: @book["volumeInfo"]["authors"][0], param3: @book["id"]), method: :post, class: "btn btn-primary btn-round" %>
-          
-          
-        
-        
+          <%= link_to "Add To Your Library", books_path(param1: find_title(@book), param2: find_author(@book), param3: find_id(@book)), method: :post, class: "btn btn-primary btn-round" %>
         </div>
       </div>
+
+
       <div class="book-show-right">
         <div class="book-show-headlinetext">
-          <h2><%= @book["volumeInfo"]["title"] %></h2>
-          <h3><%= @book["volumeInfo"]["authors"][0] %></h3>
+          <h2><%= find_title(@book) %></h2>
+          <h3><%= find_author(@book) %></h3>
           <% if !@book["volumeInfo"]["categories"].nil? %>
-            <p>Category: <%= @book["volumeInfo"]["categories"][0] %></p>
+            <p>Category: <%= find_category(@book) %></p>
           <% end %>
         </div>
         <div class="book-show-desc">
-          <% description = @book["volumeInfo"]["description"] %>
+          <% description = find_description(@book) %>
           <p><%= Sanitize.fragment(description) %></p>
         </div>
         
@@ -45,13 +43,11 @@
     </div>
 
     <div class="book-show-bottom"> 
-      <% print_title = true %>     
-      
-      
+      <% print_title = true %>    
         <% @friends_book.each do |book| %>
           <% if current_user.friends_with?(book.user) || current_user == book.user %>
             <% if print_title %>
-              <h3>Friend Reviews for "<%= @book["volumeInfo"]["title"] %>" </h3>
+              <h3>Friend Reviews for "<%= find_title(@book) %>" </h3>
               <div class="reviews-wrapper">
               <% print_title = false %>
             <% end %>
@@ -71,16 +67,16 @@
               <div class="review-seperator"></div>
               <div class="review-rating">
                 <p>On Their <%= book.shelf %></p>
-                <% if book.reviews[0] != nil %>
-                  <p>Date Read: <%= book.reviews[0].date_read %></p>
-                <% else %>
+                <% if book.reviews.last.nil? %>
                   <p>Date Read: <em>No date</em></p>
+                <% else %>
+                  <p>Date Read: <%= book.reviews.last.date_read %></p>
                 <% end %>
               </div>
               <div class="review-content">
-              <% if book.reviews[0] != nil %>
-                <h3><%= book.reviews[0].title %></h3>
-                <p><%= book.reviews[0].content %></p>                
+              <% if !book.reviews.last.nil? %>
+                <h3><%= book.reviews.last.title %></h3>
+                <p><%= book.reviews.last.content %></p>                
               <% end %>
               </div>
             </div>

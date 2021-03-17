@@ -1,5 +1,6 @@
 <% if activity.trackable %>
   <%= activity.trackable.user.first_name %>
 <% else %>
-  No Book now destroyed
+  <% user = User.find(activity.owner_id) %>
+  <%= link_to user.first_name, user_path(user) %> removed a book from their library.
 <% end %>

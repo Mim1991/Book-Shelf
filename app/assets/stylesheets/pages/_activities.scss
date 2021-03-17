@@ -39,6 +39,16 @@
   }
 }
 
+.activity-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  .activity-date {
+    font-size: 0.7rem;
+    color: rgba(128, 128, 128, 0.637);
+  }
+}
+
 .image-xsmall {
   width: 65px;
   height: 65px;

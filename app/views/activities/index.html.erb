@@ -91,21 +91,28 @@
 
         <div class="activity-feed">
           <h2>Activity Feed</h2>
+          <p>A list of recent activity from your friends.</p>
           <% if @activities.empty? %>
             <div class="activity-card">
               <p>No Recent Activity!</p>
             </div>
           <% else %>
             <% @activities.each_with_index do |activity, index| %>
-              <% if index <= 7 %>
+              <% if index <= 4 %>
                 <div class="activity-card">
                   <% user = User.find(activity.owner_id) %>
+                  
                   <%if user.photo.attached? %>
                     <%= cl_image_tag(user.photo.key, class:"review-image friend-image image-xsmall")%>
                   <% else %>
                     <%= image_tag("user.png", class:"review-image friend-image image-xsmall")%>
                   <% end %>
-                  <p><%= render_activity activity %></p>
+
+                  <div class="activity-text">
+                    <p class="activity-date"><%= activity.created_at.strftime("%b %e, %l:%M %p") %></p>
+                    <p><%= render_activity activity %></p>
+                  </div>
+                  
                 </div>
               <% end %>
               <% index += 1 %>
