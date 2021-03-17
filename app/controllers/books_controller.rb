@@ -14,6 +14,7 @@ class BooksController < ApplicationController
   def show
     @book = find_book(params[:id])
     @friends_book = Book.where("code= ?", params[:id])
+    @user_books = Book.where("user_id=?", current_user.id)
   end
 
   def create
@@ -36,6 +37,7 @@ class BooksController < ApplicationController
   def search
     @text = params[:books]
     @books = find_books(params[:books])
+    @user_books = Book.where("user_id =?", current_user.id)
     unless @books
       flash[:alert] = 'Book not found'
       return render action: :index

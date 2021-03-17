@@ -1,7 +1,7 @@
 module ApplicationHelper
   def shorten_sentence(text, number)
     # shortened_text = `#{text.to_s.split(".").first(8).join(".")}.`
-    if text.length > number
+    if !text.nil? && text.length > number
       text[0..number] + "..."
     else
       text
@@ -22,14 +22,5 @@ module ApplicationHelper
 
   def trim_s(name)
     name[-1] == 's' ? name + "'" : name + "'s"
-  end
-
-  def review_book(code)
-    book = Book.where("code= ?", code)
-    array = []
-    book.each do |instance|
-      array << instance.user_id
-    end
-    array
   end
 end
