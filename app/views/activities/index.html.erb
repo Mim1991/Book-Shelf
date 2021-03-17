@@ -7,8 +7,8 @@
 
         <div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
           <div class="featured-title book-month">
-            <h2>Books of The Month</h2>
-            <p>A selection of popular books that have most recently been added to people's library. </p>
+            <h2>Recently Added Books</h2>
+            <p>The books that have most recently been added to people's library.</p>
           </div>
           <div class="carousel-inner carousel-card-style">
             <% @book_parsed.reverse.each_with_index do |book,i|%>
@@ -49,7 +49,7 @@
 
           <div id="carouselExampleControls" class="carousel slide carousel-margin-top" data-ride="carousel">
             <div class="featured-title book-month">
-              <h2>Top Books</h2>
+              <h2>Top Shelf Books</h2>
               <p>Books that have recently been added to people's top shelf </p>
             </div>
             <div class="carousel-inner carousel-card-style">
@@ -119,15 +119,7 @@
             <% end %>
           <% end %>
         </div>
-      </div>
-
-      
+      </div> 
     </div>
-    
-    <div class="activity-bottom">
-    </div>
-    
   </div>
-
 </div>
-<%

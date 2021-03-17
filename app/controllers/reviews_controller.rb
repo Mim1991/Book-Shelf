@@ -7,7 +7,6 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.book = @book
-    # @review.user = current_user
     if @review.save
       @review.create_activity :create, owner: current_user
       redirect_to root_path

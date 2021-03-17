@@ -1,19 +1,21 @@
 const initGlider = () => {
-  // window.addEventListener("load", function () {
-  console.log("loaded");
-  new Glider(document.querySelector(".glider"), {
+  const gliderOne = document.querySelector(".glider");
+  const gliderTwo = document.querySelector(".glider-two");
+  const gliderThree = document.querySelector(".glider-three");
+  const gliderFour = document.querySelector(".glider-four");
+
+  new Glider(gliderOne, {
     draggable: true,
   });
-  new Glider(document.querySelector(".glider-two"), {
+  new Glider(gliderTwo, {
     draggable: true,
   });
-  new Glider(document.querySelector(".glider-three"), {
+  new Glider(gliderThree, {
     draggable: true,
   });
-  new Glider(document.querySelector(".glider-four"), {
+  new Glider(gliderFour, {
     draggable: true,
   });
-  // });
 };
 
 export { initGlider };

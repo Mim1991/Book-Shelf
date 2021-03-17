@@ -5,24 +5,41 @@ const initNavbarBrowse = () => {
   const navFour = document.querySelector(".nav-four");
   const navBars = document.querySelectorAll(".nav-col");
   const searchResults = document.querySelector(".wrapper-index");
+  const tableCarousel = document.querySelector(".table-carousel");
 
-  navBars.forEach((bar) => {
-    if (searchResults) {
-      const distance = searchResults.offsetHeight;
-      bar.style.height = distance - 50 + "px";
-    }
-  });
+  function navInit() {
+    navBars.forEach((bar) => {
+      if (searchResults) {
+        const distance = searchResults.offsetHeight;
+        bar.style.height = distance - 50 + "px";
+      }
+    });
+  }
+
+  function navLibrary() {
+    window.addEventListener("load", () => {
+      const distance = tableCarousel.offsetTop + tableCarousel.offsetHeight;
+      navBars.forEach((bar) => {
+        console.log(distance);
+        bar.style.height = distance - 50 + "px";
+      });
+    });
+  }
 
   if (
     window.location.pathname.indexOf("/books") > -1 ||
     window.location.pathname.indexOf("/search") > -1
   ) {
     navOne.style.marginRight = "auto";
+    navInit();
   }
+
   if (window.location.pathname.indexOf("/users/") > -1) {
     navOne.style.marginRight = "inherit";
     navTwo.style.marginRight = "auto";
+    navLibrary();
   }
+
   if (
     window.location.pathname === "/friendships/requests" ||
     window.location.pathname === "/users" ||
@@ -31,12 +48,15 @@ const initNavbarBrowse = () => {
     navOne.style.marginRight = "inherit";
     navTwo.style.marginRight = "inherit";
     navThree.style.marginRight = "auto";
+    navInit();
   }
+
   if (window.location.pathname === "/activities") {
     navOne.style.marginRight = "inherit";
     navTwo.style.marginRight = "inherit";
     navThree.style.marginRight = "inherit";
     navFour.style.marginRight = "auto";
+    navInit();
   }
 };
 
