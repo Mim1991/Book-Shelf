@@ -24,9 +24,9 @@
 
               <div class="index">
                 <% if book_match(@user_books, book) %>
-                  <p class="btn btn-round btn-grey">In your library</p>
+                  <p class="btn btn-round btn-grey btn-white">In your library</p>
                 <% else %>
-                  <%= link_to "Add To Your Library", books_path(param1: find_title(book), param2: book["volumeInfo"]["authors"], param3: find_id(book)), method: :post, class: "btn btn-primary btn-round" %> 
+                  <%= link_to "Add To Your Library", books_path(param1: find_title(book), param2: book["volumeInfo"]["authors"], param3: find_id(book)), method: :post, class: "btn btn-primary btn-round btn-white" %> 
                 <% end %>
               </div>
             </div>

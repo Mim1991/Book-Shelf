@@ -17,12 +17,10 @@ const initNavbarBrowse = () => {
   }
 
   function navLibrary() {
-    window.addEventListener("load", () => {
-      const distance = tableCarousel.offsetTop + tableCarousel.offsetHeight;
-      navBars.forEach((bar) => {
-        console.log(distance);
-        bar.style.height = distance - 50 + "px";
-      });
+    const distance = tableCarousel.offsetTop + tableCarousel.offsetHeight;
+    navBars.forEach((bar) => {
+      console.log(distance);
+      bar.style.height = "1900px";
     });
   }
 
@@ -37,7 +35,7 @@ const initNavbarBrowse = () => {
   if (window.location.pathname.indexOf("/users/") > -1) {
     navOne.style.marginRight = "inherit";
     navTwo.style.marginRight = "auto";
-    navLibrary();
+    window.addEventListener("load", navLibrary());
   }
 
   if (

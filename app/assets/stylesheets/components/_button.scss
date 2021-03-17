@@ -1,5 +1,4 @@
-.btn-purple {
-  background-color: $blue;
+.btn-home {
   border-radius: 45px;
   padding: 15px 30px 15px 20px;
   font-family: $font-bold;
@@ -11,12 +10,17 @@
 .btn-round {
   border-radius: 30px;
   font-family: $font-bold;
+  box-shadow: $btn-shadow;
+}
+
+.btn-white {
+  color: white !important;
 }
 
 .btn-add-friend {
-  background-color: $blue;
+  background-color: $green;
   border-radius: 4px;
-  padding: 8px 30px;
+  padding: 4px 30px;
   font-family: $font-bold;
   a {
     color: white;
@@ -54,4 +58,8 @@
 
 .btn-grey {
   background-color: grey;
+}
+
+.btn-red {
+  background-color: $red;
 }

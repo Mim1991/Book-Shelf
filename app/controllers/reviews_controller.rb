@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     @review.book = @book
     if @review.save
       @review.create_activity :create, owner: current_user
-      redirect_to root_path
+      redirect_to user_path(current_user)
     else
       render :new
     end
