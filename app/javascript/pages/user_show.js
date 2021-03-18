@@ -18,36 +18,35 @@ const initUserShow = () => {
     bookSelector.style.display = "none";
   };
 
-  const moveToTopShelf = (event) => {
-    const bookSelector = event.currentTarget.parentElement.parentElement;
-    gliderOne.prepend(bookSelector);
-  };
-  const moveToMiddleShelf = (event) => {
-    const bookSelector = event.currentTarget.parentElement.parentElement;
-    gliderTwo.prepend(bookSelector);
-  };
-  const moveToBottomShelf = (event) => {
-    const bookSelector = event.currentTarget.parentElement.parentElement;
-    gliderThree.prepend(bookSelector);
-  };
-  const moveToTableShelf = (event) => {
-    const bookSelector = event.currentTarget.parentElement.parentElement;
-    gliderFour.prepend(bookSelector);
+  const moveToShelf = (event, shelf) => {
+    const bookSelector = event.parentElement.parentElement;
+    console.dir(event);
+    shelf.prepend(bookSelector);
   };
 
   deleteBook.forEach((book) =>
     book.addEventListener("click", deleteBookFromShelf)
   );
 
-  moveTopBook.forEach((book) => book.addEventListener("click", moveToTopShelf));
+  moveTopBook.forEach((book) =>
+    book.addEventListener("click", function () {
+      moveToShelf(this, gliderOne);
+    })
+  );
   moveMiddleBook.forEach((book) =>
-    book.addEventListener("click", moveToMiddleShelf)
+    book.addEventListener("click", function () {
+      moveToShelf(this, gliderTwo);
+    })
   );
   moveBottomBook.forEach((book) =>
-    book.addEventListener("click", moveToBottomShelf)
+    book.addEventListener("click", function () {
+      moveToShelf(this, gliderThree);
+    })
   );
   moveTableBook.forEach((book) =>
-    book.addEventListener("click", moveToTableShelf)
+    book.addEventListener("click", function () {
+      moveToShelf(this, gliderFour);
+    })
   );
 };
 
