@@ -22,7 +22,7 @@ class BooksController < ApplicationController
     @book.user = current_user
     if @book.save
       @book.create_activity :create, owner: current_user
-      redirect_to user_path(current_user)
+      # redirect_to user_path(current_user)
     end
   end
 
@@ -30,7 +30,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     if @book.update(book_params)
       @book.create_activity :update, owner: current_user
-      redirect_to user_path(current_user)
+      # redirect_to user_path(current_user)
     end
   end
 
@@ -47,7 +47,6 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    redirect_to user_path(current_user)
   end
 
   private

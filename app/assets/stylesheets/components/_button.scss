@@ -2,6 +2,7 @@
   border-radius: 45px;
   padding: 15px 30px 15px 20px;
   font-family: $font-bold;
+  box-shadow: $btn-shadow;
   width: 100%;
   margin-top: 20px;
   font-size: 22px;
@@ -11,6 +12,7 @@
   border-radius: 30px;
   font-family: $font-bold;
   box-shadow: $btn-shadow;
+  width: 170px;
 }
 
 .btn-white {
@@ -58,6 +60,7 @@
 
 .btn-grey {
   background-color: grey;
+  cursor: default !important;
 }
 
 .btn-red {

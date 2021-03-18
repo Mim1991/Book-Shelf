@@ -20,6 +20,10 @@
   border-radius: 10px;
 }
 
+.card-shadow {
+  box-shadow: $card-shadow;
+}
+
 .book-show-left {
   display: flex;
   flex-direction: column;

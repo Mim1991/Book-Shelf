@@ -3,7 +3,7 @@
   <%= render "shared/navbar" %>
 
   <div class="search-results book-show-layout">
-    <div class="book-show-top">
+    <div class="book-show-top card-shadow">
       
       
       <div class="book-show-left">
@@ -24,7 +24,7 @@
           <% if book_match(@user_books, @book) %>
             <p class="btn btn-round btn-grey btn-white">In your library</p>
           <% else %>
-            <%= link_to "Add To Your Library", books_path(param1: find_title(@book), param2: find_author(@book), param3: find_id(@book)), method: :post, class: "btn btn-primary btn-round btn-white" %>
+            <%= link_to "Add To Your Library", books_path(param1: find_title(@book), param2: find_author(@book), param3: find_id(@book)), method: :post, remote: true ,class: "btn btn-primary btn-round btn-white" %>
           <% end %>
         </div>
       </div>
