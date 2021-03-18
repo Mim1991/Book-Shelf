@@ -1,0 +1,19 @@
+.author {
+  span {
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  small {
+    color: $gray-500;
+  }
+}
+
+.message-container {
+  display: flex;
+}
+
+.message-headline {
+  display: flex;
+  flex-direction: column;
+}

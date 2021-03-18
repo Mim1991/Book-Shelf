@@ -49,7 +49,10 @@ const initNavbarBrowse = () => {
     navInit();
   }
 
-  if (window.location.pathname === "/activities") {
+  if (
+    window.location.pathname === "/activities" ||
+    window.location.pathname.indexOf("/chatrooms") > -1
+  ) {
     navOne.style.marginRight = "inherit";
     navTwo.style.marginRight = "inherit";
     navThree.style.marginRight = "inherit";

@@ -25,6 +25,7 @@ import { initNavbarBrowse } from "../pages/browse_navbar";
 import { initGlider } from "../components/glider";
 import { initButtons } from "../components/buttons";
 import { initUserShow } from "../pages/user_show";
+import { initChatroomCable } from "../channels/chatroom_channel";
 
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
@@ -32,4 +33,5 @@ document.addEventListener("turbolinks:load", () => {
   initGlider();
   initButtons();
   initUserShow();
+  initChatroomCable();
 });
