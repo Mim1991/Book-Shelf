@@ -2,52 +2,72 @@
   <%= render "shared/search_books" %>
   <%= render partial: "shared/navbar", locals: {navbar:"home-navbar"} %>
 
-  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-    <div class="search-results book-show-layout book-index-text">
-    <div class="image-headline">
-      <%= image_tag("world.png", class:"travel-image travel-img-left")%>
-      <h3><em>"IF YOU DON'T LIKE TO READ, YOU HAVEN'T FOUND THE RIGHT BOOK YET"</em> <br> - J.K Rowling</h3>
-      <%= image_tag("world3.png", class:"travel-image travel-img-right")%>
+  
+  <div class="search-results book-show-layout book-index-text">
+    <div class="index-containers text-center">
+      <h2 class="mt-4">The ABCs of TBC</h2>
+      <p>This was a small project to help people connect with one another through books.
+       <br> Lockdown has reinvigorated the joy of reading for many and sparked conversations and interests in areas we were otherwise too busy to explore. <br>
+      What The Book Club aims to do is help you discover new books, ignite conversations and convert non-readers into readers!</p>
     </div>
-    <div class="featured-title">
-        <h2>Books of The Month</h2>
-        <p>A selection of popular books that have most recently been added to people's library. </p>
+
+    <div class="index-containers ic-row1 mt-5">
+
+      <div class="index-container">
+        <div class="search-img">
+          <%= image_tag("search-img.png")%>
+        </div>
+        <div class="search-explain">
+          <h3 class="text-center">Get Lost In A New Book</h3>
+          <p class="text-center">Feel like discovering something new to read? Search for new books to find out more including ratings, reviews, summaries and importantly how long it will take you to read!</p>
+        </div>
       </div>
-      <div class="carousel-inner carousel-card-style">
-        <% @book_parsed.reverse.each_with_index do |book,i|%>
-          <div class="carousel-item <%= "active " if i==0 %>"">
-            <div class="carousel-layout book-search-card">
-              <div class="search-img">
-                <%= link_to book_path(book["id"]) do %>
-                  <% if book["volumeInfo"]["imageLinks"] != nil %>
-                    <%= image_tag(find_image(book), class:"book-cover-search")%>
-                  <% else %>
-                    <%= image_tag("no_image.jpg", class:"book-cover-search")%>
-                  <% end %>
-                <% end %>
-              </div>
-              <div class="search-text">
-                <div class="book-headline">
-                  <%= link_to book_path(book["id"]) do %>
-                    <h3><%= find_title(book) %> </h3>
-                  <% end %>
-                  <p><em><%= find_author(book) %></em></p>
-                  <p><%= Sanitize.fragment(shorten_sentence(find_description(book), 447)) %></p>
-                </div>
-              </div>
-            </div>
+
+      <div class="index-container">
+        <div class="libraries-img">
+          <div class="search-img">
+            <%= image_tag("library-img.png")%>
           </div>
-        <% end%>
+        </div>
+        <div class="libraries-explain">
+          <h3 class="text-center">Browse A Bookshelf</h3>
+          <p class="text-center">Everyone has their own virtual bookshelf. You can add books to it and arrange it based on how much you enjoyed a book. Best of all, you can see what you're friends have been into lately and get new recommendations</p>
+        </div>
       </div>
+
+
     </div>
-    <a class="carousel-control-prev arrow-style" href="#carouselExampleControls" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next arrow-style arrow-right" href="#carouselExampleControls" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+
+    <div class="index-containers ic-row1 mt-5">
+
+      <div class="index-container">
+        <div class="search-img">
+          <%= image_tag("chatroom-img.png")%>
+        </div>
+        <div class="search-explain">
+          <h3 class="text-center">Spark A Discussion</h3>
+          <p class="text-center">Join a live chatroom to debate, discuss and connect with other people. A great spot to fellow book lovers and pick up a new recommendation! </p>
+        </div>
+      </div>
+
+      <div class="index-container">
+        <div class="libraries-img">
+          <div class="search-img">
+            <%= image_tag("review-img.png")%>
+          </div>
+        </div>
+        <div class="libraries-explain">
+          <h3 class="text-center">Share Your Thoughts</h3>
+          <p class="text-center">Don't wait to see your friends to hear their thoughts on that book you've been interested in. Read reeviews left by your friends and share your own thoughts for others</p>
+        </div>
+      </div>
+
+
+    </div>
+    
+    <div class="index-containers ic-row3"></div>
+
+
   </div>
 
   

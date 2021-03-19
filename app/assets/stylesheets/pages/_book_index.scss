@@ -79,36 +79,27 @@
   padding-left: 50px;
 }
 
-.travel-image {
-  width: 150px;
-}
-
-.travel-img-left {
-  width: 208px;
-}
-.travel-img-right {
-  width: 206px;
-}
-
 .book-index-text {
   margin-top: 100px;
 }
 
-.image-headline {
+//
+.ic-row1 {
   display: flex;
-  width: 90%;
-  justify-content: center;
+  width: 100%;
+  justify-content: space-around;
+  img {
+    width: 90%;
+  }
+}
+
+.index-container {
+  width: 42.5%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  margin: 25px 0px 50px 0px;
-  background-color: white;
-  border-radius: 10px;
-  padding-right: 13px;
   h3 {
     font-family: $font-bold;
-    color: $green;
-    font-size: 1.5rem;
-    text-align: center;
-    width: 55%;
-    padding-right: 10px;
+    margin-top: 10px;
   }
 }

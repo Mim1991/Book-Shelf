@@ -3,12 +3,6 @@ class BooksController < ApplicationController
   require 'json'
 
   def index
-    books = Book.last(5)
-    @book_parsed = []
-    books.each { |book| @book_parsed << find_book(book.code) }
-    top_books = Book.where("shelf = ?", "Top Shelf").sample(5)
-    @top_books = []
-    top_books.each { |book| @top_books << find_book(book.code) }
   end
 
   def show
