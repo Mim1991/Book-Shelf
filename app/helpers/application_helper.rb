@@ -1,6 +1,5 @@
 module ApplicationHelper
   def shorten_sentence(text, number)
-    # shortened_text = `#{text.to_s.split(".").first(8).join(".")}.`
     if !text.nil? && text.length > number
       text[0..number] + "..."
     else

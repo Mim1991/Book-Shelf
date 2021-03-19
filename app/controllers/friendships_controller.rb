@@ -1,7 +1,7 @@
 class FriendshipsController < ApplicationController
+  before_action :find_user, only: [:index, :create, :add, :reject, :remove, :requests]
   def index
     @users = User.all
-    @user = current_user
     @friends = @user.friends
     @requests = @user.requested_friends
     @pending = @user.pending_friends
@@ -11,40 +11,36 @@ class FriendshipsController < ApplicationController
   end
 
   def create
-    @user = current_user
     friend = User.find(params[:user_id])
     @user.friend_request(friend)
-
-    
   end
 
   def add
-    @user = current_user
     friend = User.find(params[:user_id])
     @user.accept_request(friend)
-
     redirect_to friendships_requests_path
   end
 
   def reject
-    @user = current_user
     friend = User.find(params[:user_id])
     @user.decline_request(friend)
-
     redirect_to friendships_path
   end
 
   def remove
-    @user = current_user
     friend = User.find(params[:user_id])
     @user.remove_friend(friend)
-
     redirect_to friendships_path
   end
 
   def requests
-    @user = current_user
     @requests = @user.requested_friends
     @pending = @user.pending_friends
+  end
+
+  private
+  
+  def find_user
+    @user = current_user
   end
 end

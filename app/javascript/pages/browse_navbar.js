@@ -7,14 +7,14 @@ const initNavbarBrowse = () => {
   const searchResults = document.querySelector(".wrapper-index");
   const tableCarousel = document.querySelector(".table-carousel");
 
-  function navInit() {
+  const navInit = () => {
     navBars.forEach((bar) => {
       if (searchResults) {
         const distance = searchResults.offsetHeight;
         bar.style.height = distance - 50 + "px";
       }
     });
-  }
+  };
 
   function navLibrary() {
     const distance = tableCarousel.offsetTop + tableCarousel.offsetHeight;

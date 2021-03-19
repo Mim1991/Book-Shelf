@@ -22,7 +22,6 @@ const initUserShow = () => {
 
   const moveToShelf = (event, shelf) => {
     const bookSelector = event.parentElement.parentElement;
-    console.dir(event);
     shelf.prepend(bookSelector);
   };
 

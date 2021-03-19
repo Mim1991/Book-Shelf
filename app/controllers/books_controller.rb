@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :find_book, only: [:update, :destroy]
   require 'net/http'
   require 'json'
 
@@ -6,7 +7,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = find_book(params[:id])
+    @book = find_book_by_name(params[:id])
     @friends_book = Book.where("code= ?", params[:id])
     @user_books = Book.where("user_id=?", current_user.id)
   end
@@ -16,21 +17,18 @@ class BooksController < ApplicationController
     @book.user = current_user
     if @book.save
       @book.create_activity :create, owner: current_user
-      # redirect_to user_path(current_user)
     end
   end
 
   def update
-    @book = Book.find(params[:id])
     if @book.update(book_params)
       @book.create_activity :update, owner: current_user
-      # redirect_to user_path(current_user)
     end
   end
 
   def search
     @text = params[:books]
-    @books = find_books(params[:books])
+    @books = find_books_by_code(params[:books])
     @user_books = Book.where("user_id =?", current_user.id)
     unless @books
       flash[:alert] = 'Book not found'
@@ -39,7 +37,6 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book = Book.find(params[:id])
     @book.destroy
   end
 
@@ -49,20 +46,21 @@ class BooksController < ApplicationController
     params.permit(:shelf)
   end
 
-  def find_book(name)
+  def find_book
+    @book = Book.find(params[:id])
+  end
+
+  def find_book_by_name(name)
     url = "https://www.googleapis.com/books/v1/volumes/#{name}"
     uri = URI(url)
     response = Net::HTTP.get(uri)
     JSON.parse(response)
   end
 
-  def find_books(name)
+  def find_books_by_code(name)
     url = "https://www.googleapis.com/books/v1/volumes?q=#{name}"
     uri = URI(url)
     response = Net::HTTP.get(uri)
     JSON.parse(response)
   end
-
-  
-  
 end

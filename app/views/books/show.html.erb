@@ -11,7 +11,7 @@
           <%= image_tag(find_image(@book), class:"book-show-img")%>
         </div>
         <div class="book-text-details">
-          <p><%= find_type(@book) %> : <%= find_isbn(@book) %></p>
+          <p><%= find_isbn_type(@book, "type") %> : <%= find_isbn_type(@book, "identifier") %></p>
           <p>Pages: <%= @book["volumeInfo"]["pageCount"] %></p>
           
           <% if !find_average_rating(@book).nil? %>

@@ -4,29 +4,18 @@ const initGlider = () => {
   const gliderThree = document.querySelector(".glider-three");
   const gliderFour = document.querySelector(".glider-four");
 
-  if (gliderOne) {
-    new Glider(gliderOne, {
-      draggable: true,
-    });
-  }
+  const newGlider = (glider) => {
+    if (glider) {
+      new Glider(glider, {
+        draggable: true,
+      });
+    }
+  };
 
-  if (gliderTwo) {
-    new Glider(gliderTwo, {
-      draggable: true,
-    });
-  }
-
-  if (gliderThree) {
-    new Glider(gliderThree, {
-      draggable: true,
-    });
-  }
-
-  if (gliderFour) {
-    new Glider(gliderFour, {
-      draggable: true,
-    });
-  }
+  newGlider(gliderOne);
+  newGlider(gliderTwo);
+  newGlider(gliderThree);
+  newGlider(gliderFour);
 };
 
 export { initGlider };

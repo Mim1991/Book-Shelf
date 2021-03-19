@@ -14,8 +14,4 @@ class UsersController < ApplicationController
       @search = User.search_by_name(params[:query])
     end
   end
-
-  def find_user(id)
-    user = users.find(id)
-  end
 end
