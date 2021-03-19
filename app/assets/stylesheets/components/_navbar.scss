@@ -1,3 +1,4 @@
+// Standard Config for navbar
 .home-navbar {
   display: flex;
   align-items: flex-start;
@@ -21,13 +22,12 @@
   right: 0;
 }
 
-.navbar-home {
+.navbar-home-position {
   top: 242px;
 }
 
 .nav-col {
-  width: 50px;
-  // height: 100vh;
+  width: $medium-size;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -42,7 +42,7 @@
   position: sticky;
   color: $black;
   font-family: $font-bold;
-  font-size: 26px;
+  font-size: 1.65rem;
 
   &:hover {
     color: $black;
@@ -53,12 +53,12 @@
 .margin-right-auto {
   margin-right: auto;
 }
-
+// Styling and positioning for individual columns
 .nav-one {
   background-color: $green;
   .nav-link-book {
     top: 10px;
-    padding-left: 151px;
+    padding-left: 188px;
     left: -59px;
   }
 }

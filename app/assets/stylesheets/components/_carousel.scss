@@ -1,6 +1,7 @@
+// Carousel Card formatting
 .carousel-card-style {
-  background: white;
-  border-radius: 10px;
+  background: $white;
+  border-radius: $border-radius-lg;
   width: 90%;
 }
 
@@ -12,10 +13,11 @@
   }
 }
 
+// Arrows Formatting, Positioning, Size and Colour for 2 carousels
 .arrow-style {
   z-index: 4;
   top: 372px;
-  height: 100px;
+  height: $large-size;
   color: $green;
 }
 
@@ -39,6 +41,7 @@
   top: 92px;
 }
 
+// Carousel Colors
 .carousel-control-prev-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%232c816d' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
 }
@@ -58,14 +61,8 @@
   }
 }
 
-.glider,
-.glider-two,
-.glider-three,
-.glider-four {
-}
-
 .carousel-seperator {
-  margin-bottom: 50px;
+  margin-bottom: $large + $small;
   .book-buttons-shelf {
     display: flex;
     justify-content: space-around;
@@ -76,7 +73,7 @@
     padding: 0px 16px;
   }
   .button-gap {
-    margin-right: 50px;
+    margin-right: $large + $small;
   }
 }
 
@@ -86,7 +83,7 @@
 }
 .book-shelf-size {
   width: 130px;
-  height: 200px;
+  height: $xl-size;
 }
 .shelf-position {
   margin-top: -29px;
@@ -104,8 +101,10 @@
 }
 
 .glider-track {
-  min-height: 200px;
+  min-height: $xl-size;
 }
+
+// Carousel button formatting
 
 .fa-arrow-circle-up {
   color: $green;
@@ -123,7 +122,7 @@
   height: 17px;
 }
 
-.table-description {
+.table-description-dflex {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -150,11 +149,11 @@
 }
 
 .edit-icon-color {
-  color: grey;
+  color: $light-black;
 }
 
 .carousel-margin-top {
-  margin-top: 50px;
+  margin-top: $large + $small;
 }
 
 .carousel-card-height {
@@ -170,11 +169,11 @@
     margin-bottom: 0;
     font-size: 0.8rem;
   }
-  .search-text {
+  .text-left-padded {
     padding-left: 0;
   }
 }
 
-.table-description > p {
+.table-description-dflex > p {
   width: 50%;
 }

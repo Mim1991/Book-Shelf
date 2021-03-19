@@ -1,11 +1,11 @@
 .list-group-item {
   border: none;
-  color: #2d2222;
+  color: $light-black;
 }
 
 .list-group-item.active {
-  background-color: #fff;
+  background-color: $white;
   border-color: initial;
-  color: #2d2222;
+  color: $light-black;
   font-weight: bold;
 }

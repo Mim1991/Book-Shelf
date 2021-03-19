@@ -34,8 +34,8 @@
                 <% end %>
                     <p><%= pluralize(result.books.count, "book")%> in their library </p> 
                     <div class="btn-actions">
-                      <%= link_to "Accept" , user_friendships_add_path(result), method: :post, class:"btn-add-friend btn-accept btn-white" %>
-                      <%= link_to "Decline" , user_friendships_reject_path(result), method: :post, class:"btn-add-friend btn-reject-friend btn-white" %>
+                      <%= link_to "Accept" , user_friendships_add_path(result), method: :post, class:"btn-success-add btn-accept btn-white" %>
+                      <%= link_to "Decline" , user_friendships_reject_path(result), method: :post, class:"btn-success-add btn-reject-friend btn-white" %>
                     </div>
                   </div>        
               </div>

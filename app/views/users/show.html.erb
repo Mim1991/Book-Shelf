@@ -21,11 +21,11 @@
 
         <div class="btn-status-show">
           <% if current_user.not_friends.include?(@user) %>
-            <%= link_to "Add Friend", user_friendships_path(@user), method: :post, class:"btn-add-friend btn-white btn-red" %> 
+            <%= link_to "Add Friend", user_friendships_path(@user), method: :post, class:"btn-success-add btn-white btn-red" %> 
           <% elsif current_user.friends_with?(@user) %>
-            <%= link_to "Unfriend", user_friendships_remove_path(@user), method: :post, class:"btn-add-friend btn-white btn-red" %>
+            <%= link_to "Unfriend", user_friendships_remove_path(@user), method: :post, class:"btn-success-add btn-white btn-red" %>
           <% elsif current_user.pending_friends.include?(@user) %>
-            <p class="btn-add-friend btn-grey btn-white"><em>Pending</em></p>
+            <p class="btn-success-add btn-grey btn-white"><em>Pending</em></p>
           <% end %>
         </div>
 
@@ -34,7 +34,7 @@
 
       <div class="featured-title carousel-seperator">
       <h2>Top Shelf</h2>
-        <div class="table-description">
+        <div class="table-description-dflex">
           <% if current_user == @user  %>
             <p>This shelf is reserved for books that you absolutely love and wouldn't hesitate to recommend to a friend.</p>
           <% else %>
@@ -117,7 +117,7 @@
 
       <div class="featured-title carousel-seperator">
         <h2>Middle Shelf</h2>
-        <div class="table-description">
+        <div class="table-description-dflex">
           <% if current_user == @user %>
             <p>This shelf is reserved for books that you've read and enjoyed but didn't necessarily leave a lasting impact on you.</p>
           <% else %>
@@ -169,10 +169,10 @@
                     <%= link_to book_path(book, :shelf => "Top Shelf"), class:"top-book-btn", remote: true, method: :patch do %>
                       <%= image_tag("Top.png", class:"button-shelf")%>
                     <% end %>
-                    <%= link_to book_path(book, :shelf => "Bottom Shelf"), class:"top-book-btn", remote: true, method: :patch do %>
+                    <%= link_to book_path(book, :shelf => "Bottom Shelf"), class:"bottom-book-btn", remote: true, method: :patch do %>
                       <%= image_tag("Bottom.png", class:"button-shelf")%>
                     <% end %>
-                    <%= link_to book_path(book, :shelf => "Table"), class:"top-book-btn", remote: true, method: :patch do %>
+                    <%= link_to book_path(book, :shelf => "Table"), class:"table-book-btn", remote: true, method: :patch do %>
                       <%= image_tag("Table.png", class:"button-shelf")%>
                     <% end %>
                   <% else %>
@@ -192,7 +192,7 @@
 
       <div class="featured-title carousel-seperator">
         <h2>Bottom Shelf</h2>
-        <div class="table-description">
+        <div class="table-description-dflex">
           <% if current_user == @user %>
             <p>No book wants to be on this shelf. Save this space for books you've read and want to actively discourage others from reading.</p>
           <% else %>
@@ -272,7 +272,7 @@
         <% else %>
           <h2>On Their Table</h2>
         <% end %>
-        <div class="table-description">
+        <div class="table-description-dflex">
           <% if current_user == @user %>
             <p>Your table is for books that you've found and want to save for later or for books youv'e read but haven't decided on the shelf yet.</p>
           <% else %>

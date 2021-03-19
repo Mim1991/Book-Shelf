@@ -23,7 +23,7 @@
                       <% end %>
                     <% end %>
                   </div>
-                    <div class="search-text">
+                    <div class="text-left-padded">
                       <div class="book-headline">
                         <%= link_to book_path(book["id"]) do %>
                           <h3><%= shorten_title(find_title(book), 25)  %> </h3>
@@ -65,7 +65,7 @@
                         <% end %>
                       <% end %>
                     </div>
-                    <div class="search-text">
+                    <div class="text-left-padded">
                       <div class="book-headline">
                         <%= link_to book_path(book["id"]) do %>
                           <h3><%= shorten_title(find_title(book), 25) %> </h3>
@@ -127,7 +127,7 @@
 
           <div>
             <%= link_to chatroom_path(1) do %>
-              <p class="btn-home btn-primary">Enter the Chat Room</p>
+              <p class="btn-large btn-primary">Enter the Chat Room</p>
             <% end %>
           </div>
 

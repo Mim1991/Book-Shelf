@@ -1,114 +1,20 @@
-.wrapper-index {
+// About Page Style
+.ic-row1 {
+  display: flex;
   width: 100%;
-  height: auto;
-  min-height: 100%;
-  margin: 0px auto;
+  justify-content: space-around;
+  img {
+    width: 90%;
+  }
+}
+
+.index-container {
+  width: 42.5%;
   display: flex;
   flex-direction: column;
-  // min-height: 100vh;
-  // position: relative;
-  // overflow: hidden;
-}
-
-.logo-small {
-  padding-top: 2.5%;
-  padding-left: 3%;
-  font-size: 4rem;
-  color: $black;
-  font-family: $font-bold;
-  line-height: 4rem;
-  &:hover {
-    text-decoration: none;
-    color: $black;
-  }
-}
-
-.logo-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  p {
-    margin-bottom: 0;
-    font-family: $font-reg;
-    margin-right: 3%;
-    // margin-top: 4%;
-  }
-}
-
-.fa-heart {
-  color: $purple;
-  margin-right: 5px;
-}
-
-.container-search {
-  // margin-left: 50px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: $light-black;
-  justify-content: flex-start;
-  // opacity: 0;
-  position: absolute;
-  top: 117px;
-  form {
-    width: 100%;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .form-group {
-    margin-bottom: 0;
-    padding: 15px 350px 15px 200px;
-    width: 100%;
-  }
-  input {
-    border-radius: 30px;
-  }
-}
-
-.container-search-home {
-  top: 174px;
-}
-
-.featured-title {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-left: 50px;
-}
-
-.travel-image {
-  width: 150px;
-}
-
-.travel-img-left {
-  width: 208px;
-}
-.travel-img-right {
-  width: 206px;
-}
-
-.book-index-text {
-  margin-top: 100px;
-}
-
-.image-headline {
-  display: flex;
-  width: 90%;
-  justify-content: center;
   align-items: center;
-  margin: 25px 0px 50px 0px;
-  background-color: white;
-  border-radius: 10px;
-  padding-right: 13px;
   h3 {
     font-family: $font-bold;
-    color: $green;
-    font-size: 1.5rem;
-    text-align: center;
-    width: 55%;
-    padding-right: 10px;
+    margin-top: $small;
   }
 }

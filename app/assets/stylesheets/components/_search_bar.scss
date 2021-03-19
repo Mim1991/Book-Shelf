@@ -1,0 +1,40 @@
+.container-search {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: $light-black;
+  justify-content: flex-start;
+  position: absolute;
+  top: 117px;
+  form {
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .form-group {
+    margin-bottom: 0;
+    padding: 15px 350px 15px 200px;
+    width: 100%;
+  }
+  input {
+    border-radius: $border-rounded;
+  }
+}
+
+.container-search-home {
+  top: 174px;
+}
+
+.featured-title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 50px;
+}
+
+.book-index-text {
+  margin-top: $x-large;
+}

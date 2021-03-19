@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <div class="<%= navbar %>">  
     <div class="nav-col nav-one">
-      <%= link_to "Search Books", books_path, class:"nav-link-book"%>
+      <%= link_to "About Book Club", books_path, class:"nav-link-book"%>
     </div>
     <div class="nav-col nav-two">
       <%= link_to "Your Library", user_path(current_user), class: "nav-link-book" %>

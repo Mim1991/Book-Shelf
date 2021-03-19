@@ -2,8 +2,9 @@
   <%= render "shared/search_books" %>
   <%= render partial: "shared/navbar", locals: {navbar:"home-navbar"} %>
   <div class="activities-layout">
+    <h2>Welcome to the Chat Room</h2>
     <div class="d-flex chatroom-container">
-      <div class="list-group w-200px bg-white br-light">
+      <div class="list-group message-width bg-white br-light">
         <% @chatrooms.each do |chatroom| %>
           <%= link_to "##{chatroom.name}", chatroom_path(chatroom), class: "list-group-item #{'active' if chatroom == @chatroom}" %>
         <% end %>

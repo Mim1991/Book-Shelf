@@ -1,3 +1,4 @@
+// Search Results Card Formatting
 .book-search-card {
   width: 95%;
   height: 280px;
@@ -5,32 +6,33 @@
   align-items: center;
   justify-content: flex-start;
   margin: 28px 0px;
-  background-color: white;
-  box-shadow: 0px 8px 8px 8px #00000003;
+  background-color: $white;
+  box-shadow: $card-shadow;
   z-index: 4;
-  border-radius: 10px;
+  border-radius: $border-radius-lg;
 }
 
 .book-cover-search {
-  width: 200px;
+  width: $x-large * 2;
   height: 280px;
   object-fit: cover;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-left-radius: $border-radius-lg;
+  border-bottom-left-radius: $border-radius-lg;
 }
 
-.index {
+// Removing Navbar Overlay
+.z-index-high {
   z-index: 3;
 }
 
-.search-text {
+.text-left-padded {
   display: flex;
   height: 100%;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
   margin-left: 28px;
-  padding: 20px 20px;
+  padding: $medium $medium;
   h3 {
     font-family: $font-bold;
   }
@@ -44,15 +46,10 @@
 
 .book-info-text {
   font-size: 1rem;
-  height: 98px;
+  height: $x-large;
   overflow: hidden;
 }
 
 .small {
   font-size: 30px;
-}
-
-.opacity {
-  opacity: 1 !important;
-  padding: 0 !important;
 }

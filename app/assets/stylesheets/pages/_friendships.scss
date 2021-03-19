@@ -15,7 +15,7 @@
   flex-direction: column;
   align-items: flex-start;
   p {
-    margin-left: 20px;
+    margin-left: $medium;
     font-family: $font-light;
     font-style: italic;
   }
@@ -25,17 +25,17 @@
 }
 
 .friend-image {
-  width: 100px;
-  height: 100px;
+  width: $avatar-large;
+  height: $avatar-large;
 }
 
 .friend-background {
   background-color: $cream;
-  padding: 10px 0px 0px 0px;
+  padding-top: $small;
 }
 
 .seperator-margin {
-  margin: 10px 0px 10px 20px;
+  margin: $small 0px $small $medium;
 }
 
 .search-friends-container {
@@ -62,12 +62,12 @@
     align-items: center;
   }
   input {
-    border-radius: 50px;
+    border-radius: $border-rounded;
   }
 }
 
 .search-headline {
-  margin-left: 20px;
+  margin-left: $medium;
   width: 100%;
   a,
   h3,

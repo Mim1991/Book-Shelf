@@ -1,15 +1,17 @@
-.btn-home {
+// For Home Page and Chatroom
+.btn-large {
   border-radius: 45px;
   padding: 15px 30px 15px 20px;
   font-family: $font-bold;
   box-shadow: $btn-shadow;
   width: 100%;
-  margin-top: 20px;
-  font-size: 22px;
+  margin-top: $medium;
+  font-size: 1.7rem;
 }
 
-.btn-round {
-  border-radius: 30px;
+// For All Regular Buttons
+.btn-round-medium {
+  border-radius: $border-rounded;
   font-family: $font-bold;
   box-shadow: $btn-shadow;
   width: 170px;
@@ -19,20 +21,22 @@
   color: white !important;
 }
 
-.btn-add-friend {
+// Default Colour to Green
+.btn-success-add {
   background-color: $green;
-  border-radius: 4px;
+  border-radius: $border-radius;
   padding: 4px 30px;
   font-family: $font-bold;
   a {
-    color: white;
+    color: $white;
   }
 }
 
+// Override with Red
 .btn-reject-friend {
   background-color: $red;
   width: 45%;
-  padding: 8px;
+  padding: $small;
 }
 .btn-actions {
   display: flex;
@@ -44,18 +48,20 @@
   }
 }
 
+// Accept Button for JS Selector
 .btn-accept {
   width: 45%;
   margin-right: 5%;
-  padding: 8px;
+  padding: $small;
 }
 
-.btn-long {
+// Button for Submitting Reviews, Longer Forms
+.btn-long-reviews {
   width: 100%;
   font-family: $font-bold;
   color: white;
   background-color: $green;
-  margin-bottom: 8px;
+  margin-bottom: $small;
 }
 
 .btn-grey {
@@ -65,4 +71,8 @@
 
 .btn-red {
   background-color: $red;
+}
+
+.btn-status-show {
+  margin-right: 8px;
 }
