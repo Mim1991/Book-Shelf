@@ -1,6 +1,6 @@
 <div class="wrapper-index">
   <%= render "shared/search_books" %>
-  <%= render "shared/navbar" %>
+  <%= render partial: "shared/navbar", locals: {navbar:"home-navbar"} %>
   <div class="search-results">
     <h2>Results for "<%= capitalise(@text) %>" </h2>
     <% @books["items"].each do |book| %>

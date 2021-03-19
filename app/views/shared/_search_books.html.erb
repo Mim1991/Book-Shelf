@@ -3,16 +3,6 @@
   <p><i class="fas fa-heart"></i> <%= current_user.first_name %>, welcome to the Book Club</p>
 </div>
 
-<div class="container-search">  
-  <% if flash[:alert] %>
-    <div class="alert alert-warning"><%= flash[:alert] %></div>
-  <% end %>
-  <%= form_with(url: search_path, method: 'get', local: true) do %>
-    <div class="form-group">            
-        <% label_tag :books, 'Search for a book '%>
-        <%= text_field_tag :books, nil, placeholder: 'Search by title, author, ISBN etc.', class: 'form-control' %>
-    </div>
-      <% button_tag 'Search', class: 'btn btn-success btn-block' %>
-  <% end %>
+<%= render partial: "shared/search", locals: { search_class: "container-search" } %>
   
-</div>
+

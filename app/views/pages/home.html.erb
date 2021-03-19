@@ -2,6 +2,9 @@
   <div class="home-logo">
     <h1>BOOK CLUB</h1>
   </div>
+
+  <%= render partial: "shared/search", locals: { search_class: "container-search container-search-home" } %>
+  
   <div class="home-info">
     <%= render "shared/book_home" %>
     <div class="home-about">
@@ -13,6 +16,6 @@
         <h4 class="btn-home btn-primary">Start Browsing </h4>
       <% end %>
     </div>
-    <%= render "shared/navbar" %>
+    <%= render partial: "shared/navbar", locals: {navbar:"home-navbar navbar-home"} %>
   </div>
 </div> 

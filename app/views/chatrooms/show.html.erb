@@ -1,6 +1,6 @@
 <div class="wrapper-index">
   <%= render "shared/search_books" %>
-  <%= render "shared/navbar" %>
+  <%= render partial: "shared/navbar", locals: {navbar:"home-navbar"} %>
   <div class="activities-layout">
     <div class="d-flex chatroom-container">
       <div class="list-group w-200px bg-white br-light">

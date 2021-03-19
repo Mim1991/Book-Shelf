@@ -1,6 +1,6 @@
 <div class="wrapper-index">
   <%= render "shared/search_books" %>
-  <%= render "shared/navbar" %>
+  <%= render partial: "shared/navbar", locals: {navbar:"home-navbar"} %>
 
   <div class="search-results book-show-layout">
     <div class="book-show-top card-shadow">
