@@ -22,9 +22,9 @@
           <% end %>
 
           <% if book_match(@user_books, @book) %>
-            <p class="btn btn-round btn-grey btn-white">In your library</p>
+            <p class="btn btn-round-medium btn-grey btn-white">In your library</p>
           <% else %>
-            <%= link_to "Add To Your Library", books_path(param1: find_title(@book), param2: find_author(@book), param3: find_id(@book)), method: :post, remote: true ,class: "btn btn-primary btn-round btn-white" %>
+            <%= link_to "Add To Your Library", books_path(param1: find_title(@book), param2: find_author(@book), param3: find_id(@book)), method: :post, remote: true ,class: "btn btn-primary btn-round-medium btn-white" %>
           <% end %>
         </div>
       </div>

@@ -1,3 +1,4 @@
+// Review Page
 .review-link {
   width: 100%;
   display: flex;
@@ -17,9 +18,9 @@
   align-items: flex-start;
   justify-content: space-around;
   width: 48%;
-  background-color: white;
-  padding: 20px 40px;
-  border-radius: 8px;
+  background-color: $white;
+  padding: $medium $large;
+  border-radius: $border-radius-lg;
   margin-bottom: 3%;
   box-shadow: $card-shadow;
   p,
@@ -34,18 +35,18 @@
 }
 
 .review-height {
-  min-height: 150px;
+  min-height: $large-size + $medium-size;
 }
 
 .review-headline {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom: 20px;
+  margin-bottom: $medium;
   width: 100%;
   h3 {
     font-family: $font-bold;
-    margin-left: 20px;
+    margin-left: $medium;
   }
 }
 
@@ -60,7 +61,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin-top: 20px;
+  margin-top: $medium;
   p {
     font-family: $font-reg;
     margin-bottom: 0;
@@ -87,7 +88,7 @@
 }
 
 .review-image {
-  width: 50px;
-  height: 50px;
+  width: $avatar-small;
+  height: $avatar-small;
   border-radius: 50%;
 }

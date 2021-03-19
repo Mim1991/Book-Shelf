@@ -15,18 +15,18 @@
               <% end %>
             </div>
 
-            <div class="search-text">
+            <div class="text-left-padded">
               <div class="book-headline">
                 <h3><%= find_title(book) %></h3>
                 <p><em><%= find_author(book) %></em></p> 
                 <p class="book-info-text"><%= shorten_sentence(find_description(book), 447) %></p>
               </div>
 
-              <div class="index">
+              <div class="z-index-high">
                 <% if book_match(@user_books, book) %>
-                  <p class="btn btn-round btn-grey btn-white">In your library</p>
+                  <p class="btn btn-round-medium btn-grey btn-white">In your library</p>
                 <% else %>
-                  <%= link_to "Add To Your Library", books_path(param1: find_title(book), param2: book["volumeInfo"]["authors"], param3: find_id(book)), method: :post, remote: true ,class: "btn btn-primary btn-round btn-white btn-add" %> 
+                  <%= link_to "Add To Your Library", books_path(param1: find_title(book), param2: book["volumeInfo"]["authors"], param3: find_id(book)), method: :post, remote: true ,class: "btn btn-primary btn-round-medium btn-white btn-add" %> 
                 <% end %>
               </div>
             </div>

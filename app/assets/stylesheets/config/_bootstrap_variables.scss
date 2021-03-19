@@ -1,8 +1,3 @@
-// This is where you override default Bootstrap variables
-// 1. All Bootstrap variables are here => https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
-// 2. These variables are defined with default value (see https://robots.thoughtbot.com/sass-default)
-// 3. You can override them below!
-
 // General style
 $font-family-sans-serif: $body-font;
 $headings-font-family: $headers-font;
@@ -18,10 +13,28 @@ $danger: $red;
 $warning: $orange;
 
 // Buttons & inputs' radius
-$border-radius: 2px;
-$border-radius-lg: 2px;
+$border-radius: 5px;
+$border-radius-lg: 10px;
 $border-radius-sm: 2px;
+$border-rounded: 40px;
 
-// Override other variables below!
+// Spacing
+$x-small: 5px;
+$small: 10px;
+$medium: 20px;
+$large: 40px;
+$x-large: 100px;
+
+// Widths & Heights
+$xl-size: 200px;
+$large-size: 100px;
+$medium-size: 50px;
+
+// Images
+$avatar-small: 50px;
+$avatar-large: 100px;
+
+// Shadows
 $btn-shadow: 0px 3px 10px 2px #0000001f;
 $card-shadow: 0px 8px 8px 8px #00000003;
+$heavy-shadow: 13px 13px 8px 0px rgba(151, 146, 153, 0.6);

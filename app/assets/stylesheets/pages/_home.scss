@@ -12,7 +12,6 @@ html {
 body {
   background-color: $cream;
   min-height: 100%;
-  // overflow: auto;
   position: relative;
   margin: 0px auto;
   padding: 0px auto;
@@ -38,6 +37,15 @@ h4 {
   color: $black;
 }
 
+.wrapper-index {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+}
+
 .home-wrapper {
   display: flex;
   flex-direction: column;
@@ -45,18 +53,9 @@ h4 {
   // padding: 2% 2.5%;
 }
 
-.home-logo {
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-  padding-left: 3%;
-  padding-top: 4%;
-  h1 {
-    font-size: 130px;
-    letter-spacing: -3px;
-    font-weight: 900;
-    line-height: 120px;
-  }
+.fa-heart {
+  color: $purple;
+  margin-right: 5px;
 }
 
 .home-info {

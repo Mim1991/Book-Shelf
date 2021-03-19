@@ -1,0 +1,37 @@
+.logo-small {
+  padding-top: 2.5%;
+  padding-left: 3%;
+  font-size: 4rem;
+  color: $black;
+  font-family: $font-bold;
+  line-height: 4rem;
+  &:hover {
+    text-decoration: none;
+    color: $black;
+  }
+}
+
+.logo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  p {
+    margin-bottom: 0;
+    font-family: $font-reg;
+    margin-right: 3%;
+  }
+}
+
+.home-logo {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  padding-left: 3%;
+  padding-top: 4%;
+  h1 {
+    font-size: 130px;
+    letter-spacing: -3px;
+    font-weight: 900;
+    line-height: 120px;
+  }
+}

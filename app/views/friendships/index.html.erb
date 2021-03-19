@@ -41,7 +41,7 @@
                       <% elsif @user.friends_with?(result) %>
                         <p>Friends</p>
                       <% else %>
-                        <%= link_to "Add Friend", user_friendships_path(result), method: :post, remote: true ,class:"btn-add-friend btn-white" %> 
+                        <%= link_to "Add Friend", user_friendships_path(result), method: :post, remote: true ,class:"btn-success-add btn-white" %> 
                       <% end %>
                   </div>        
               </div>

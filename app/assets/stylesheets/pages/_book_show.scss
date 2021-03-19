@@ -13,11 +13,10 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
-  padding: 40px 0px 40px 16px;
-  background-color: white;
-  // margin-right: 50px;
+  padding: $large 0px $large 16px;
+  background-color: $white;
   width: 100%;
-  border-radius: 10px;
+  border-radius: $border-radius-lg;
 }
 
 .card-shadow {
@@ -46,7 +45,7 @@
   flex-direction: column;
   align-items: flex-start;
   width: 85%;
-  padding-right: 40px;
+  padding-right: $large;
   h2 {
     font-size: 3rem;
   }
@@ -61,7 +60,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  height: 200px;
+  height: $xl-size;
 }
 
 .book-show-desc {
@@ -81,7 +80,7 @@
 }
 
 .show-image {
-  height: 200px;
+  height: $xl-size;
 }
 .book-show-img {
   width: 120px;

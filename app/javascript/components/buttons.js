@@ -1,6 +1,6 @@
 const initButtons = () => {
   const btnAdd = document.querySelectorAll(".btn-add");
-  const btnAddFriend = document.querySelectorAll(".btn-add-friend");
+  const btnSendRequest = document.querySelectorAll(".btn-send");
 
   const buttonSelected = (element, color, text) => {
     element.style.backgroundColor = color;
@@ -13,7 +13,7 @@ const initButtons = () => {
       buttonSelected(this, "#808080", "Added!");
     })
   );
-  btnAddFriend.forEach((btn) =>
+  btnSendRequest.forEach((btn) =>
     btn.addEventListener("click", function () {
       buttonSelected(this, "#808080", "Request Sent!");
     })
