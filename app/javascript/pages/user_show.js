@@ -4,18 +4,20 @@ const initUserShow = () => {
   const moveMiddleBook = document.querySelectorAll(".middle-book-btn");
   const moveBottomBook = document.querySelectorAll(".bottom-book-btn");
   const moveTableBook = document.querySelectorAll(".table-book-btn");
-  const gliderOne = document.querySelector(".glider-select-one").children[0]
-    .children[0];
-  const gliderTwo = document.querySelector(".glider-select-two").children[0]
-    .children[0];
-  const gliderThree = document.querySelector(".glider-select-three").children[0]
-    .children[0];
-  const gliderFour = document.querySelector(".glider-select-four").children[0]
-    .children[0];
+  const gliderOne = document.querySelector(".glider-select-one");
+  const gliderTwo = document.querySelector(".glider-select-two");
+  const gliderThree = document.querySelector(".glider-select-three");
+  const gliderFour = document.querySelector(".glider-select-four");
 
   const deleteBookFromShelf = (event) => {
     const bookSelector = event.currentTarget.parentElement.parentElement;
     bookSelector.style.display = "none";
+  };
+
+  const findAppendPosition = (glider) => {
+    if (glider) {
+      return glider.children[0].children[0];
+    }
   };
 
   const moveToShelf = (event, shelf) => {
@@ -30,22 +32,22 @@ const initUserShow = () => {
 
   moveTopBook.forEach((book) =>
     book.addEventListener("click", function () {
-      moveToShelf(this, gliderOne);
+      moveToShelf(this, findAppendPosition(gliderOne));
     })
   );
   moveMiddleBook.forEach((book) =>
     book.addEventListener("click", function () {
-      moveToShelf(this, gliderTwo);
+      moveToShelf(this, findAppendPosition(gliderTwo));
     })
   );
   moveBottomBook.forEach((book) =>
     book.addEventListener("click", function () {
-      moveToShelf(this, gliderThree);
+      moveToShelf(this, findAppendPosition(gliderThree));
     })
   );
   moveTableBook.forEach((book) =>
     book.addEventListener("click", function () {
-      moveToShelf(this, gliderFour);
+      moveToShelf(this, findAppendPosition(gliderFour));
     })
   );
 };

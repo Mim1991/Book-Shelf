@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     post "/friendships/remove", to: "friendships#remove"
   end
 
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
   resources :activities
   resources :users, only: [:index]
   resources :friendships, only: [:index]
