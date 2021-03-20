@@ -16,20 +16,20 @@ const initNavbarBrowse = () => {
     });
   };
 
-  function navLibrary() {
+  const navLibrary = () => {
     const distance = tableCarousel.offsetTop + tableCarousel.offsetHeight;
     navBars.forEach((bar) => {
       console.log(distance);
       bar.style.height = "1900px";
     });
-  }
+  };
 
   if (
     window.location.pathname.indexOf("/books") > -1 ||
     window.location.pathname.indexOf("/search") > -1
   ) {
     navOne.style.marginRight = "auto";
-    navInit();
+    window.addEventListener("load", navInit());
   }
 
   if (window.location.pathname.indexOf("/users/") > -1) {
@@ -46,7 +46,7 @@ const initNavbarBrowse = () => {
     navOne.style.marginRight = "inherit";
     navTwo.style.marginRight = "inherit";
     navThree.style.marginRight = "auto";
-    navInit();
+    window.addEventListener("load", navInit());
   }
 
   if (
@@ -57,7 +57,7 @@ const initNavbarBrowse = () => {
     navTwo.style.marginRight = "inherit";
     navThree.style.marginRight = "inherit";
     navFour.style.marginRight = "auto";
-    navInit();
+    window.addEventListener("load", navInit());
   }
 };
 

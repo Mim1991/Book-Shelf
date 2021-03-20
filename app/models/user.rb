@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :books, dependent: :destroy
+  has_many :messages, dependent: :destroy
   has_one_attached :photo, dependent: :destroy
   has_friendship
 
@@ -32,12 +33,6 @@ class User < ApplicationRecord
 
   def invite_friend(user)
     friend_request(user)
-  end
-
-  def find_user(id)
-    user = []
-    user << User.find(id)
-    user 
   end
 
   def not_friends
