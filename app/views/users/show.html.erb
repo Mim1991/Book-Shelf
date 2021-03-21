@@ -23,7 +23,7 @@
 
         <div class="btn-status-show">
           <% if current_user.not_friends.include?(@user) %>
-            <%= link_to "Add Friend", user_friendships_path(@user), method: :post, class:"btn-success-add btn-white btn-red" %> 
+            <%= link_to "Add Friend", user_friendships_path(@user), remote: true ,method: :post, class:"btn-success-add btn-white btn-primary btn-send" %> 
           <% elsif current_user.friends_with?(@user) %>
             <%= link_to "Unfriend", user_friendships_remove_path(@user), method: :post, class:"btn-success-add btn-white btn-red" %>
           <% elsif current_user.pending_friends.include?(@user) %>
@@ -59,7 +59,7 @@
           </div>
         </div>
         <div class="glider-contain glider-select-one">
-          <div class="glider">
+          <div class="glider glider-select">
           
             <% @books_top.each do |book| %>
               <% book_parsed =  find_book(book["code"]) %>
@@ -136,7 +136,7 @@
           </div>
         </div>
         <div class="glider-contain glider-select-two">
-          <div class="glider-two">
+          <div class="glider-two glider-select">
           
             <% @books_middle.each do |book| %>
               <% book_parsed =  find_book(book["code"]) %>
@@ -214,7 +214,7 @@
         </div>
 
         <div class="glider-contain glider-select-three">
-          <div class="glider-three">
+          <div class="glider-three glider-select">
           
             <% @books_bottom.each do |book| %>
               <% book_parsed =  find_book(book["code"]) %>
@@ -296,7 +296,7 @@
         </div>
 
         <div class="glider-contain glider-select-four">
-          <div class="glider-four">
+          <div class="glider-four glider-select">
           
             <% @books_table.each do |book| %>
               <% book_parsed =  find_book(book["code"]) %>

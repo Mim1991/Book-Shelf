@@ -1,8 +1,5 @@
 const initGlider = () => {
-  const gliderOne = document.querySelector(".glider");
-  const gliderTwo = document.querySelector(".glider-two");
-  const gliderThree = document.querySelector(".glider-three");
-  const gliderFour = document.querySelector(".glider-four");
+  const gliderAll = document.querySelectorAll(".glider-select");
 
   const newGlider = (glider) => {
     if (glider) {
@@ -12,10 +9,9 @@ const initGlider = () => {
     }
   };
 
-  newGlider(gliderOne);
-  newGlider(gliderTwo);
-  newGlider(gliderThree);
-  newGlider(gliderFour);
+  gliderAll.forEach((glider) => {
+    newGlider(glider);
+  });
 };
 
 export { initGlider };
