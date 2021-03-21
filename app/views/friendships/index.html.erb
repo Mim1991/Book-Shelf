@@ -15,7 +15,7 @@
         %>
         <%# <%= submit_tag "Search", class: "btn btn-primary" %> 
       <% end %>
-      <p><%= link_to "Browse", users_path %></p>
+      <p><%= link_to "Browse", browse_users_path %></p>
       <p><%= link_to "Friend Requests", friendships_requests_path %></p>
     </div>
     <div class="book-show-top friend-background">
@@ -41,7 +41,7 @@
                       <% elsif @user.friends_with?(result) %>
                         <p>Friends</p>
                       <% else %>
-                        <%= link_to "Add Friend", user_friendships_path(result), method: :post, remote: true ,class:"btn-success-add btn-white" %> 
+                        <%= link_to "Add Friend", user_friendships_path(result), method: :post, remote: true ,class:"btn-success-add btn-white btn-send" %> 
                       <% end %>
                   </div>        
               </div>

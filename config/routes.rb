@@ -18,7 +18,8 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
   resources :activities
-  resources :users, only: [:index]
+  # resources :users, only: [:index]
+  get "/browse_users", to: "users#browse_users"
   resources :friendships, only: [:index]
   get "/friendships/requests", to: "friendships#requests"
   get '/search' => 'books#search'

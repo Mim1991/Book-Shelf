@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @books_bottom = @user.books.where(shelf: "Bottom Shelf")
   end
 
-  def index
+  def browse_users
     @users = User.all
     @user = current_user
     if params[:query].present?
