@@ -3,22 +3,12 @@
   <%= render partial: "shared/navbar", locals: {navbar:"home-navbar"} %>
 
   <div class="search-results book-show-layout friendships-layout">
-    <div class="search-friends">
-      <h2><%= link_to "Friends", friendships_path %></h2>
-      <%= form_tag friendships_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Search"
-        %>
-        <%# <%= submit_tag "Search", class: "btn btn-primary" %> 
-      <% end %>
-      <p><%= link_to "Browse", users_path %></p>
-      <p><%= link_to "Friend Requests", friendships_requests_path %></p>
-    </div>
+    <%= render "shared/friendship_search" %>
+
+    <%# Page split into Friend Requests and Pending Requests %>
     <div class="book-show-top friend-background">
       <div class="search-friends-container all-friends-wrap">
-        
+      <%# Checking for any friend requests, these are people adding you%>
         <% if !@requests.empty? %>
           <%  @requests.each do |result| %>
             <div class="review-card card-height">
@@ -31,10 +21,10 @@
                   <% end %>
                   <div class="friend-headline search-headline">
                     <h3><%= result.first_name %> <%= result.last_name%></h3>
-                <% end %>
+                  <% end %>
                     <p><%= pluralize(result.books.count, "book")%> in their library </p> 
                     <div class="btn-actions">
-                      <%= link_to "Accept" , user_friendships_add_path(result), method: :post, class:"btn-success-add btn-accept btn-white" %>
+                      <%= link_to "Accept" , user_friendships_add_path(result), method: :post, class:"btn-success-add btn-accept btn-white btn-acc-req" %>
                       <%= link_to "Decline" , user_friendships_reject_path(result), method: :post, class:"btn-success-add btn-reject-friend btn-white" %>
                     </div>
                   </div>        
@@ -53,37 +43,40 @@
       </div>
     </div>
 
+
+    <%# Pending Requests %>
     <div class="book-show-bottom friend-container">
-    <h2>Pending Requests</h2>
+      <h2>Pending Requests</h2>
+      <%# Checking for any pending requests, these are you adding people %>
       <% if !@pending.empty? %>  
         <div class="reviews-wrapper">
           <% @pending.each do |friend| %>
-              <div class="review-card card-height">
-                <div class="review-headline mb-0">
-                  <%= link_to user_path(friend), class:"review-link" do %>              
-                    <%if friend.photo.attached? %>
-                      <%= cl_image_tag(friend.photo.key, class:"review-image friend-image")%>
-                    <% else %>
-                      <%= image_tag("user.png", class:"review-image friend-image")%>
-                    <% end %>
-                    <div class="friend-headline">
-                      <h3><%= friend.first_name%> <%= friend.last_name%></h3>
-                      <div class="review-seperator seperator-margin"></div>
-                      <p><%= pluralize(friend.books.count, "book") %> in their library</p>
-                    </div>
+            <div class="review-card card-height">
+              <div class="review-headline mb-0">
+                <%= link_to user_path(friend), class:"review-link" do %>              
+                  <%if friend.photo.attached? %>
+                    <%= cl_image_tag(friend.photo.key, class:"review-image friend-image")%>
+                  <% else %>
+                    <%= image_tag("user.png", class:"review-image friend-image")%>
                   <% end %>
-                </div>              
-              </div>  
+                  <div class="friend-headline">
+                    <h3><%= friend.first_name%> <%= friend.last_name%></h3>
+                    <div class="review-seperator seperator-margin"></div>
+                    <p><%= pluralize(friend.books.count, "book") %> in their library</p>
+                  </div>
+                <% end %>
+              </div>              
+            </div>  
           <% end %>
         </div>
       <% else %>
         <div class="review-card card-height">
-            <div class="review-headline search-link mb-0"> 
-              <div class="friend-headline search-headline">
-                <h3>No Pending Requests!</h3>
-              </div>        
-            </div>
+          <div class="review-headline search-link mb-0"> 
+            <div class="friend-headline search-headline">
+              <h3>No Pending Requests!</h3>
+            </div>        
           </div>
+        </div>
       <% end %>
     </div>
 

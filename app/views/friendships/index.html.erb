@@ -3,21 +3,9 @@
   <%= render partial: "shared/navbar", locals: {navbar:"home-navbar"} %>
 
   <div class="search-results book-show-layout friendships-layout">
-  
-      <div class="search-friends">
-      
-      <h2><%= link_to "Friends", friendships_path %></h2>
-      <%= form_tag friendships_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Search"
-        %>
-        <%# <%= submit_tag "Search", class: "btn btn-primary" %> 
-      <% end %>
-      <p><%= link_to "Browse", users_path %></p>
-      <p><%= link_to "Friend Requests", friendships_requests_path %></p>
-    </div>
+    <%= render "shared/friendship_search" %>
+
+  <%# Page split into 2. Top is for searching friends and bottom is for listing friends%>
     <div class="book-show-top friend-background">
       <div class="search-friends-container flex-wrap">
         <% if params[:query].present? %>
@@ -32,7 +20,8 @@
                   <% end %>
                   <div class="friend-headline search-headline">
                     <h3><%= result.first_name.upcase if result.first_name %> <%= result.last_name.upcase if result.last_name%></h3>
-                <% end %>
+                  <% end %>
+                    <%# Conditionals to decide what to display based on user relationship %>
                     <p><%= pluralize(result.books.count, "book")%> in their library </p>    
                       <% if @user.id.eql?(result.id)%>
                         <p>That's you!</p>
@@ -41,7 +30,7 @@
                       <% elsif @user.friends_with?(result) %>
                         <p>Friends</p>
                       <% else %>
-                        <%= link_to "Add Friend", user_friendships_path(result), method: :post, remote: true ,class:"btn-success-add btn-white" %> 
+                        <%= link_to "Add Friend", user_friendships_path(result), method: :post, remote: true ,class:"btn-success-add btn-white btn-send" %> 
                       <% end %>
                   </div>        
               </div>
@@ -51,13 +40,13 @@
       </div>
     </div>
 
+  <%# User's Friends list %>
     <div class="book-show-bottom friend-container">
       <% if !@user.friends.empty? %>  
           <h2>Your Friends</h2>
       <% end %>
       <div class="reviews-wrapper">
         <% @user.friends.each do |friend| %>
-          
             <div class="review-card card-height">
               <div class="review-headline mb-0">
                 <%= link_to user_path(friend), class:"review-link" do %>              
@@ -73,15 +62,11 @@
                   </div>
                 <% end %>
               </div>              
-                           
-              
             </div>  
         <% end %>
       </div>
     </div>
-
   </div>
-
 </div>
 
 

@@ -11,8 +11,8 @@
   transform: rotate3d(0, 1, 0, 20deg);
   position: relative;
   display: block;
-  width: $x-large * 3;
-  height: $x-large * 4 + $large;
+  width: 300px;
+  height: 440px;
   margin: 5% auto;
   border-radius: 2px 4px 4px 2px;
   background: linear-gradient(45deg, #dad5dc 0%, #f2ebf4 100%);
@@ -43,15 +43,15 @@
 
 .container .front {
   div {
-    width: $x-large * 3;
-    height: $x-large * 4 + $large;
+    width: 300px;
+    height: 440px;
   }
 }
 
 .container .left-side {
-  width: $large;
-  left: $medium * -1;
-  height: $x-large * 4 + $large;
+  width: 40px;
+  left: -20px;
+  height: 440px;
   background-color: rgb(232, 229, 234);
   transform: rotate3d(0, 1, 0, -90deg);
 }
@@ -61,8 +61,8 @@
   top: 50%;
   left: 50%;
   margin-top: $x-large * -1;
-  margin-left: ($x-large + $small) * -1;
-  width: $x-large * 3;
+  margin-left: -110px;
+  width: 300px;
 }
 
 // Book Details: Eyes and Writing
@@ -112,8 +112,8 @@
 }
 
 .container h2 {
-  width: 4 * $x-large;
-  height: $large;
+  width: 400px;
+  height: 40px;
   color: #2b2b2b;
   font-size: 15px;
   line-height: $large;

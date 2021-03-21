@@ -3,15 +3,15 @@
   <%= render partial: "shared/navbar", locals: {navbar:"home-navbar"} %>
 
   <div class="search-results book-show-layout">
+
     <div class="book-show-top card-shadow">
-      
-      
+      <%# Book information column %>
       <div class="book-show-left">
         <div class="show-image">
           <%= image_tag(find_image(@book), class:"book-show-img")%>
         </div>
         <div class="book-text-details">
-          <p><%= find_type(@book) %> : <%= find_isbn(@book) %></p>
+          <p><%= find_isbn_type(@book, "type") %> : <%= find_isbn_type(@book, "identifier") %></p>
           <p>Pages: <%= @book["volumeInfo"]["pageCount"] %></p>
           
           <% if !find_average_rating(@book).nil? %>
@@ -31,6 +31,7 @@
 
 
       <div class="book-show-right">
+      <%# Book Text column %>
         <div class="book-show-headlinetext">
           <h2><%= find_title(@book) %></h2>
           <h3><%= find_author(@book) %></h3>
@@ -42,17 +43,18 @@
           <% description = find_description(@book) %>
           <p><%= Sanitize.fragment(description) %></p>
         </div>
-        
       </div>  
 
     </div>
 
+    <%# Book Reviews %>
     <div class="book-show-bottom"> 
+      <%# Only show the title if there are any reviews, otherwise be blank %>
       <% print_title = true %>    
         <% @friends_book.each do |book| %>
           <% if current_user.friends_with?(book.user) || current_user == book.user %>
             <% if print_title %>
-              <h3>Friend Reviews for "<%= find_title(@book) %>" </h3>
+              <h3>Friend's who have "<%= find_title(@book) %>" in their library</h3>
               <div class="reviews-wrapper">
               <% print_title = false %>
             <% end %>
@@ -79,17 +81,16 @@
                 <% end %>
               </div>
               <div class="review-content">
-              <% if !book.reviews.last.nil? %>
-                <h3><%= book.reviews.last.title %></h3>
-                <p><%= book.reviews.last.content %></p>                
-              <% end %>
+                <% if !book.reviews.last.nil? %>
+                  <h3><%= book.reviews.last.title %></h3>
+                  <p><%= book.reviews.last.content %></p>                
+                <% end %>
               </div>
             </div>
           <% end %>
         <% end %>
       </div>
-    </div>
+    </div> 
 
   </div>
-
 </div>

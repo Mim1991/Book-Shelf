@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'activities/index'
   devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
   resources :books, only: [:index, :show, :create, :update, :destroy] do 
     resources :reviews, only: [:new, :create, :edit, :update]
   end
@@ -17,10 +17,12 @@ Rails.application.routes.draw do
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
+
   resources :activities
-  resources :users, only: [:index]
   resources :friendships, only: [:index]
+
+  get "/browse_users", to: "users#browse_users"
   get "/friendships/requests", to: "friendships#requests"
-  get '/search' => 'books#search'
+  get '/search', to: 'books#search'
   
 end

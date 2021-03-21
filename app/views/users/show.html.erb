@@ -2,7 +2,9 @@
   <%= render "shared/search_books" %>
   <%= render partial: "shared/navbar", locals: {navbar:"home-navbar"} %>
 
-  
+<%# Note: Many conditionals on this page to render the page according to whether user is current user or if viewing another person's %>
+
+<%# User Headline %>  
     <div class="search-results book-show-layout book-index-text" id="user-show">
       <div class="user-header">
       
@@ -21,7 +23,7 @@
 
         <div class="btn-status-show">
           <% if current_user.not_friends.include?(@user) %>
-            <%= link_to "Add Friend", user_friendships_path(@user), method: :post, class:"btn-success-add btn-white btn-red" %> 
+            <%= link_to "Add Friend", user_friendships_path(@user), remote: true ,method: :post, class:"btn-success-add btn-white btn-primary btn-send" %> 
           <% elsif current_user.friends_with?(@user) %>
             <%= link_to "Unfriend", user_friendships_remove_path(@user), method: :post, class:"btn-success-add btn-white btn-red" %>
           <% elsif current_user.pending_friends.include?(@user) %>
@@ -31,7 +33,7 @@
 
       </div>
 
-
+<%# Shelf 1 %>
       <div class="featured-title carousel-seperator">
       <h2>Top Shelf</h2>
         <div class="table-description-dflex">
@@ -57,7 +59,7 @@
           </div>
         </div>
         <div class="glider-contain glider-select-one">
-          <div class="glider">
+          <div class="glider glider-select">
           
             <% @books_top.each do |book| %>
               <% book_parsed =  find_book(book["code"]) %>
@@ -115,6 +117,8 @@
         <%= image_tag("Shelftransp.png", class:"shelf-position")%>
       </div>
 
+
+<%# Shelf 2 %>
       <div class="featured-title carousel-seperator">
         <h2>Middle Shelf</h2>
         <div class="table-description-dflex">
@@ -132,7 +136,7 @@
           </div>
         </div>
         <div class="glider-contain glider-select-two">
-          <div class="glider-two">
+          <div class="glider-two glider-select">
           
             <% @books_middle.each do |book| %>
               <% book_parsed =  find_book(book["code"]) %>
@@ -190,6 +194,8 @@
         <%= image_tag("Shelftransp.png", class:"shelf-position")%>
       </div>
 
+
+<%# Shelf 3 %>
       <div class="featured-title carousel-seperator">
         <h2>Bottom Shelf</h2>
         <div class="table-description-dflex">
@@ -208,7 +214,7 @@
         </div>
 
         <div class="glider-contain glider-select-three">
-          <div class="glider-three">
+          <div class="glider-three glider-select">
           
             <% @books_bottom.each do |book| %>
               <% book_parsed =  find_book(book["code"]) %>
@@ -266,6 +272,8 @@
         <%= image_tag("Shelftransp.png", class:"shelf-position")%>
       </div>
 
+
+<%# Shelf 4 %>
       <div class="featured-title carousel-seperator table-carousel">
         <% if current_user == @user %>
           <h2>On Your Table</h2>
@@ -288,7 +296,7 @@
         </div>
 
         <div class="glider-contain glider-select-four">
-          <div class="glider-four">
+          <div class="glider-four glider-select">
           
             <% @books_table.each do |book| %>
               <% book_parsed =  find_book(book["code"]) %>

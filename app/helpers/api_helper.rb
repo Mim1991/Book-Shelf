@@ -1,6 +1,7 @@
 module ApiHelper
   def find_image(book)
-    book["volumeInfo"]["imageLinks"]["thumbnail"]
+    book_image = book["volumeInfo"]["imageLinks"]
+    book_image.nil? ? "" : book_image["thumbnail"] # Returning empty strings if book has no image links. Better way to do this?
   end
 
   def find_description(book)
@@ -8,7 +9,8 @@ module ApiHelper
   end
 
   def find_author(book)
-    book["volumeInfo"]["authors"][0]
+    book_author = book["volumeInfo"]["authors"]
+    book_author.nil? ? "" : book_author[0]
   end
 
   def find_id(book)
@@ -19,12 +21,10 @@ module ApiHelper
     book["volumeInfo"]["title"]
   end
 
-  def find_type(book)
-    book["volumeInfo"]["industryIdentifiers"][0]["type"]
-  end
-
-  def find_isbn(book)
-    book["volumeInfo"]["industryIdentifiers"][0]["identifier"]
+  # Can pass ISBN or type but inside same hash
+  def find_isbn_type(book, category)
+    book_identify = book["volumeInfo"]["industryIdentifiers"]
+    book_identify.nil? ? "" : book_identify[0][category]
   end
 
   def find_average_rating(book)
@@ -36,7 +36,8 @@ module ApiHelper
   end
 
   def find_category(book)
-    book["volumeInfo"]["categories"][0]
+    category = book["volumeInfo"]["categories"]
+    category.nil? ? "" : category[0]
   end
 
   def find_book(name)

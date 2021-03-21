@@ -3,23 +3,13 @@
   <%= render partial: "shared/navbar", locals: {navbar:"home-navbar"} %>
 
   <div class="search-results book-show-layout friendships-layout">
-    <div class="search-friends">
-      <h2><%= link_to "Friends", friendships_path %></h2>
-      <%= form_tag friendships_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Search"
-        %>
-        <%# <%= submit_tag "Search", class: "btn btn-primary" %> 
-      <% end %>
-      <p><%= link_to "Browse", users_path %></p>
-      <p><%= link_to "Friend Requests", friendships_requests_path %></p>
-    </div>
+    <%= render "shared/friendship_search" %>
+
     <div class="book-show-top friend-background">
       <div class="search-friends-container all-friends-wrap">
         
           <%  @users.sample(10).each do |result| %>
+          <%# Take 10 random users from the database. Next add in a friend of friend feature? %>
             <div class="review-card card-height">
               <div class="review-headline search-link mb-0">
                 <%= link_to user_path(result.id) do %> 
@@ -32,6 +22,7 @@
                     <h3><%= result.first_name %> <%= result.last_name%></h3>
                 <% end %>
                     <p><%= pluralize(result.books.count, "book")%> in their library </p> 
+                    <%# Check the relationship to the user and render button accordingly %>
                     <% if @user.id.eql?(result.id)%>
                         <p>That's you!</p>
                       <% elsif @user.pending_friends.include?(result) %>
@@ -45,12 +36,8 @@
               </div>
             </div>
           <% end %>
-        
       </div>
     </div>
-
-    
-
   </div>
 
 </div>

@@ -2,11 +2,9 @@ class ActivitiesController < ApplicationController
   def index
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friend_ids)
     books = Book.last(5)
-    @book_parsed = []
-    books.each { |book| @book_parsed << find_book(book.code) }
-    top_books = Book.where("shelf = ?", "Top Shelf").sample(5)
-    @top_books = []
-    top_books.each { |book| @top_books << find_book(book.code) }
+    @book_parsed = retrieve_book_codes(books) # Taking the book codes to be able to link to book show page
+    top_books = Book.where("shelf = ?", "Top Shelf").sample(5) 
+    @top_books = retrieve_book_codes(top_books)
   end
 
   private
@@ -16,5 +14,9 @@ class ActivitiesController < ApplicationController
     uri = URI(url)
     response = Net::HTTP.get(uri)
     JSON.parse(response)
+  end
+
+  def retrieve_book_codes(books)
+    books.map { |book| find_book(book.code) }
   end
 end

@@ -1,64 +1,42 @@
 const initNavbarBrowse = () => {
-  const navOne = document.querySelector(".nav-one");
-  const navTwo = document.querySelector(".nav-two");
-  const navThree = document.querySelector(".nav-three");
-  const navFour = document.querySelector(".nav-four");
   const navBars = document.querySelectorAll(".nav-col");
   const searchResults = document.querySelector(".wrapper-index");
-  const tableCarousel = document.querySelector(".table-carousel");
 
-  function navInit() {
+  // Setting lengths of nav columns
+  const navbarSizing = () => {
     navBars.forEach((bar) => {
       if (searchResults) {
         const distance = searchResults.offsetHeight;
         bar.style.height = distance - 50 + "px";
       }
     });
-  }
+  };
 
-  function navLibrary() {
-    const distance = tableCarousel.offsetTop + tableCarousel.offsetHeight;
+  // User library loading vertically as accessing API, skewing the height. Creating a custom length for the page
+  const navbarSizingLibrary = () => {
     navBars.forEach((bar) => {
-      console.log(distance);
       bar.style.height = "1900px";
     });
-  }
+  };
 
-  if (
-    window.location.pathname.indexOf("/books") > -1 ||
-    window.location.pathname.indexOf("/search") > -1
-  ) {
-    navOne.style.marginRight = "auto";
-    navInit();
-  }
+  // Number is how many navbar columns on the left. Sets position then height
+  const navbarSpacing = (page, number, navfunction = navbarSizing) => {
+    if (window.location.pathname.indexOf(page) > -1) {
+      for (let i = 0; i < number - 1; i++) {
+        navBars[i].style.marginRight = "inherit";
+      }
+      navBars[number - 1].style.marginRight = "auto";
+      navfunction();
+    }
+  };
 
-  if (window.location.pathname.indexOf("/users/") > -1) {
-    navOne.style.marginRight = "inherit";
-    navTwo.style.marginRight = "auto";
-    window.addEventListener("load", navLibrary());
-  }
-
-  if (
-    window.location.pathname === "/friendships/requests" ||
-    window.location.pathname === "/users" ||
-    window.location.pathname.indexOf("/friendships") > -1
-  ) {
-    navOne.style.marginRight = "inherit";
-    navTwo.style.marginRight = "inherit";
-    navThree.style.marginRight = "auto";
-    navInit();
-  }
-
-  if (
-    window.location.pathname === "/activities" ||
-    window.location.pathname.indexOf("/chatrooms") > -1
-  ) {
-    navOne.style.marginRight = "inherit";
-    navTwo.style.marginRight = "inherit";
-    navThree.style.marginRight = "inherit";
-    navFour.style.marginRight = "auto";
-    navInit();
-  }
+  navbarSpacing("/books", 1);
+  navbarSpacing("/search", 1);
+  navbarSpacing("/users/", 2, navbarSizingLibrary);
+  navbarSpacing("/friendships", 3);
+  navbarSpacing("/browse_users", 3);
+  navbarSpacing("/activities", 4);
+  navbarSpacing("/chatrooms", 4);
 };
 
 export { initNavbarBrowse };

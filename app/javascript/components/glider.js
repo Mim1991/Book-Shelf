@@ -1,32 +1,17 @@
 const initGlider = () => {
-  const gliderOne = document.querySelector(".glider");
-  const gliderTwo = document.querySelector(".glider-two");
-  const gliderThree = document.querySelector(".glider-three");
-  const gliderFour = document.querySelector(".glider-four");
+  const gliderAll = document.querySelectorAll(".glider-select");
 
-  if (gliderOne) {
-    new Glider(gliderOne, {
-      draggable: true,
-    });
-  }
+  const newGlider = (glider) => {
+    if (glider) {
+      new Glider(glider, {
+        draggable: true,
+      });
+    }
+  };
 
-  if (gliderTwo) {
-    new Glider(gliderTwo, {
-      draggable: true,
-    });
-  }
-
-  if (gliderThree) {
-    new Glider(gliderThree, {
-      draggable: true,
-    });
-  }
-
-  if (gliderFour) {
-    new Glider(gliderFour, {
-      draggable: true,
-    });
-  }
+  gliderAll.forEach((glider) => {
+    newGlider(glider);
+  });
 };
 
 export { initGlider };

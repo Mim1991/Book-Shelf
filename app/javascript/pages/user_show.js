@@ -9,6 +9,7 @@ const initUserShow = () => {
   const gliderThree = document.querySelector(".glider-select-three");
   const gliderFour = document.querySelector(".glider-select-four");
 
+  // Functions to delete books, find the shelf to append the book to,
   const deleteBookFromShelf = (event) => {
     const bookSelector = event.currentTarget.parentElement.parentElement;
     bookSelector.style.display = "none";
@@ -22,34 +23,27 @@ const initUserShow = () => {
 
   const moveToShelf = (event, shelf) => {
     const bookSelector = event.parentElement.parentElement;
-    console.dir(event);
     shelf.prepend(bookSelector);
   };
 
+  const moveBookFunction = (bookSelected, glider) => {
+    bookSelected.forEach((book) =>
+      book.addEventListener("click", function () {
+        moveToShelf(this, findAppendPosition(glider));
+      })
+    );
+  };
+
+  // Button Actions for Delete and Move Shelf
   deleteBook.forEach((book) =>
     book.addEventListener("click", deleteBookFromShelf)
   );
 
-  moveTopBook.forEach((book) =>
-    book.addEventListener("click", function () {
-      moveToShelf(this, findAppendPosition(gliderOne));
-    })
-  );
-  moveMiddleBook.forEach((book) =>
-    book.addEventListener("click", function () {
-      moveToShelf(this, findAppendPosition(gliderTwo));
-    })
-  );
-  moveBottomBook.forEach((book) =>
-    book.addEventListener("click", function () {
-      moveToShelf(this, findAppendPosition(gliderThree));
-    })
-  );
-  moveTableBook.forEach((book) =>
-    book.addEventListener("click", function () {
-      moveToShelf(this, findAppendPosition(gliderFour));
-    })
-  );
+  // Calling functions for 4 shelves
+  moveBookFunction(moveTopBook, gliderOne);
+  moveBookFunction(moveMiddleBook, gliderTwo);
+  moveBookFunction(moveBottomBook, gliderThree);
+  moveBookFunction(moveTableBook, gliderFour);
 };
 
 export { initUserShow };
