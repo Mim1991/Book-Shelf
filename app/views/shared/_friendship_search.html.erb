@@ -1,0 +1,12 @@
+<div class="search-friends">
+  <h2><%= link_to "Friends", friendships_path %></h2>
+  <%= form_tag friendships_path, method: :get do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Search"
+    %>
+  <% end %>
+  <p><%= link_to "Browse", browse_users_path %></p>
+  <p><%= link_to "Friend Requests", friendships_requests_path %></p>
+</div>

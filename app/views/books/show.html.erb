@@ -3,9 +3,9 @@
   <%= render partial: "shared/navbar", locals: {navbar:"home-navbar"} %>
 
   <div class="search-results book-show-layout">
+
     <div class="book-show-top card-shadow">
-      
-      
+      <%# Book information column %>
       <div class="book-show-left">
         <div class="show-image">
           <%= image_tag(find_image(@book), class:"book-show-img")%>
@@ -31,6 +31,7 @@
 
 
       <div class="book-show-right">
+      <%# Book Text column %>
         <div class="book-show-headlinetext">
           <h2><%= find_title(@book) %></h2>
           <h3><%= find_author(@book) %></h3>
@@ -42,12 +43,13 @@
           <% description = find_description(@book) %>
           <p><%= Sanitize.fragment(description) %></p>
         </div>
-        
       </div>  
 
     </div>
 
+    <%# Book Reviews %>
     <div class="book-show-bottom"> 
+      <%# Only show the title if there are any reviews, otherwise be blank %>
       <% print_title = true %>    
         <% @friends_book.each do |book| %>
           <% if current_user.friends_with?(book.user) || current_user == book.user %>
@@ -79,17 +81,16 @@
                 <% end %>
               </div>
               <div class="review-content">
-              <% if !book.reviews.last.nil? %>
-                <h3><%= book.reviews.last.title %></h3>
-                <p><%= book.reviews.last.content %></p>                
-              <% end %>
+                <% if !book.reviews.last.nil? %>
+                  <h3><%= book.reviews.last.title %></h3>
+                  <p><%= book.reviews.last.content %></p>                
+                <% end %>
               </div>
             </div>
           <% end %>
         <% end %>
       </div>
-    </div>
+    </div> 
 
   </div>
-
 </div>

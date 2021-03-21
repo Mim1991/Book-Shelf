@@ -1,12 +1,15 @@
 <div class="wrapper-index">
   <%= render "shared/search_books" %>
   <%= render partial: "shared/navbar", locals: {navbar:"home-navbar"} %>
+
   <div class="search-results">
     <h2>Results for "<%= capitalise(@text) %>" </h2>
+    <%# @books have been retrieved from API %>
     <% @books["items"].each do |book| %>
       <% if book["volumeInfo"]["authors"] != nil %>
         <%= link_to book_path(find_id(book)), class:"index" do %>
-          <div class="book-search-card">
+          <div class="book-search-card">   
+            <%# Book Image %>
             <div class="search-img">
               <% if book["volumeInfo"]["imageLinks"] != nil %>
                 <%= image_tag(find_image(book), class:"book-cover-search")%>
@@ -15,6 +18,7 @@
               <% end %>
             </div>
 
+            <%# Book Text %>
             <div class="text-left-padded">
               <div class="book-headline">
                 <h3><%= find_title(book) %></h3>
@@ -22,10 +26,12 @@
                 <p class="book-info-text"><%= shorten_title(find_description(book), 447) %></p>
               </div>
 
+              <%# Navbar getting in the way of links, added higher z-index and checking if book is in library already by code matching %>
               <div class="z-index-high">
                 <% if book_match(@user_books, book) %>
                   <p class="btn btn-round-medium btn-grey btn-white">In your library</p>
                 <% else %>
+                  <%# Passing 3 params to controller %>
                   <%= link_to "Add To Your Library", books_path(param1: find_title(book), param2: book["volumeInfo"]["authors"], param3: find_id(book)), method: :post, remote: true ,class: "btn btn-primary btn-round-medium btn-white btn-add" %> 
                 <% end %>
               </div>
@@ -34,8 +40,6 @@
           </div>
         <% end %>
       <% end %>
-    <% end %>
-    
+    <% end %>  
   </div>
-  
 </div>

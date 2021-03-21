@@ -3,19 +3,8 @@
   <%= render partial: "shared/navbar", locals: {navbar:"home-navbar"} %>
 
   <div class="search-results book-show-layout friendships-layout">
-    <div class="search-friends">
-      <h2><%= link_to "Friends", friendships_path %></h2>
-      <%= form_tag friendships_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Search"
-        %>
-        <%# <%= submit_tag "Search", class: "btn btn-primary" %> 
-      <% end %>
-      <p><%= link_to "Browse", browse_users_path %></p>
-      <p><%= link_to "Friend Requests", friendships_requests_path %></p>
-    </div>
+    <%= render "shared/friendship_search" %>
+
     <div class="book-show-top friend-background">
       <div class="search-friends-container all-friends-wrap">
         
@@ -45,7 +34,6 @@
               </div>
             </div>
           <% end %>
-        
       </div>
     </div>
 
