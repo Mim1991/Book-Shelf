@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.book = @book
     if @review.save
-      @review.create_activity :create, owner: current_user
+      @review.create_activity :create, owner: current_user # Tracking via activity feed if new book reviewed
       redirect_to user_path(current_user)
     else
       render :new
@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     if @review.update(review_params)
-      @review.create_activity :update, owner: current_user
+      @review.create_activity :update, owner: current_user # Tracking if review updated
       redirect_to user_path(current_user), notice: 'Review was successfully updated.'
     end
   end

@@ -2,8 +2,8 @@ class ActivitiesController < ApplicationController
   def index
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friend_ids)
     books = Book.last(5)
-    @book_parsed = retrieve_book_codes(books)
-    top_books = Book.where("shelf = ?", "Top Shelf").sample(5)
+    @book_parsed = retrieve_book_codes(books) # Taking the book codes to be able to link to book show page
+    top_books = Book.where("shelf = ?", "Top Shelf").sample(5) 
     @top_books = retrieve_book_codes(top_books)
   end
 

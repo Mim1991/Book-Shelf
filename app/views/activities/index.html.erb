@@ -29,7 +29,7 @@
                           <h3><%= shorten_title(find_title(book), 25)  %> </h3>
                         <% end %>
                         <p><em><%= find_author(book) %></em></p>
-                        <p><%= Sanitize.fragment(shorten_sentence(find_description(book), 300)) %></p>
+                        <p><%= Sanitize.fragment(shorten_title(find_description(book), 300)) %></p>
                       </div>
                     </div>
                   </div>
@@ -71,7 +71,7 @@
                           <h3><%= shorten_title(find_title(book), 25) %> </h3>
                         <% end %>
                         <p><em><%= find_author(book) %></em></p>
-                        <p><%= Sanitize.fragment(shorten_sentence(find_description(book), 300)) %></p>
+                        <p><%= Sanitize.fragment(shorten_title(find_description(book), 300)) %></p>
                       </div>
                     </div>
                   </div>

@@ -1,11 +1,7 @@
-// Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap");
 
-// Define fonts for body and headers
 $body-font: "Work Sans", "Helvetica", "sans-serif";
 $headers-font: "Nunito", "Helvetica", "sans-serif";
-
-// To use a font file (.woff) uncomment following lines
 @font-face {
   font-family: "Ed-bold";
   src: url("Edmondsans-Bold.otf") format("opentype");
@@ -21,6 +17,7 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
   src: url("Edmondsans-Regular.otf") format("opentype");
 }
 
+// One font throught with weighting changes
 $font-bold: "Ed-bold";
 $font-reg: "Ed-med";
 $font-light: "Ed-reg";
