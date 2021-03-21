@@ -5,9 +5,9 @@
     <div class="activity-top">
       <div class="featured-books">
         <%# Carousel - Recently Added %>
-        <%= render "shared/carousels/recently_added" %>
+        <%= render "carousels/recently_added" %>
         <%# Carousel - Top books %>
-        <%= render "shared/carousels/top_books_activity" %>
+        <%= render "carousels/top_books_activity" %>
       </div>
 
         
@@ -32,6 +32,7 @@
                 <% end %>
                 <div class="activity-text">
                   <p class="activity-date"><%= activity.created_at.strftime("%b %e, %l:%M %p") %></p>
+                  <%# Checks the partials for appropriate partial to render, styling done on this page as same for all %>
                   <p><%= render_activity activity %></p>
                 </div>
               </div>

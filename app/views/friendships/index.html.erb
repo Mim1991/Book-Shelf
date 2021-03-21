@@ -21,6 +21,7 @@
                   <div class="friend-headline search-headline">
                     <h3><%= result.first_name.upcase if result.first_name %> <%= result.last_name.upcase if result.last_name%></h3>
                   <% end %>
+                    <%# Conditionals to decide what to display based on user relationship %>
                     <p><%= pluralize(result.books.count, "book")%> in their library </p>    
                       <% if @user.id.eql?(result.id)%>
                         <p>That's you!</p>

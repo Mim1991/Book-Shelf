@@ -2,7 +2,9 @@
   <%= render "shared/search_books" %>
   <%= render partial: "shared/navbar", locals: {navbar:"home-navbar"} %>
 
-  
+<%# Note: Many conditionals on this page to render the page according to whether user is current user or if viewing another person's %>
+
+<%# User Headline %>  
     <div class="search-results book-show-layout book-index-text" id="user-show">
       <div class="user-header">
       
@@ -31,7 +33,7 @@
 
       </div>
 
-
+<%# Shelf 1 %>
       <div class="featured-title carousel-seperator">
       <h2>Top Shelf</h2>
         <div class="table-description-dflex">
@@ -115,6 +117,8 @@
         <%= image_tag("Shelftransp.png", class:"shelf-position")%>
       </div>
 
+
+<%# Shelf 2 %>
       <div class="featured-title carousel-seperator">
         <h2>Middle Shelf</h2>
         <div class="table-description-dflex">
@@ -190,6 +194,8 @@
         <%= image_tag("Shelftransp.png", class:"shelf-position")%>
       </div>
 
+
+<%# Shelf 3 %>
       <div class="featured-title carousel-seperator">
         <h2>Bottom Shelf</h2>
         <div class="table-description-dflex">
@@ -266,6 +272,8 @@
         <%= image_tag("Shelftransp.png", class:"shelf-position")%>
       </div>
 
+
+<%# Shelf 4 %>
       <div class="featured-title carousel-seperator table-carousel">
         <% if current_user == @user %>
           <h2>On Your Table</h2>

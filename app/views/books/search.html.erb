@@ -31,7 +31,7 @@
                 <% if book_match(@user_books, book) %>
                   <p class="btn btn-round-medium btn-grey btn-white">In your library</p>
                 <% else %>
-                  <%# Passing 3 params to controller %>
+                  <%# Passing 3 params on button click to controller and saving an instance in Book %>
                   <%= link_to "Add To Your Library", books_path(param1: find_title(book), param2: book["volumeInfo"]["authors"], param3: find_id(book)), method: :post, remote: true ,class: "btn btn-primary btn-round-medium btn-white btn-add" %> 
                 <% end %>
               </div>

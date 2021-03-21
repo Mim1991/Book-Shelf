@@ -1,3 +1,4 @@
+<%# Need a catch statement if the user does the action but then removes the book/review as it's no longer in the database %>
 <% if activity.trackable %>
   <%=link_to activity.trackable.user.first_name, activity.trackable.user %>
   added <%= link_to activity.trackable.name, book_path(activity.trackable.code)  %> 

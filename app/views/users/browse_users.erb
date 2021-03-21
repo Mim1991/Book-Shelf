@@ -9,6 +9,7 @@
       <div class="search-friends-container all-friends-wrap">
         
           <%  @users.sample(10).each do |result| %>
+          <%# Take 10 random users from the database. Next add in a friend of friend feature? %>
             <div class="review-card card-height">
               <div class="review-headline search-link mb-0">
                 <%= link_to user_path(result.id) do %> 
@@ -21,6 +22,7 @@
                     <h3><%= result.first_name %> <%= result.last_name%></h3>
                 <% end %>
                     <p><%= pluralize(result.books.count, "book")%> in their library </p> 
+                    <%# Check the relationship to the user and render button accordingly %>
                     <% if @user.id.eql?(result.id)%>
                         <p>That's you!</p>
                       <% elsif @user.pending_friends.include?(result) %>
@@ -36,9 +38,6 @@
           <% end %>
       </div>
     </div>
-
-    
-
   </div>
 
 </div>
