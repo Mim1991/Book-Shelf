@@ -54,7 +54,7 @@
         <% @friends_book.each do |book| %>
           <% if current_user.friends_with?(book.user) || current_user == book.user %>
             <% if print_title %>
-              <h3>Friend Reviews for "<%= find_title(@book) %>" </h3>
+              <h3>Friend's who have "<%= find_title(@book) %>" in their library</h3>
               <div class="reviews-wrapper">
               <% print_title = false %>
             <% end %>
