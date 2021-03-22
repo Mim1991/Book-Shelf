@@ -12,9 +12,9 @@
     <% end %>
     <div class="icon-explain">
       <% if current_user == @user %>
-        <p>Place on your <%= image_tag("Top.png", class:"button-shelf") %> Top shelf |</p> 
-        <p><%= image_tag("Middle.png", class:"button-shelf") %> Middle shelf |</p> 
-        <p><%= image_tag("Bottom.png", class:"button-shelf") %> Bottom shelf</p> 
+        <p>Place on your <%= image_tag("Top.png", class:"button-shelf", alt:"button to move book to top shelf") %> Top shelf |</p> 
+        <p><%= image_tag("Middle.png", class:"button-shelf", alt:"button to move book to middle") %> Middle shelf |</p> 
+        <p><%= image_tag("Bottom.png", class:"button-shelf", alt:"button to move book to bottom") %> Bottom shelf</p> 
       <% end %>
     </div>
   </div>
@@ -46,22 +46,22 @@
           <div class="search-img">
             <%= link_to book_path(book_parsed["id"]) do %>
               <% if book_parsed["volumeInfo"]["imageLinks"] != nil %>
-                <%= image_tag(find_image(book_parsed), class:"book-cover-search book-shelf-size")%>
+                <%= image_tag(find_image(book_parsed), class:"book-cover-search book-shelf-size", alt:"book cover")%>
               <% else %>
-                <%= image_tag("no_image.jpg", class:"book-cover-search book-shelf-size")%>
+                <%= image_tag("no_image.jpg", class:"book-cover-search book-shelf-size", alt:"default image as no book cover")%>
               <% end %>
             <% end %>
           </div>
           <div class="book-buttons-shelf shelf-bottom-icons">
             <% if current_user == @user %>
               <%= link_to book_path(book, :shelf => "Top Shelf"), class:"top-book-btn", remote: true, method: :patch do %>
-                <%= image_tag("Top.png", class:"button-shelf") %>
+                <%= image_tag("Top.png", class:"button-shelf", alt:"button to move book to top shelf") %>
               <% end %>
               <%= link_to book_path(book, :shelf => "Middle Shelf"), class:"middle-book-btn", remote: true , :method=> :patch do %>
-                <%= image_tag("Middle.png", class:"button-shelf")%>
+                <%= image_tag("Middle.png", class:"button-shelf", alt:"button to move book to middle shelf")%>
               <% end %>
               <%= link_to book_path(book, :shelf => "Bottom Shelf"),class:"bottom-book-btn", remote: true ,:method=> :patch do %>
-                <%= image_tag("Bottom.png", class:"button-shelf")%>
+                <%= image_tag("Bottom.png", class:"button-shelf", alt:"button to move book to bottom shelf")%>
               <% end %>
             <% else %>
               <p></p>
@@ -75,5 +75,5 @@
     <button aria-label="Next" class="glider-next">»</button>
     <div role="tablist" class="dots"></div>
   </div>
-  <%= image_tag("Shelftransp.png", class:"shelf-position")%>
+  <%= image_tag("Shelftransp.png", class:"shelf-position", alt:"image of shelf")%>
 </div>

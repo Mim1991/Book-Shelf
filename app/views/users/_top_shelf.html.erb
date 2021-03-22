@@ -49,22 +49,22 @@
           <div class="search-img">
             <%= link_to book_path(book_parsed["id"]) do %>
               <% if book_parsed["volumeInfo"]["imageLinks"] != nil %>
-                <%= image_tag(find_image(book_parsed), class:"book-cover-search book-shelf-size")%>
+                <%= image_tag(find_image(book_parsed), class:"book-cover-search book-shelf-size", alt:"book cover")%>
               <% else %>
-                <%= image_tag("no_image.jpg", class:"book-cover-search book-shelf-size")%>
+                <%= image_tag("no_image.jpg", class:"book-cover-search book-shelf-size", alt:"default book cover image")%>
               <% end %>
             <% end %>
           </div>
           <div class="book-buttons-shelf">
             <% if current_user == @user %>
               <%= link_to book_path(book, :shelf => "Middle Shelf"), class:"middle-book-btn", remote: true , method: :patch do %>
-                <%= image_tag("Middle.png", class:"button-shelf")%>
+                <%= image_tag("Middle.png", class:"button-shelf", alt:"button to move book to middle shelf")%>
               <% end %>
               <%= link_to book_path(book, :shelf => "Bottom Shelf"), class:"bottom-book-btn", remote: true , method: :patch do %>
-                <%= image_tag("Bottom.png", class:"button-shelf")%>
+                <%= image_tag("Bottom.png", class:"button-shelf", alt:"button to move book to bottom shelf")%>
               <% end %>
               <%= link_to book_path(book, :shelf => "Table"), class:"table-book-btn", remote: true , method: :patch do %>
-                <%= image_tag("Table.png", class:"button-shelf")%>
+                <%= image_tag("Table.png", class:"button-shelf", alt:"button to move book to table")%>
               <% end %>
             <% else %>
               <p></p> 
@@ -78,5 +78,5 @@
     <button aria-label="Next" class="glider-next">»</button>
     <div role="tablist" class="dots"></div>
   </div>
-  <%= image_tag("Shelftransp.png", class:"shelf-position")%>
+  <%= image_tag("Shelftransp.png", class:"shelf-position", alt:"image of shelf")%>
 </div>

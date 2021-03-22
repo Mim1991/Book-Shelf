@@ -8,7 +8,7 @@
       <%# Book information column %>
       <div class="book-show-left">
         <div class="show-image">
-          <%= image_tag(find_image(@book), class:"book-show-img")%>
+          <%= image_tag(find_image(@book), class:"book-show-img", alt:"book cover")%>
         </div>
         <div class="book-text-details">
           <p><%= find_isbn_type(@book, "type") %> : <%= find_isbn_type(@book, "identifier") %></p>
@@ -63,9 +63,9 @@
               <div class="review-headline mb-0">
                 <%= link_to user_path(book.user), class:"review-link" do %>              
                   <%if book.user.photo.attached? %>
-                    <%= cl_image_tag(book.user.photo.key, class:"review-image friend-image image-small")%>
+                    <%= cl_image_tag(book.user.photo.key, class:"review-image friend-image image-small" , alt:"reviewers' profile photo")%>
                   <% else %>
-                    <%= image_tag("user.png", class:"review-image friend-image image-small")%>
+                    <%= image_tag("user.png", class:"review-image friend-image image-small", alt:"reviewer's profile photo")%>
                   <% end %>
                   <h3><%= book.user.first_name.upcase %> <%= book.user.last_name.upcase%></h3>
                 <% end %>
