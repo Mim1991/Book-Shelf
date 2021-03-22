@@ -48,7 +48,7 @@
     </div>
 
     <%# Book Reviews %>
-    <div class="book-show-bottom"> 
+    <div class="book-show-bottom pr-0"> 
       <%# Only show the title if there are any reviews, otherwise be blank %>
       <% print_title = true %>    
         <% @friends_book.each do |book| %>
@@ -60,7 +60,7 @@
             <% end %>
             
             <div class="review-card review-height">
-              <div class="review-headline">
+              <div class="review-headline mb-0">
                 <%= link_to user_path(book.user), class:"review-link" do %>              
                   <%if book.user.photo.attached? %>
                     <%= cl_image_tag(book.user.photo.key, class:"review-image friend-image image-small")%>

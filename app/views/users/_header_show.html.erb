@@ -1,0 +1,26 @@
+<div class="user-header">
+      
+  <div class="user-headline">
+    <%if @user.photo.attached? %>
+      <%= cl_image_tag(@user.photo.key, class:"review-image friend-image image-small")%>
+    <% else %>
+      <%= image_tag("user.png", class:"review-image friend-image image-small")%>
+    <% end %>
+    <% if current_user == @user %>
+      <h1 class="header-library" >Welcome To Your Library</h1>
+    <% else %>
+      <h1 class="header-library">Welcome To <%= trim_s(@user.first_name) %> Library</h1>
+    <% end %>
+  </div>
+
+  <div class="btn-status-show">
+    <% if current_user.not_friends.include?(@user) %>
+      <%= link_to "Add Friend", user_friendships_path(@user), remote: true ,method: :post, class:"btn-success-add btn-white btn-primary btn-send" %> 
+    <% elsif current_user.friends_with?(@user) %>
+      <%= link_to "Unfriend", user_friendships_remove_path(@user), method: :post, class:"btn-success-add btn-white btn-red" %>
+    <% elsif current_user.pending_friends.include?(@user) %>
+      <p class="btn-success-add btn-grey btn-white"><em>Pending</em></p>
+    <% end %>
+  </div>
+
+</div>

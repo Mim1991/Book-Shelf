@@ -1,0 +1,82 @@
+<div class="featured-title carousel-seperator">
+  <h2>Top Shelf</h2>
+  <div class="table-description-dflex">
+    <% if current_user == @user  %>
+      <p>This shelf is reserved for books that you absolutely love and wouldn't hesitate to recommend to a friend.</p>
+    <% else %>
+      <p>These are books that <%= @user.first_name %> loves and recommends. Have a browse and add them to your own library!</p>
+    <% end %>
+    <div class="icon-column">
+      <div class="icon-explain mb-1">
+        <% if current_user == @user %>
+          <p>Write a new review <i class="far fa-edit new-icon-color"></i> |</p>
+          <p>Edit a review <i class="far fa-edit edit-icon-color"></i></p>
+        <% end %>
+      </div>
+      <div class="icon-explain">
+        <% if current_user == @user %>
+          <p>Place on your <%= image_tag("Middle.png", class:"button-shelf") %> Middle shelf |</p> 
+          <p><%= image_tag("Bottom.png", class:"button-shelf") %> Bottom shelf |</p> 
+          <p><%= image_tag("Table.png", class:"button-shelf") %> Table</p> 
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="glider-contain glider-select-one">
+    <div class="glider glider-select">
+    
+      <% @books_top.reverse.each do |book| %>
+        <% book_parsed =  find_book(book["code"]) %>
+        <div class="book-carousel-small">
+          <div class="book-buttons-shelf">
+            <% if current_user == @user %>
+              <% if book.reviews.empty? %>
+                <%= link_to new_book_review_path(book) do %>
+                  <i class="far fa-edit new-icon-color"></i>
+                <% end %>
+              <% else %>
+                <%= link_to edit_book_review_path(book.id, book.reviews.last) do %>
+                  <i class="far fa-edit edit-icon-color"></i>
+                <% end %>
+              <% end %> 
+              <%= link_to book_path(book), remote: true , method: :delete , class:"delete-book" do %>
+                <i class="fas fa-times-circle"></i>
+              <% end %>
+            <% else %>
+              <p></p> 
+            <% end %>
+          </div>
+          <div class="search-img">
+            <%= link_to book_path(book_parsed["id"]) do %>
+              <% if book_parsed["volumeInfo"]["imageLinks"] != nil %>
+                <%= image_tag(find_image(book_parsed), class:"book-cover-search book-shelf-size")%>
+              <% else %>
+                <%= image_tag("no_image.jpg", class:"book-cover-search book-shelf-size")%>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="book-buttons-shelf">
+            <% if current_user == @user %>
+              <%= link_to book_path(book, :shelf => "Middle Shelf"), class:"middle-book-btn", remote: true , method: :patch do %>
+                <%= image_tag("Middle.png", class:"button-shelf")%>
+              <% end %>
+              <%= link_to book_path(book, :shelf => "Bottom Shelf"), class:"bottom-book-btn", remote: true , method: :patch do %>
+                <%= image_tag("Bottom.png", class:"button-shelf")%>
+              <% end %>
+              <%= link_to book_path(book, :shelf => "Table"), class:"table-book-btn", remote: true , method: :patch do %>
+                <%= image_tag("Table.png", class:"button-shelf")%>
+              <% end %>
+            <% else %>
+              <p></p> 
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <button aria-label="Previous" class="glider-prev">«</button>
+    <button aria-label="Next" class="glider-next">»</button>
+    <div role="tablist" class="dots"></div>
+  </div>
+  <%= image_tag("Shelftransp.png", class:"shelf-position")%>
+</div>
