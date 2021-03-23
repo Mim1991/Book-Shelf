@@ -41,7 +41,7 @@ class FriendshipsController < ApplicationController
   end
 
   private
-  
+
   def find_user
     @user = current_user
   end

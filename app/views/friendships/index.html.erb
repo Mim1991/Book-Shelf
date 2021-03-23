@@ -22,17 +22,17 @@
                     <h3><%= result.first_name.upcase if result.first_name %> <%= result.last_name.upcase if result.last_name%></h3>
                   <% end %>
                     <%# Conditionals to decide what to display based on user relationship %>
-                    <p><%= pluralize(result.books.count, "book")%> in their library </p>    
-                      <% if @user.id.eql?(result.id)%>
-                        <p>That's you!</p>
-                      <% elsif @user.pending_friends.include?(result) %>
-                        <p>Friend Request Sent</p>
-                      <% elsif @user.friends_with?(result) %>
-                        <p>Friends</p>
-                      <% else %>
-                        <%= link_to "Add Friend", user_friendships_path(result), method: :post, remote: true ,class:"btn-success-add btn-white btn-send" %> 
-                      <% end %>
-                  </div>        
+                  <p><%= pluralize(result.books.count, "book")%> in their library </p>    
+                    <% if @user == current_user%>
+                      <p>That's you!</p>
+                    <% elsif @user.pending_friends.include?(result) %>
+                      <p>Friend Request Sent</p>
+                    <% elsif @user.friends_with?(result) %>
+                      <p>Friends</p>
+                    <% else %>
+                      <%= link_to "Add Friend", user_friendships_path(result), method: :post, remote: true ,class:"btn-success-add btn-white btn-send" %> 
+                    <% end %>
+                </div>        
               </div>
             </div>
           <% end %>

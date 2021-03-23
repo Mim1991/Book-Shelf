@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'activities/index'
+  # get 'activities/index'
   devise_for :users
   root to: 'pages#home'
 
