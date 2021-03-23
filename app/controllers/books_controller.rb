@@ -37,7 +37,7 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book.destroy # Remember! Book found using the before action
+    @book.destroy # Remember - Book found using the before action
   end
 
   private
