@@ -88,3 +88,65 @@ h4 {
 #welcome-message {
   font-family: $font-bold;
 }
+
+@media (max-width: 990px) {
+  .home-info {
+    justify-content: center;
+  }
+  .home-about {
+    width: 60%;
+    margin-right: 250px;
+  }
+
+  .container-search {
+    .form-group {
+      padding: 15px 217px 15px 35px;
+    }
+    .form-control {
+      width: 650px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .home-about {
+    width: 90%;
+    margin-right: 0;
+  }
+  .home-logo {
+    justify-content: space-between;
+    h1 {
+      font-size: 100px;
+    }
+  }
+}
+
+@media (max-width: 555px) {
+  .home-logo {
+    h1 {
+      font-size: 68px;
+      line-height: 109px;
+    }
+  }
+  .container-search-home {
+    top: 113px;
+  }
+
+  .container-search {
+    .form-group {
+      padding: 15px 217px 15px 17px;
+    }
+    .form-control {
+      width: 370px;
+    }
+  }
+  .home-about {
+    margin-top: 30px;
+    h2 {
+      font-size: 2.8rem;
+    }
+    h4 {
+      font-size: 1.3rem;
+    }
+  }
+}
