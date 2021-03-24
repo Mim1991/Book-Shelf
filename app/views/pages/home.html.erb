@@ -1,31 +1,7 @@
 <div class="home-wrapper">
   <div class="home-logo">
-    <h1>Book Club</h1>
-    <nav class="navbar navbar-expand-lg navbar-hamburger-style navbar-light d-md-none ">
-      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active nav-ham-one">
-            <%= link_to "About Book Club", books_path, class:"nav-link-book"%>
-          </li>
-          <li class="nav-item nav-ham-two">
-            <%= link_to "Your Library", user_path(current_user), class: "nav-link-book" %>
-          </li>
-          <li class="nav-item nav-ham-three">
-            <%= link_to "Find People", friendships_path ,class: "nav-link-book" %>
-          </li>
-          <li class="nav-item nav-ham-four">
-            <%= link_to "Book Club", activities_path, class: "nav-link-book" %>
-          </li>
-          <li class="nav-item nav-ham-five">
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link-book" %>
-          </li>
-        </ul>
-      </div>     
-    </nav>
-    
+    <h1>Book Club</h1>   
+    <%= render "shared/hamburger", locals: { navbar: ""} %> 
   </div>
 
   <%= render partial: "shared/search", locals: { search_class: "container-search container-search-home" } %>

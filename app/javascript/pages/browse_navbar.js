@@ -1,6 +1,7 @@
 const initNavbarBrowse = () => {
   const navBars = document.querySelectorAll(".nav-col");
   const searchResults = document.querySelector(".wrapper-index");
+  const docHeight = document.body.clientHeight;
 
   // Setting lengths of nav columns
   const navbarSizing = () => {
@@ -31,11 +32,11 @@ const initNavbarBrowse = () => {
   };
 
   navbarSpacing("/books", 1, function () {
-    navbarSizingLibrary(1200);
+    navbarSizingLibrary(docHeight);
   });
   navbarSpacing("/search", 1);
   navbarSpacing("/users/", 2, function () {
-    navbarSizingLibrary(1900);
+    navbarSizingLibrary(doc);
   });
   navbarSpacing("/friendships", 3);
   navbarSpacing("/browse_users", 3);

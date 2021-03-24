@@ -18,3 +18,14 @@
     margin-top: $small;
   }
 }
+
+@media (max-width: 990px) {
+  .index-containers {
+    flex-direction: column;
+    align-items: center;
+  }
+  .index-container {
+    width: 85%;
+    margin-bottom: 35px;
+  }
+}
