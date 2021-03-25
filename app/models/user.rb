@@ -19,7 +19,6 @@ class User < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-  # Custom helper methods
   def friends?
     friends
   end

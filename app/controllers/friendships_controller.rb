@@ -15,7 +15,8 @@ class FriendshipsController < ApplicationController
     @user.friend_request(friend)
   end
 
-  # None of below are rendering new views, just used passed into buttons
+  # None of below are rendering new views, just passed into buttons
+  # Accepts request
   def add
     friend = User.find(params[:user_id])
     @user.accept_request(friend)
@@ -40,7 +41,7 @@ class FriendshipsController < ApplicationController
   end
 
   private
-  
+
   def find_user
     @user = current_user
   end

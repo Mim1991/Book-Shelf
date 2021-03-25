@@ -12,9 +12,9 @@
             <%# Book Image %>
             <div class="search-img">
               <% if book["volumeInfo"]["imageLinks"] != nil %>
-                <%= image_tag(find_image(book), class:"book-cover-search")%>
+                <%= image_tag(find_image(book), class:"book-cover-search", alt:"book cover")%>
               <% else %>
-                <%= image_tag("no_image.jpg", class:"book-cover-search")%>
+                <%= image_tag("no_image.jpg", class:"book-cover-search", alt:"book cover")%>
               <% end %>
             </div>
 

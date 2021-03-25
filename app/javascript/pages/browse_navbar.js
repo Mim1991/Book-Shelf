@@ -1,6 +1,7 @@
 const initNavbarBrowse = () => {
   const navBars = document.querySelectorAll(".nav-col");
   const searchResults = document.querySelector(".wrapper-index");
+  const docHeight = document.body.clientHeight;
 
   // Setting lengths of nav columns
   const navbarSizing = () => {
@@ -13,9 +14,9 @@ const initNavbarBrowse = () => {
   };
 
   // User library loading vertically as accessing API, skewing the height. Creating a custom length for the page
-  const navbarSizingLibrary = () => {
+  const navbarSizingLibrary = (height) => {
     navBars.forEach((bar) => {
-      bar.style.height = "1900px";
+      bar.style.height = height + "px";
     });
   };
 
@@ -30,9 +31,13 @@ const initNavbarBrowse = () => {
     }
   };
 
-  navbarSpacing("/books", 1);
+  navbarSpacing("/books", 1, function () {
+    navbarSizingLibrary(docHeight);
+  });
   navbarSpacing("/search", 1);
-  navbarSpacing("/users/", 2, navbarSizingLibrary);
+  navbarSpacing("/users/", 2, function () {
+    navbarSizingLibrary(1900);
+  });
   navbarSpacing("/friendships", 3);
   navbarSpacing("/browse_users", 3);
   navbarSpacing("/activities", 4);

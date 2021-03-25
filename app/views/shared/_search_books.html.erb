@@ -1,6 +1,7 @@
 <div class="logo-header">
   <%= link_to "BOOK CLUB", root_path, class:"logo-small"  %>
-  <p><i class="fas fa-heart"></i> <%= current_user.first_name %>, welcome to the Book Club</p>
+    <%= render partial: "shared/hamburger", locals: {navbar:"ham-navbar-top"} %>
+    <p><i class="fas fa-heart"></i> <%= current_user.first_name %>, welcome to the Book Club</p>
 </div>
 
 <%= render partial: "shared/search", locals: { search_class: "container-search" } %>

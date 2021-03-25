@@ -1,5 +1,6 @@
 <div class="wrapper-index">
   <%= render "shared/search_books" %>
+  
   <%= render partial: "shared/navbar", locals: {navbar:"home-navbar"} %>
 
   
@@ -15,7 +16,7 @@
 
       <div class="index-container">
         <div class="search-img">
-          <%= image_tag("search-img.png")%>
+          <%= image_tag("search-img.png", alt:"find new books")%>
         </div>
         <div class="search-explain">
           <h3 class="text-center">Get Lost In A New Book</h3>
@@ -26,7 +27,7 @@
       <div class="index-container">
         <div class="libraries-img">
           <div class="search-img">
-            <%= image_tag("library-img.png")%>
+            <%= image_tag("library-img.png", alt:"see your library")%>
           </div>
         </div>
         <div class="libraries-explain">
@@ -42,7 +43,7 @@
 
       <div class="index-container">
         <div class="search-img">
-          <%= image_tag("chatroom-img.png")%>
+          <%= image_tag("chatroom-img.png", alt:"speak in a chatroom")%>
         </div>
         <div class="search-explain">
           <h3 class="text-center">Spark A Discussion</h3>
@@ -53,7 +54,7 @@
       <div class="index-container">
         <div class="libraries-img">
           <div class="search-img">
-            <%= image_tag("review-img.png")%>
+            <%= image_tag("review-img.png", alt:"leave a review")%>
           </div>
         </div>
         <div class="libraries-explain">
@@ -61,17 +62,7 @@
           <p class="text-center">Don't wait to see your friends to hear their thoughts on that book you've been interested in. Read reeviews left by your friends and share your own thoughts for others</p>
         </div>
       </div>
-
-
-    </div>
-    
+    </div>   
     <div class="index-containers ic-row3"></div>
-
-
   </div>
-
-  
-
-
-
 </div>
