@@ -36,7 +36,7 @@ const initNavbarBrowse = () => {
   });
   navbarSpacing("/search", 1);
   navbarSpacing("/users/", 2, function () {
-    navbarSizingLibrary(doc);
+    navbarSizingLibrary(1900);
   });
   navbarSpacing("/friendships", 3);
   navbarSpacing("/browse_users", 3);

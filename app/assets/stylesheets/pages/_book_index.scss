@@ -29,3 +29,10 @@
     margin-bottom: 35px;
   }
 }
+
+@media (max-width: 768px) {
+  .book-index-text {
+    padding: 0 35px !important;
+    margin-left: 0;
+  }
+}
